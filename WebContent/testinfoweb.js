@@ -344,11 +344,16 @@ function stopLoadingMessage()
 	
 	
 	var data = {
+			/*
 			name:  document.getElementById('iseries').value,
 			value: document.getElementById('idescription').value,
 			series: document.getElementById('iseries').value,
 			description :  document.getElementById('idescription').value,
-		    unit: document.getElementById('iunit').value
+		    unit: document.getElementById('iunit').value */
+			series: "TESTseries",
+			description :  "TESTdesc",
+		    unit: "TESTunit"
+			
 		};			
 
 	console.log("series: " + document.getElementById('iseries').value); 
