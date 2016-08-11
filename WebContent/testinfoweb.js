@@ -343,7 +343,7 @@ function stopLoadingMessage()
 		queryParams+= "&unit=romasanta";
 
 		
-		xhrAttach("/attach?"+queryParams, form, function(item){
+		xhrAttach("/post?"+queryParams, form, function(item){
 			console.log('attached: ', item);
 			console.log("pass");
 			//row.setAttribute('data-id', item.id);
