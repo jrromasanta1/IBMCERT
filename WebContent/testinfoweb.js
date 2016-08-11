@@ -350,9 +350,9 @@ function stopLoadingMessage()
 			series: document.getElementById('iseries').value,
 			description :  document.getElementById('idescription').value,
 		    unit: document.getElementById('iunit').value */
-			series: "TESTseries",
-			description :  "TESTdesc",
-		    unit: "TESTunit"
+			"series": "TESTseries",
+			"description" :  "TESTdesc",
+		    "unit" : "TESTunit"
 			
 		};			
 
