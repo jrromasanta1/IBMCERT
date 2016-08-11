@@ -119,6 +119,9 @@ function objectToQuery(map){
 			pairs.push(assign + enc(value));
 		}
 	}
-	return pairs.join("&");
+	console.log("testing this" + pairs.join("&"));   
+	return pairs.join("&"); 
+
+	
 }
 

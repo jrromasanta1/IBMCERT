@@ -362,7 +362,7 @@ function stopLoadingMessage()
 	
 	
 	
-	xhrPut(REST_DATA, data, function(item){
+	xhrPost(REST_DATA, data, function(item){
 	//	row.setAttribute('data-id', item.id);
 		stopLoadingMessage();
 	}, function(err){
@@ -371,6 +371,9 @@ function stopLoadingMessage()
 		stopLoadingMessage();
 		document.getElementById('errorDiv').innerHTML = err;
 	});
+	
+	
+
 	
 
 	
