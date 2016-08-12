@@ -331,34 +331,7 @@ function stopLoadingMessage()
 		
 		
 
-		
-		var form = new FormData();
-		//form.append("file", file);
-		
-		var id = "JOSE"
 
-		var queryParams = (id == null) ? "" : "id=" + id;
-		queryParams+= "&series=C1234-123"
-		queryParams+="&desc=jose"
-		queryParams+= "&unit=romasanta";
-
-		
-		xhrAttach("/post?"+queryParams, form, function(item){
-			console.log('attached: ', item);
-			console.log("pass");
-			//row.setAttribute('data-id', item.id);
-			//removeProgressIndicator(row);
-		//	setRowContent(item, row);
-		}, function(err){
-			console.log("fail");
-			console.log(err);
-			//stop showing loading message
-			stopLoadingMessage();
-			document.getElementById('errorDiv').innerHTML = err;
-		});
-		
-		 
-	/*	
 		showLoadingMessage(); 
 		
 	
@@ -366,47 +339,21 @@ function stopLoadingMessage()
 	
 	var id =document.getElementById('iseries').value;
 	
-	/*var data = { 		
+	var data = { 		
 			"series" : document.getElementById('iseries').value,
 			"description" : document.getElementById('idescription').value,
 			"unit" : document.getElementById('iunit').value
 		};
 	
 	
-	var data = {
-			/*
-			name:  document.getElementById('iseries').value,
-			value: document.getElementById('idescription').value,
-			series: document.getElementById('iseries').value,
-			description :  document.getElementById('idescription').value,
-		    unit: document.getElementById('iunit').value 
-			"series": "TESTseries",
-			"description" :  "TESTdesc",
-		    "unit" : "TESTunit"
-			
-		};			
+	
 
 	console.log("series: " + document.getElementById('iseries').value); 
 	console.log("description: " + document.getElementById('idescription').value); 
 	console.log("unit: " + document.getElementById('iunit').value);   
 	
 	
-	// Parse the json from the text area
-	var doc = $.parseJSON("{\"season\": \"summer\",\"weather\": \"usually warm and sunny\"}");
-	// "connect" to the database
-	var db = $.couch.db(user_db);
-	// insert the doc into the db
-	db.saveDoc(doc, {
-	  success: function(response, textStatus, jqXHR){
-			console.log("FAIL");
-	  },
-	  error: function(jqXHR, textStatus, errorThrown){
-			console.log("PASS");
-	  }
-	})
 	
-	
-	/*
 	
 	xhrPost(REST_DATA, data, function(item){
 	//	row.setAttribute('data-id', item.id);
@@ -418,7 +365,7 @@ function stopLoadingMessage()
 		document.getElementById('errorDiv').innerHTML = err;
 	});
 	
-	*/
+
 
 	
 

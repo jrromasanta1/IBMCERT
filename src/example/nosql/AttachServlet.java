@@ -29,7 +29,10 @@ public class AttachServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String value = request.getParameter("value");
-		String fileName = request.getParameter("filename");
+		String series = request.getParameter("series");
+		String desc = request.getParameter("desc");
+		String unit = request.getParameter("unit");
+		String fileName = request.getParameter("filename"); 
 
 		Database db = null;
 		try {
@@ -42,7 +45,7 @@ public class AttachServlet extends HttpServlet {
 
 		ResourceServlet servlet = new ResourceServlet();
 
-		JsonObject resultObject = servlet.create(db, id, name, value, part, fileName);
+		JsonObject resultObject = servlet.create(db, id, name, value, series, desc, unit,  part, fileName);
 
 		System.out.println("Upload completed.");
 
