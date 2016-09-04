@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="//www.ibm.com/favicon.ico" />
 
 <meta name="geo.country" content="US" />
-<meta name="dcterms.rights" content="© Copyright IBM Corp. 2016" />
+<meta name="dcterms.rights" content="Copyright IBM Corp. 2016" />
 <meta name="dcterms.date" content="REPLACE" />
 <meta name="description" content="REPLACE" />
 <meta name="keywords" content="REPLACE" />
@@ -146,11 +146,7 @@
 						<ul id="ibm-primary-links">
 							<li id="ibm-overview"><a href="Link URL"
 								aria-selected="true" class="ibm-active">Home Dashboard</a></li>
-							<li class="ibm-active"><a href="Link URL">Overview</a></li>
-							<li><a href="Link URL">Objectives</a></li>
-							<li><a href="Link URL">Test Preparation</a></li>
-							<li><a href="Link URL">Sample / Assesment Test</a></li>
-
+							<li class="ibm-active"><a href="Link URL">Help</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -163,7 +159,7 @@
 								<div class="ibm-columns">
 									<div class="ibm-col-5-3">
 										<h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-light">
-											<span id="testinfotitle">Test Info Web</span>
+											Certification Reference <span id="testinfotitle"></span>
 										</h1>
 
 									</div>
@@ -177,24 +173,29 @@
 
 
 
-
-
+		<div class="ibm-columns" >
+		
+								   <div class="ibm-col-1-1">
+<h2 class="ibm-h2">Certification Information</h2>
 							<div class="ibm-rule">
 								<hr>
 							</div>
+							</div>
+							</div>
 
-
-							<div class="ibm-columns" id="ovr">
-								<div class="ibm-col-1-1">
-									<h4 class="ibm-h4">Overview</h4>
-
+							<div class="ibm-columns" >
+		
+								   <div class="ibm-col-6-3">
 									<p>
-										<label for="lseries">Series:</label> 
+										<label for="lseries">PW Code:</label> 
 										<span>
-											<input type="text" value="" size="40" id="iseries" name="iseries"  > 
+											<input type="text" value="" size="40" id="ipwcode" name="ipwcode"  > 
 										</span>
 									</p>
+									</div> 
 									
+									
+									<div class="ibm-col-6-3">
 									<p>
 										<label for="ldescription">Description:</label> 
 										<span>
@@ -202,14 +203,53 @@
 										</span>
 									</p>
 									
+									</div> 
+								</div> 
+								
+								<div class="ibm-columns" >
+								   <div class="ibm-col-6-3">
 									<p>
 										<label for="lunit">Unit:</label> 
 										<span>
 											<input type="text" value="" size="40" id="iunit" name="iunit"  > 
 										</span>
 									</p>
-
+									   </div> 
+									   <div class="ibm-col-6-3">
+									<p>
+										<label for="lunit">Subunit:</label> 
+										<span>
+											<input type="text" value="" size="40" id="isubunit" name="isubunit"  > 
+										</span>
+									</p>
+								   </div> 
 								</div> 
+								
+							<div class="ibm-columns">
+							<div class="ibm-col-6-6">
+								<b>Job Role Description / Target Audience:</b><br />
+								 
+								<textarea cols="100" rows="3" id="areajobrole" name="areajobrole" maxlength="2000" 
+								onchange='document.getElementById("ijobrole").value = document.getElementById("areajobrole").value;' ></textarea>
+									<input style="display:none;"  type="text" value="" size="40" id="ijobrole" name="ijobrole"  > 
+								
+							</div>
+							</div>	 
+								
+												
+							<div class="ibm-columns">
+							<div class="ibm-col-6-6">
+								<b>Recommended Skills:</b><br />
+								 
+								<textarea cols="100" rows="3" id="areaskill" name="areaskill" maxlength="2000" 
+								onchange='document.getElementById("iskill").value = document.getElementById("areaskill").value;' ></textarea>
+									<input style="display:none;"  type="text" value="" size="40" id="iskill" name="iskill"  > 
+									
+							</div>
+							</div>	
+								
+								
+								
 
 							</div>
 
