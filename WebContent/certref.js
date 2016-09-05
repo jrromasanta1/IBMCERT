@@ -334,12 +334,12 @@ function stopLoadingMessage()
 
 //showLoadingMessage();
 //updateServiceInfo();
-//loadItems();
+loadItems(); 
 
 
 
  
-
+ 
 	
 	function SaveTestInfo()
 {
