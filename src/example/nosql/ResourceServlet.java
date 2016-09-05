@@ -50,10 +50,10 @@ public class ResourceServlet {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 
-		String idString = id == null ? null : id.toString();
+		String idString = id; ///== null ? null : id.toString();
 		
 		
-		System.out.println("enter post" + idString);
+		System.out.println("enter post:" + idString);
 		
 		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill,  null, null);
 
