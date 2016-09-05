@@ -341,7 +341,7 @@ function stopLoadingMessage()
 	//var id =document.getElementById('iseries').value;
 	
 	var data = { 		
-			"id": 1473055137477,  
+			"id": "1473055137477",  
 			"pwcode" : document.getElementById('ipwcode').value,
 			"description" : document.getElementById('idescription').value,
 			"unit" : document.getElementById('iunit').value,
