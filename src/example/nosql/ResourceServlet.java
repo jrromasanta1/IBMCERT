@@ -37,12 +37,12 @@ public class ResourceServlet {
 	}
 
 	@POST
-	public Response create(@QueryParam("id") String id, @FormParam("name") String name, @FormParam("value") String value,
+	public Response create(@QueryParam("id") String id,@QueryParam("searchid") String searchid, @FormParam("name") String name, @FormParam("value") String value,
 			 @FormParam("pwcode") String pwcode,  @FormParam("description") String description,  @FormParam("unit") String unit,
 			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill)
 			throws Exception {
 
-		Database db = null;
+		Database db = null; 
 		try {
 			db = getDB();
 		} catch (Exception re) {
@@ -50,9 +50,9 @@ public class ResourceServlet {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 
-		//String idString = id; ///== null ? null : id.toString();
+		String idString = searchid == null ? null : searchid.toString();
 		
-		String idString = "1473055137477"; 
+		
 		System.out.println("enter postid:" + id); 
 		System.out.println("enter post:" + idString);
 		
@@ -72,7 +72,7 @@ public class ResourceServlet {
 		System.out.println("id input: " + id);  
 		HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
 
-		
+		 
 		
 		if (obj == null) {
 			

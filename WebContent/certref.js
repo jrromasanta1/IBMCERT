@@ -342,6 +342,7 @@ function stopLoadingMessage()
 	
 	var data = { 		
 			"id": "1473055137477",  
+			"searchid": "1473055137477",   
 			"pwcode" : document.getElementById('ipwcode').value,
 			"description" : document.getElementById('idescription').value,
 			"unit" : document.getElementById('iunit').value,
