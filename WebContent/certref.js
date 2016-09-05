@@ -8,21 +8,36 @@ var defaultItems = [
 ];
 
 function loadItems(){
-	xhrGet(REST_DATA, function(data){
+	xhrGet(REST_DATA  + '?id=1473055137477' , function(data){
 		
-		//stop showing loading message
+		//stop showing loading message 
 		stopLoadingMessage();
 		
 		var receivedItems = data.body || [];
 		var items = [];
 		var i;
 		// Make sure the received items have correct format
+		
+		
+		/*
 		for(i = 0; i < receivedItems.length; ++i){
 			var item = receivedItems[i];
 			if(item && 'id' in item){
 				items.push(item);
 			}
 		}
+		*/
+		
+		var item = receivedItems[0];
+		
+		 
+		console.log("id:" + item.id);
+		console.log("description:" + item.description);
+		console.log("pwcode:" + item.pwcode);
+		console.log("unit:" + item.unit); 
+		
+		
+		/*
 		var hasItems = items.length;
 		if(!hasItems){
 			items = defaultItems;
@@ -42,7 +57,7 @@ function loadItems(){
 				}
 			} 
 			save();
-		}
+		}*/
 	}, function(err){
 		console.log(err);
 		//stop showing loading message

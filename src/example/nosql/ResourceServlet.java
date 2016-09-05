@@ -125,7 +125,7 @@ public class ResourceServlet {
 		return resultObject;
 	}
 
-	@GET
+	@GET 
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@QueryParam("id") Long id, @QueryParam("cmd") String cmd) throws Exception {
 
@@ -153,6 +153,7 @@ public class ResourceServlet {
 				for (HashMap doc : allDocs) {
 					HashMap<String, Object> obj = db.find(HashMap.class, doc.get("_id") + "");
 					JsonObject jsonObject = new JsonObject();
+					/*
 					LinkedTreeMap<String, Object> attachments = (LinkedTreeMap<String, Object>) obj.get("_attachments");
 
 					if (attachments != null && attachments.size() > 0) {
@@ -167,8 +168,16 @@ public class ResourceServlet {
 						jsonObject.addProperty("name", obj.get("name") + "");
 						jsonObject.addProperty("value", obj.get("value") + "");
 					}
+					
+					*/
+					jsonObject.addProperty("id", obj.get("_id") + "");
+					jsonObject.addProperty("name", obj.get("name") + "");
+					jsonObject.addProperty("value", obj.get("value") + ""); 
+					jsonObject.addProperty("description", obj.get("description") + "");
+					jsonObject.addProperty("pwcode", obj.get("pwcode") + "");
+					jsonObject.addProperty("unit", obj.get("unit") + "");
 
-					jsonArray.add(jsonObject);
+					jsonArray.add(jsonObject); 
 				}
 			} catch (Exception dnfe) {
 				System.out.println("Exception thrown : " + dnfe.getMessage());
