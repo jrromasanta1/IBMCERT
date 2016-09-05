@@ -7,8 +7,10 @@ var defaultItems = [
 	
 ];
 
-function loadItems(){//	xhrGet(REST_DATA  + '?id=1473055137477' , function(data){
-xhrGet(REST_DATA  , function(data){
+function loadItems(){
+	//	xhrGet(REST_DATA  + '?id=1473055137477' , function(data){
+	//xhrGet(REST_DATA  , function(data){
+	xhrGet(REST_DATA  + '?id=1473055137477' , function(data){ 
 		
 		//stop showing loading message  
 		stopLoadingMessage();

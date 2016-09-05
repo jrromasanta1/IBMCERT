@@ -130,6 +130,11 @@ public class ResourceServlet {
 	public Response get(@QueryParam("id") Long id, @QueryParam("cmd") String cmd) throws Exception {
 
 		Database db = null;
+		JsonObject resultObject  ;
+
+		JsonArray jsonArray ;
+		
+		JsonObject jsonObject; 
 		try {
 			db = getDB();
 		} catch (Exception re) {
@@ -137,10 +142,12 @@ public class ResourceServlet {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 
-		JsonObject resultObject = new JsonObject();
-		JsonArray jsonArray = new JsonArray();
+		 resultObject = new JsonObject();
+		 jsonArray = new JsonArray();
+		 HashMap<String, Object> obj ;
 
 		if (id == null) {
+			System.out.println("all");
 			try {
 				// get all the document present in database
 				List<HashMap> allDocs = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
@@ -151,25 +158,9 @@ public class ResourceServlet {
 				}
 
 				for (HashMap doc : allDocs) {
-					HashMap<String, Object> obj = db.find(HashMap.class, doc.get("_id") + "");
-					JsonObject jsonObject = new JsonObject();
-					/*
-					LinkedTreeMap<String, Object> attachments = (LinkedTreeMap<String, Object>) obj.get("_attachments");
-
-					if (attachments != null && attachments.size() > 0) {
-						JsonArray attachmentList = getAttachmentList(attachments, obj.get("_id") + "");
-						jsonObject.addProperty("id", obj.get("_id") + "");
-						jsonObject.addProperty("name", obj.get("name") + "");
-						jsonObject.addProperty("value", obj.get("value") + "");
-						jsonObject.add("attachements", attachmentList);
-
-					} else {
-						jsonObject.addProperty("id", obj.get("_id") + "");
-						jsonObject.addProperty("name", obj.get("name") + "");
-						jsonObject.addProperty("value", obj.get("value") + "");
-					}
+					obj = db.find(HashMap.class, doc.get("_id") + "");
+				   jsonObject = new JsonObject();
 					
-					*/
 					jsonObject.addProperty("id", obj.get("_id") + "");
 					jsonObject.addProperty("name", obj.get("name") + "");
 					jsonObject.addProperty("value", obj.get("value") + ""); 
@@ -188,15 +179,48 @@ public class ResourceServlet {
 
 			return Response.ok(resultObject.toString()).build();
 		}
+		else 
+		{
+			System.out.println("Fetch id : " + id); 
+		// FOR GETTING ONE obj
+			try {
+				 resultObject = new JsonObject();
+				 jsonArray = new JsonArray();
+				
+		     
+			
+		    obj = db.find(HashMap.class, id + "");
+			   jsonObject = new JsonObject();
+			jsonObject.addProperty("id", obj.get("_id") + "");
+			jsonObject.addProperty("name", obj.get("name") + "");
+			jsonObject.addProperty("value", obj.get("value") + ""); 
+			jsonObject.addProperty("description", obj.get("description") + "");
+			jsonObject.addProperty("pwcode", obj.get("pwcode") + "");
+			jsonObject.addProperty("unit", obj.get("unit") + "");
 
+			jsonArray.add(jsonObject); 
+			
+			} catch (Exception dnfe) {
+				System.out.println("Exception thrown : " + dnfe.getMessage());
+			}
+			
+			resultObject.addProperty("id", "all");
+			resultObject.add("body", jsonArray);
+
+			return Response.ok(resultObject.toString()).build();
+			
+		} 
+
+		/*
 		// check if document exists
-		HashMap<String, Object> obj = db.find(HashMap.class, id + "");
+		 obj = db.find(HashMap.class, id + "");
 		if (obj != null) {
-			JsonObject jsonObject = toJsonObject(obj);
+			 jsonObject = toJsonObject(obj);
 			return Response.ok(jsonObject.toString()).build();
 		} else {
 			return Response.status(Response.Status.NOT_FOUND).build();
 		}
+		*/
 	}
 
 	@DELETE
