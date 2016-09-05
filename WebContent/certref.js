@@ -334,7 +334,8 @@ function stopLoadingMessage()
 
 		showLoadingMessage(); 
 		
-	
+		console.log("start");
+		
 	var form = new FormData();
 	
 	var id =document.getElementById('iseries').value;
@@ -361,6 +362,9 @@ function stopLoadingMessage()
 		stopLoadingMessage();
 		document.getElementById('errorDiv').innerHTML = err;
 	});
+	
+	console.log("end");
+	
 	
 	 stopLoadingMessage();
 
