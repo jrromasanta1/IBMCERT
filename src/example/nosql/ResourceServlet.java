@@ -63,9 +63,15 @@ public class ResourceServlet {
 			throws IOException {
 
 		// check if document exist
+		
+		System.out.println("id input: " + id);  
 		HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
 
+		
+		
 		if (obj == null) {
+			
+			System.out.println("new doc.");
 			// if new document
 
 			id = String.valueOf(System.currentTimeMillis());
@@ -89,6 +95,8 @@ public class ResourceServlet {
 			obj = db.find(HashMap.class, id); 
 			saveAttachment(db, id, part, fileName, obj); 
 		} else {
+			
+			System.out.println("update doc:" + id);
 			// if existing document
 			// attach the attachment object
 			saveAttachment(db, id, part, fileName, obj);
