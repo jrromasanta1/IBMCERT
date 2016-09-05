@@ -329,7 +329,7 @@ function stopLoadingMessage()
 	function SaveTestInfo()
 {
 		
-		
+		 
 
 
 		showLoadingMessage(); 
@@ -340,17 +340,14 @@ function stopLoadingMessage()
 	var id =document.getElementById('iseries').value;
 	
 	var data = { 		
-			"series" : document.getElementById('iseries').value,
+			"pwcode" : document.getElementById('ipwcode').value,
 			"description" : document.getElementById('idescription').value,
-			"unit" : document.getElementById('iunit').value
+			"unit" : document.getElementById('iunit').value,
+			"subunit" : document.getElementById('isubunit').value,
+			"jobrole" : document.getElementById('ijobrole').value,
+			"skill" : document.getElementById('iskill').value
 		};
 	
-	
-	
-
-	console.log("series: " + document.getElementById('iseries').value); 
-	console.log("description: " + document.getElementById('idescription').value); 
-	console.log("unit: " + document.getElementById('iunit').value);   
 	
 	
 	
@@ -365,7 +362,7 @@ function stopLoadingMessage()
 		document.getElementById('errorDiv').innerHTML = err;
 	});
 	
-
+	 stopLoadingMessage();
 
 	
 

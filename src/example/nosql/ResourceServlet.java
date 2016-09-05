@@ -38,7 +38,8 @@ public class ResourceServlet {
 
 	@POST
 	public Response create(@QueryParam("id") Long id, @FormParam("name") String name, @FormParam("value") String value,
-			 @FormParam("series") String series,  @FormParam("desc") String desc,  @FormParam("unit") String unit)
+			 @FormParam("pwcode") String pwcode,  @FormParam("description") String description,  @FormParam("unit") String unit,
+			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill)
 			throws Exception {
 
 		Database db = null;
@@ -50,14 +51,15 @@ public class ResourceServlet {
 		}
 
 		String idString = id == null ? null : id.toString();
-		JsonObject resultObject = create(db, idString, name, value, series, desc,unit, null, null);
+		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill,  null, null);
 
 		System.out.println("Create Successful.");
 
 		return Response.ok(resultObject.toString()).build();
 	} 
 
-	protected JsonObject create(Database db, String id, String name, String value, String series, String desc, String unit, Part part, String fileName)
+	protected JsonObject create(Database db, String id, String name, String value, String pwcode, String description, 
+			String unit, String subunit, String jobrole , String skill, Part part, String fileName)
 			throws IOException {
 
 		// check if document exist
@@ -74,14 +76,17 @@ public class ResourceServlet {
 			data.put("name", name);
 			data.put("_id", id);
 			data.put("value", value);
-			data.put("series", series);
-			data.put("desc", desc);
+			data.put("pwcode", pwcode);
+			data.put("description", description);
 			data.put("unit", unit);
+			data.put("subunit", subunit);
+			data.put("jobrole", jobrole);
+			data.put("skill", skill); 
 			data.put("creation_date", new Date().toString());
 			db.save(data);
 
 			// attach the attachment object
-			obj = db.find(HashMap.class, id);
+			obj = db.find(HashMap.class, id); 
 			saveAttachment(db, id, part, fileName, obj); 
 		} else {
 			// if existing document
@@ -92,7 +97,13 @@ public class ResourceServlet {
 			obj = db.find(HashMap.class, id);
 			obj.put("name", name);
 			obj.put("value", value);
-			db.update(obj);
+			obj.put("pwcode", pwcode);
+			obj.put("description", description);
+			obj.put("unit", unit);
+			obj.put("subunit", subunit);
+			obj.put("jobrole", jobrole);
+			obj.put("skill", skill); 
+			db.update(obj); 
 		}
 
 		obj = db.find(HashMap.class, id);

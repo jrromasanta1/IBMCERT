@@ -22,6 +22,7 @@ public class AttachServlet extends HttpServlet {
 	private static final int readBufferSize = 8192;
 	private static final long serialVersionUID = 1L;
 
+/*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Part part = request.getPart("file");
@@ -33,7 +34,7 @@ public class AttachServlet extends HttpServlet {
 		String desc = request.getParameter("desc");
 		String unit = request.getParameter("unit");
 		String fileName = request.getParameter("filename"); 
-
+ 
 		Database db = null;
 		try {
 			db = CloudantClientMgr.getDB();
@@ -50,7 +51,7 @@ public class AttachServlet extends HttpServlet {
 		System.out.println("Upload completed.");
 
 		response.getWriter().println(resultObject.toString());
-	}
+	}*/
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
