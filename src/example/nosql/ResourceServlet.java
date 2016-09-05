@@ -50,8 +50,9 @@ public class ResourceServlet {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 
-		String idString = id; ///== null ? null : id.toString();
+		//String idString = id; ///== null ? null : id.toString();
 		
+		String idString = "1473055137477"; 
 		System.out.println("enter postid:" + id); 
 		System.out.println("enter post:" + idString);
 		
