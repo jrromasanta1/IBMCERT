@@ -338,7 +338,7 @@ function stopLoadingMessage()
 		
 	var form = new FormData();
 	
-	var id =document.getElementById('iseries').value;
+	//var id =document.getElementById('iseries').value;
 	
 	var data = { 		
 			"pwcode" : document.getElementById('ipwcode').value,
