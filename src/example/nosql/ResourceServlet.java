@@ -52,7 +52,7 @@ public class ResourceServlet {
 
 		String idString = id; ///== null ? null : id.toString();
 		
-		
+		System.out.println("enter postid:" + id); 
 		System.out.println("enter post:" + idString);
 		
 		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill,  null, null);
