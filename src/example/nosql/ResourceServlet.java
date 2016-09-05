@@ -37,7 +37,7 @@ public class ResourceServlet {
 	}
 
 	@POST
-	public Response create(@QueryParam("id") Long id, @FormParam("name") String name, @FormParam("value") String value,
+	public Response create(@QueryParam("id") String id, @FormParam("name") String name, @FormParam("value") String value,
 			 @FormParam("pwcode") String pwcode,  @FormParam("description") String description,  @FormParam("unit") String unit,
 			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill)
 			throws Exception {
@@ -51,6 +51,10 @@ public class ResourceServlet {
 		}
 
 		String idString = id == null ? null : id.toString();
+		
+		
+		System.out.println("enter post" + idString);
+		
 		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill,  null, null);
 
 		System.out.println("Create Successful.");
