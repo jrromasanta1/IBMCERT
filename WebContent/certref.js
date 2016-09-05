@@ -289,7 +289,7 @@ function saveChange(contentNode, callback){
 		});
 	}else{
 		data.id = row.getAttribute('data-id');
-		xhrPut(REST_DATA, data, function(){
+		xhrPut(REST_DATA , data, function(){
 			console.log('updated: ', data);
 		}, function(err){
 			console.log(err);
@@ -329,9 +329,15 @@ function stopLoadingMessage()
 	function SaveTestInfo()
 {
 		
-		 
-
-
+		var requestParam; 
+		
+		if  (document.getElementById('iid').value != "") {
+		requestParam = '?id=' +  document.getElementById('iid').value;
+		}else {
+			requestParam = ""
+			
+		}
+		
 		showLoadingMessage(); 
 		
 		console.log("start");
@@ -341,8 +347,6 @@ function stopLoadingMessage()
 	//var id =document.getElementById('iseries').value;
 	
 	var data = { 		
-			"id": "1473055137477",  
-			"searchid": document.getElementById('iid').value,  
 			"pwcode" : document.getElementById('ipwcode').value,
 			"description" : document.getElementById('idescription').value,
 			"unit" : document.getElementById('iunit').value,
@@ -353,9 +357,11 @@ function stopLoadingMessage()
 	
 	
 	
+	  
 	
 	
-	xhrPost(REST_DATA, data, function(item){
+	
+	xhrPost(REST_DATA + requestParam , data, function(item){
 	//	row.setAttribute('data-id', item.id);
 		stopLoadingMessage();
 	}, function(err){ 

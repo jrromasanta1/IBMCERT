@@ -37,24 +37,23 @@ public class ResourceServlet {
 	}
 
 	@POST
-	public Response create(@QueryParam("id") String id,@QueryParam("searchid") String searchid, @FormParam("name") String name, @FormParam("value") String value,
+	public Response create(@QueryParam("id") String id, @FormParam("name") String name, @FormParam("value") String value,
 			 @FormParam("pwcode") String pwcode,  @FormParam("description") String description,  @FormParam("unit") String unit,
 			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill)
 			throws Exception {
 
-		Database db = null; 
+		Database db = null;
 		try {
-			db = getDB(); 
+			db = getDB();
 		} catch (Exception re) {
 			re.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-		}
+		} 
 
-		String idString = searchid == null ? null : searchid.toString();
+		String idString = id == null ? null : id.toString();
 		
 		
-		System.out.println("enter searchid:" + searchid); 
-		System.out.println("enter idString:" + idString); 
+		System.out.println("enter post" + idString);
 		
 		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill,  null, null);
 
@@ -72,7 +71,7 @@ public class ResourceServlet {
 		System.out.println("id input: " + id);  
 		HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
 
-		 
+		
 		
 		if (obj == null) {
 			
