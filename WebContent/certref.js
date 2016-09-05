@@ -342,13 +342,13 @@ function stopLoadingMessage()
 	
 	var data = { 		
 			"id": "1473055137477",  
-			"searchid": "1473055137477",   
+			"searchid": document.getElementById('iid').value,  
 			"pwcode" : document.getElementById('ipwcode').value,
 			"description" : document.getElementById('idescription').value,
 			"unit" : document.getElementById('iunit').value,
 			"subunit" : document.getElementById('isubunit').value,
 			"jobrole" : document.getElementById('ijobrole').value,
-			"skill" : document.getElementById('iskill').value
+			"skill" : document.getElementById('iskill').value 
 		};
 	
 	

@@ -44,7 +44,7 @@ public class ResourceServlet {
 
 		Database db = null; 
 		try {
-			db = getDB();
+			db = getDB(); 
 		} catch (Exception re) {
 			re.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
@@ -53,8 +53,8 @@ public class ResourceServlet {
 		String idString = searchid == null ? null : searchid.toString();
 		
 		
-		System.out.println("enter postid:" + id); 
-		System.out.println("enter post:" + idString);
+		System.out.println("enter searchid:" + searchid); 
+		System.out.println("enter idString:" + idString); 
 		
 		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill,  null, null);
 
