@@ -167,6 +167,9 @@ public class ResourceServlet {
 					jsonObject.addProperty("description", obj.get("description") + "");
 					jsonObject.addProperty("pwcode", obj.get("pwcode") + "");
 					jsonObject.addProperty("unit", obj.get("unit") + "");
+					jsonObject.addProperty("subunit", obj.get("subunit") + "");
+					jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
+					jsonObject.addProperty("skill", obj.get("skill") + "");
 
 					jsonArray.add(jsonObject); 
 				}
@@ -190,38 +193,33 @@ public class ResourceServlet {
 		     
 			
 		    obj = db.find(HashMap.class, id + "");
-			   jsonObject = new JsonObject();
+			 jsonObject = new JsonObject();
 			jsonObject.addProperty("id", obj.get("_id") + "");
 			jsonObject.addProperty("name", obj.get("name") + "");
 			jsonObject.addProperty("value", obj.get("value") + ""); 
 			jsonObject.addProperty("description", obj.get("description") + "");
 			jsonObject.addProperty("pwcode", obj.get("pwcode") + "");
 			jsonObject.addProperty("unit", obj.get("unit") + "");
+			jsonObject.addProperty("subunit", obj.get("subunit") + "");
+			jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
+			jsonObject.addProperty("skill", obj.get("skill") + ""); 
 
 			jsonArray.add(jsonObject); 
+			
+			
+			resultObject.addProperty("id", obj.get("_id") + "");
+			resultObject.add("body", jsonArray);
 			
 			} catch (Exception dnfe) {
 				System.out.println("Exception thrown : " + dnfe.getMessage());
 			}
-			
-			resultObject.addProperty("id", "all");
-			resultObject.add("body", jsonArray);
+	 
 
 			return Response.ok(resultObject.toString()).build();
 			
 		} 
-
-		/*
-		// check if document exists
-		 obj = db.find(HashMap.class, id + "");
-		if (obj != null) {
-			 jsonObject = toJsonObject(obj);
-			return Response.ok(jsonObject.toString()).build();
-		} else {
-			return Response.status(Response.Status.NOT_FOUND).build();
-		}
-		*/
 	}
+	
 
 	@DELETE
 	public Response delete(@QueryParam("id") long id) {
