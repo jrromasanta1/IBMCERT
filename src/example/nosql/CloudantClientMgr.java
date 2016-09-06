@@ -17,8 +17,10 @@ public class CloudantClientMgr {
 	private static CloudantClient cloudant = null;
 	private static Database db = null;
 
-	private static String databaseName = "sample_nosql_db";
-
+	//private static String databaseName = "sample_nosql_db";
+	private static String databaseName = "ibmcert_stage";
+	
+	 
 	private static String user = null;
 	private static String password = null;
 

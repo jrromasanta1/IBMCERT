@@ -7,56 +7,66 @@ var defaultItems = [
 	
 ];
 
-function loadItems(){
-	//	xhrGet(REST_DATA  + '?id=1473055137477' , function(data){
-	//xhrGet(REST_DATA  , function(data){
-	xhrGet(REST_DATA  + '?id=1473055137477' , function(data){ 
-		
-		//stop showing loading message  
-		stopLoadingMessage();
-		
-		var receivedItems = data.body || [];
-		var items = [];
-		var i;
-		// Make sure the received items have correct format
-		
-		
-		/*
-		for(i = 0; i < receivedItems.length; ++i){
-			var item = receivedItems[i];
-			if(item && 'id' in item){
-				items.push(item);
-			}
-		}
-		*/
-		
-		var item = receivedItems[0];
-		
-		 
-		console.log("id:" + item.id);
-		console.log("description:" + item.description);
-		console.log("pwcode:" + item.pwcode);
-		console.log("unit:" + item.unit); 
-		
-		
-		 document.getElementById('iid').value  = item.id;
-		 document.getElementById('ipwcode').value = item.pwcode;  
-		 document.getElementById('idescription').value = item.description;
-		 document.getElementById('iunit').value = item.unit;  
-		 document.getElementById('isubunit').value = item.subunit;
-		 document.getElementById('ijobrole').value =  item.jobrole;
-		 document.getElementById('iskill').value  = item.skill; 
-		 
-		 
-	}, function(err){
-		console.log(err);
-		//stop showing loading message
-		stopLoadingMessage();
-		document.getElementById('errorDiv').innerHTML = err;
-		
-	});
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+
+
+function loadItems(){
+	
+	var current_id = getParameterByName('id');
+	var searchquery = "";
+	
+    if ( current_id == null ) {
+    	searchquery = "";
+    } else {
+    	searchquery = '?id=' + current_id;
+    	
+    	xhrGet(REST_DATA  + searchquery , function(data){  
+    		
+    		//stop showing loading message  
+    		stopLoadingMessage();
+    		
+    		var receivedItems = data.body || [];
+    		var items = [];
+    		var i;
+    		
+    		var item = receivedItems[0];
+    		
+    		 
+    		console.log("id:" + item.id);
+    		console.log("description:" + item.description);
+    		console.log("pwcode:" + item.pwcode);
+    		console.log("unit:" + item.unit); 
+    		
+    		
+    		 document.getElementById('iid').value  = item.id;
+    		 document.getElementById('ipwcode').value = item.pwcode;  
+    		 document.getElementById('idescription').value = item.description;
+    		 document.getElementById('iunit').value = item.unit;  
+    		 document.getElementById('isubunit').value = item.subunit;
+    		 document.getElementById('ijobrole').value =  item.jobrole;
+    		 document.getElementById('iskill').value  = item.skill; 
+    		 document.getElementById('areajobrole').value =  item.jobrole;
+    		 document.getElementById('areaskill').value  = item.skill; 
+    		  
+    	}, function(err){
+    		console.log(err);
+    		//stop showing loading message
+    		stopLoadingMessage();
+    		document.getElementById('errorDiv').innerHTML = err;
+    		
+    	});
+    }
+}
+ 
 
 
 
