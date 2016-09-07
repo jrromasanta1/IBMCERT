@@ -120,8 +120,8 @@ loadItems();
 	  
 	
 	
-	xhrPost(REST_DATA + requestParam , data, function(item){
-	//	row.setAttribute('data-id', item.id);
+	xhrPost(REST_DATA + requestParam , data, function(item){	
+		 document.getElementById('iid').value  = item.id; 
 		stopLoadingMessage();
 	}, function(err){ 
 		console.log(err);
