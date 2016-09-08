@@ -50,7 +50,9 @@ function loadItems(){
     				"<td>"+ item.creation_date  +"</td>"; 
     			}
     		}
+    		 
     		
+    		console.log(html); 
     		 $('#tcertref_content').append(html); 
    		  
     	}, function(err){
