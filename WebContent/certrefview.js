@@ -26,7 +26,7 @@ function loadItems(){
     	xhrGet(REST_DATA  , function(data){  
     		
     		//stop showing loading message  
-    		stopLoadingMessage();
+   
     		
     		var receivedItems = data.body || [];
     		var items = [];
@@ -53,12 +53,11 @@ function loadItems(){
     		 
     		
     		console.log(html); 
-    		 $('#tcertref_content').append(html); 
+    		 $('#tcertref_content').append(html);  
    		  
     	}, function(err){
     		console.log(err);
     		//stop showing loading message
-    		stopLoadingMessage();
     		document.getElementById('errorDiv').innerHTML = err;
     		
     	});
