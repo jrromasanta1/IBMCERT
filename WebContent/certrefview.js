@@ -36,10 +36,7 @@ function loadItems(){
     		
     		var html;
     		
-    		html = "<table id='test1table' data-widget='datatable' data-info='false' data-ordering='false' data-paging='false' data-searching='false'" +
-			" class='ibm-data-table ibm-padding-small ibm-grid '> " +
-			" <thead><tr><th style='width:40px'></th><th>Status</th><th>PW Code</th><th>Description</th><th>Created Date</th><th>Updated Date</th>" +
-			" </tr></thead><tbody>"; 
+    		
 			
     	
     		for(i = 0; i < receivedItems.length; ++i){
@@ -57,12 +54,9 @@ function loadItems(){
     				"</tr>";  
     			}
     		}
-    		
-    		
-    		html = html + "</tbody></table>"
-	 
-    		
-    		console.log(html); 
+    				
+    
+    		$('#tableph').hide();
     		 $('#tcertref_content').append(html);  
    		  
     	}, function(err){
