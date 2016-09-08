@@ -53,7 +53,8 @@ function loadItems(){
     				"<td>"+ item.pwcode  +"</td>"+
     				"<td>"+ item.description  +"</td>"+
     				"<td>"+ item.modified_date  +"</td>"+
-    				"<td>"+ item.creation_date  +"</td>";  
+    				"<td>"+ item.creation_date  +"</td>" +
+    				"</tr>";  
     			}
     		}
     		
