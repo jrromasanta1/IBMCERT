@@ -51,7 +51,7 @@ function loadItems(){
     			}
     		}
     		
-    		
+    		 $('#tcertref_content').append(html); 
    		  
     	}, function(err){
     		console.log(err);
