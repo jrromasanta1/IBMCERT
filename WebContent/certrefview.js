@@ -38,19 +38,15 @@ function loadItems(){
     		
     		html = "<table id='test1table' data-widget='datatable' data-info='false' data-ordering='false' data-paging='false' data-searching='false'" +
 			" class='ibm-data-table ibm-padding-small ibm-grid '> " +
-			" <thead><tr><th style="width:40px;"></th><th>Status</th><th>PW Code</th><th>Description</th><th>Created Date</th><th>Updated Date</th>" +
-			" </tr></thead><tbody>";
+			" <thead><tr><th style='width:40px'></th><th>Status</th><th>PW Code</th><th>Description</th><th>Created Date</th><th>Updated Date</th>" +
+			" </tr></thead><tbody>"; 
 			
     	
     		for(i = 0; i < receivedItems.length; ++i){
     			item = receivedItems[i];
     			if(item && 'id' in item){
     				
-					
-    				
-					
-    				
-    				
+
     				html = html + "<tr>"+
     				"<td><a style='min-width:50px;min-height50px;margin-bottom: 5px;font-weight:bolder;' href='/certref.html?id=" +   item.id + "' class='ibm-btn-sec'>View</a></td>"+
     				"<td>"+ item.status  +"</td>"+
