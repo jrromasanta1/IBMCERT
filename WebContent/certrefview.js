@@ -58,8 +58,8 @@ function loadItems(){
     		}
     		
     		
-    		html = "</tbody></table>"
-	
+    		html = html + "</tbody></table>"
+	 
     		
     		console.log(html); 
     		 $('#tcertref_content').append(html);  
