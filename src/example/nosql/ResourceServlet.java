@@ -65,7 +65,12 @@ public class ResourceServlet {
 	protected JsonObject create(Database db, String id, String name, String value, String pwcode, String description, 
 			String unit, String subunit, String jobrole , String skill, Part part, String fileName)
 			throws IOException {
-
+		
+		JsonObject resultObject  = new JsonObject();
+		JsonArray jsonArray = new JsonArray();
+		JsonObject jsonObject = new JsonObject();  
+		 
+		
 		// check if document exist
 		
 		System.out.println("id input: " + id);  
@@ -119,9 +124,22 @@ public class ResourceServlet {
 		}
 
 		obj = db.find(HashMap.class, id);
-
-		JsonObject resultObject = toJsonObject(obj);
-
+		
+		obj.put("name", name);
+		obj.put("value", value);
+		obj.put("pwcode", pwcode);
+		obj.put("description", description);
+		obj.put("unit", unit);
+		obj.put("subunit", subunit);
+		obj.put("jobrole", jobrole);
+		obj.put("skill", skill); 
+		
+		 resultObject = toJsonObject(obj);
+		
+		
+	 
+		//jsonArray.add(jsonObject); 
+		//resultObject.add("body", jsonArray);
 		return resultObject;
 	}
 

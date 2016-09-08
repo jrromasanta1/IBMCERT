@@ -116,12 +116,17 @@ loadItems();
 			"jobrole" : document.getElementById('ijobrole').value,
 			"skill" : document.getElementById('iskill').value 
 		};
-	
+	 
 	  
 	
 	
-	xhrPost(REST_DATA + requestParam , data, function(item){	
-		 document.getElementById('iid').value  = item.id; 
+	xhrPost(REST_DATA + requestParam , data, function(item){
+		if ($('#iid').val() != ""){
+		
+		} else { 
+		
+		}
+		document.getElementById('iid').value  = item.id; 
 		stopLoadingMessage();
 	}, function(err){ 
 		console.log(err);

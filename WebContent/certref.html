@@ -23,8 +23,8 @@
 <!-- <link rel="stylesheet" href="style.css" />  -->
 
 <script type="text/javascript" src="util.js"></script>
-<script type="text/javascript" src="certref.js"></script> 
-
+<script type="text/javascript" src="certref.js"></script>
+<script src="jquery-3.1.0.min.js"></script>  
 <title>Test Info Web</title>
 
 
@@ -93,8 +93,94 @@
 		}
 	});
 </script>
+
+<script type="text/javascript">
+
+function onchange_unit(){
+
+var select = document.getElementById("subunit");
+  var i;
+    for(i=select.options.length-1;i>=0;i--)
+    {
+        select.remove(i);
+    }
+
+var unit = document.getElementById("unit").value;
+
+var outputsubunit = null;
+ 
+
+  
+if (unit  == "IBM Analytics") {
+ outputsubunit =  [ "Analytics Cloud Content Services", "Analytics Internet of Things","Analytics Smarter Workforce","Platform Analytics", "IBM Collaboration Solutions and Social Business"];
+
+} else if (unit  == "IBM Watson") { 
+ outputsubunit =  ["Not Applicable"];
+ 
+}else if (unit  == "IBM Cloud") {
+ outputsubunit =  [ "Cloud Integration - Application Platform", "Cloud Integration - Dev Ops", 'Cloud Solutions', 'Cloud Integration - Hybrid Integration', 'Cloud Platform', 'Cloud Integration - Process Transformation',  'Cloud Video Services' ];
+ 
+}else if (unit  == "IBM Solutions") {
+  outputsubunit =  ["Not Applicable"];
+   
+}else if (unit  == "IBM Security") {
+ outputsubunit =  ["Not Applicable"];
+  
+  }else if (unit  == "IBM - Watson Internet of Things") {
+ outputsubunit =  ["Not Applicable"];
+  
+}else if (unit  == "IBM Systems") {
+ outputsubunit =  ["Power Systems",  "Storage Software", "Storage Systems", "z Systems", "Other" ];
+
+}else if (unit  == "IBM Commerce") {
+  outputsubunit =  ["Partner and Supplier Engagement", "Customer Engagement","Digital Experience"];
+
+}else if (unit  == "Non IBM") {
+ outputsubunit =  ["Not Applicable"];
+  
+}else if (unit  == "STG Support Center") {
+  outputsubunit =  ["Not Applicable"];
+    
+}else if (unit  == "IBM Watson Health") {
+ outputsubunit =  ["Not Applicable"];
+   
+}else if (unit  == "IBM Global Technology Services") {
+ outputsubunit =  ["Not Applicable"];
+   
+}else if (unit  == "IBM Sales Mastery") {
+ outputsubunit =  ["Not Applicable"];
+   
+}else if (unit  == "IBM Technical Mastery") {
+var outputsubunit =  ["Not Applicable"];
+  
+}else if (unit  == "IBM Cognitive Solutions") {
+var outputsubunit =  ["Cognitive Solutions","Safer Planet"];
+ 
+}
+ $('#iunit').val(unit);
+
+
+var sel = document.getElementById('subunit');
+for(var i = 0; i < outputsubunit.length; i++) {
+    var opt = document.createElement('option');
+    opt.innerHTML = outputsubunit[i];
+    opt.value = outputsubunit[i];
+    sel.appendChild(opt);
+}
+
+ $('#isubunit').val(outputsubunit[0]);
+
+//checkifmastery();
+
+}
+
+function onchange_subunit(){
+ $('#isubunit').val( $('#subunit').val());
+}
+
+</script>
 </head>
-<body id="ibm-com" class="ibm-type">
+<body id="ibm-com" class="ibm-type"> 
 	<div id="ibm-top" class="ibm-default">
 
 
@@ -110,7 +196,7 @@
 			<div id="ibm-universal-nav">
 
 				<div id="ibm-home">
-					<a href="http://www.ibm.com/us-en/">IBM®</a>
+					<a href="http://www.ibm.com/us-en/">IBM</a>
 				</div>
 				<ul id="ibm-menu-links" role="toolbar" aria-label="Site map">
 					<li><a href="http://www.ibm.com/sitemap/us/en/">Site map</a></li>
@@ -135,20 +221,23 @@
 		</div>
 		<!-- MASTHEAD_END -->
 		<header role="banner" aria-labelledby="ibm-pagetitle-h1">
-						<div class="ibm-sitenav-menu-container"> 
-		<div  class="ibm-sitenav-menu-name"><a href="#" class="ibm-h4">IBM Professional Certification - Management Tool</a></div>
-		<div class="ibm-sitenav-menu-list">
-		<ul role="menubar">
-		<li role="presentation"><a role="menuitem" href="#">Home</a></li>
-		<li role="presentation"><a role="menuitem" href="#">Admin</a></li>
-		<li role="presentation"><a role="menuitem" href="#">Help</a></li>
-		</ul>
-		</div>
-	</div>		
-		
-			
-</header> 
-		
+			<div class="ibm-sitenav-menu-container">
+				<div class="ibm-sitenav-menu-name">
+					<a href="#" class="ibm-h4">IBM Professional Certification -
+						Management Tool</a>
+				</div>
+				<div class="ibm-sitenav-menu-list">
+					<ul role="menubar">
+						<li role="presentation"><a role="menuitem" href="#">Home</a></li>
+						<li role="presentation"><a role="menuitem" href="#">Admin</a></li>
+						<li role="presentation"><a role="menuitem" href="#">Help</a></li>
+					</ul>
+				</div>
+			</div>
+
+
+		</header>
+
 		<!-- MAIN PAGE WRAPPER AROUND LEADSPACE, MAIN CONTENT SIDENAV AND RELATED CONTENT -->
 		<div id="ibm-content-wrapper">
 
@@ -167,151 +256,211 @@
 				</nav>
 				<!-- NAVIGATION_END -->
 				<div id="ibm-content">
-					<header role="banner" aria-labelledby="ibm-pagetitle-h1">
-						<div id="ibm-leadspace-head" class="ibm-alternate">
-							<div id="ibm-leadspace-body">
 
-								<div class="ibm-columns">
-									<div class="ibm-col-5-3">
-										<h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-light">
-											Certification Reference <span id="testinfotitle"></span>
-										</h1>
 
-									</div>
-								</div>
-							</div>
-						</div>
-					</header>
 					<main role="main" aria-labelledby="ibm-pagetitle-h1">
 					<div id="ibm-content-body">
 						<div id="ibm-content-main">
+							<h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-light">
+								Certification Reference <span id="testinfotitle"></span>
+							</h1>
+							<div class="ibm-columns" id="mess_card" style="display: none">
 
-
-
-		<div class="ibm-columns" >
-		
-								   <div class="ibm-col-1-1">
-<h2 class="ibm-h2">Certification Information</h2>
-							<div class="ibm-rule">
-								<hr>
-							</div>
-							</div>
-							</div>
-
-							<div class="ibm-columns" >
-		
-								   <div class="ibm-col-6-3">
-									<p>
-										<label for="lseries">PW Code:</label> 
-										<span>
-											<input type="text" value="" size="40" id="ipwcode" name="ipwcode"  > 
-										</span>
-									</p>
-									</div> 
-									
-									
-									<div class="ibm-col-6-3">
-									<p>
-										<label for="ldescription">Description:</label> 
-										<span>
-											<input type="text" value="" size="40" id="idescription" name="idescription"  > 
-										</span>
-									</p>
-									
-									</div> 
-								</div> 
-								
-								<div class="ibm-columns" >
-								   <div class="ibm-col-6-3">
-									<p>
-										<label for="lunit">Unit:</label> 
-										<span>
-											<input type="text" value="" size="40" id="iunit" name="iunit"  > 
-										</span>
-									</p>
-									   </div> 
-									   <div class="ibm-col-6-3">
-									<p>
-										<label for="lunit">Subunit:</label> 
-										<span>
-											<input type="text" value="" size="40" id="isubunit" name="isubunit"  > 
-										</span>
-									</p>
-								   </div> 
-								</div> 
-								
-							<div class="ibm-columns">
-							<div class="ibm-col-6-6">
-								<b>Job Role Description / Target Audience:</b><br />
-								 
-								<textarea cols="100" rows="3" id="areajobrole" name="areajobrole" maxlength="2000" 
-								onchange='document.getElementById("ijobrole").value = document.getElementById("areajobrole").value;' ></textarea>
-									<input style="display:none;"  type="text" value="" size="40" id="ijobrole" name="ijobrole"  > 
-								
-							</div>
-							</div>	 
-								
-												
-							<div class="ibm-columns">
-							<div class="ibm-col-6-6">
-								<b>Recommended Skills:</b><br />
-								 
-								<textarea cols="100" rows="3" id="areaskill" name="areaskill" maxlength="2000" 
-								onchange='document.getElementById("iskill").value = document.getElementById("areaskill").value;' ></textarea>
-									<input style="display:none;"  type="text" value="" size="40" id="iskill" name="iskill"  > 
-									
-							</div>
-							</div>	
-								
-								
-								
-
-							</div>
-
-							<div class="ibm-rule ibm-alternate-1">
-								<hr>
-							</div>
-							<div class="ibm-columns">
 								<div class="ibm-col-1-1">
-									<p class="ibm-btn-row">
-										<button class="ibm-btn-pri" onClick='SaveTestInfo();'>Submit</button>
-										<button class="ibm-btn-sec">Cancel</button>
+									<div class="ibm-card" style="margin-bottom: 0px;">
+										<div class="ibm-card__content"
+											style="padding-bottom: 1px; padding-top: 2px;">
+											<div id="mess_card_content"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="ibm-columns">
+
+								<div class="ibm-col-1-1">
+									<h2 class="ibm-h2">Certification Information</h2>
+									<div class="ibm-rule">
+										<hr>
+									</div>
+								</div>
+							</div>
+
+							<div class="ibm-columns">
+
+								<div class="ibm-col-6-3">
+									<p>
+										<label for="lseries">PW Code:</label> <span> <input
+											type="text" value="" size="40" id="ipwcode" name="ipwcode">
+										</span>
 									</p>
-									<div id="loadingImage"></div>
-									<div class="ibm-spinner" id="loading" style="display:none;"></div>  
-									<br> <br>
-									<div id="errorDiv" class='errorMsg'></div>
 								</div>
 
+
+								<div class="ibm-col-6-3">
+									<p>
+										<label for="ldescription">Description:</label> <span> <input
+											type="text" value="" size="40" id="idescription"
+											name="idescription">
+										</span>
+									</p>
+
+								</div>
 							</div>
-		<input style="display:block;"  type="text" value="" id="iid" name="iid"  > 
+
+							<div class="ibm-columns">
+								<div class="ibm-col-6-3">
+									<p>
+										<label for="lunit">Unit:</label> <span> 
+										
+										
+										<select name="unit" onchange="onchange_unit();" id="unit" style="width:300.0px">
+											<option> </option>
+											<option>IBM - Watson Internet of Things</option>
+											<option>IBM Analytics</option>
+											<option>IBM Cloud</option>
+											<option>IBM Cognitive Solutions</option>
+											<option>IBM Commerce</option>
+											<option>IBM Global Technology Services</option>
+											<option>IBM Sales Mastery</option>
+											<option>IBM Security</option>
+											<option>IBM Solutions</option>
+											<option>IBM Systems</option>
+											<option>IBM Technical Mastery</option>
+										</select>
+										
+										
+										
+										<input
+											type="text" value="" style="display:none;" size="40" id="iunit" name="iunit">
+										</span>
+									</p>
+								</div>
+								<div class="ibm-col-6-3">
+									<p>
+										<label for="lunit">Subunit:</label> <span>
+											<select name="subunit" id="subunit" onchange="onchange_subunit();" style="width:300.0px">
+											<option> </option>
+											<option>Analytic Platform
+											</option><option>Analytic Solution
+											</option><option>Analytics Cloud Content Services
+											</option><option>Analytics Smarter Workforce
+											</option><option>Cloud Integration - Application Platform
+											</option><option>Cloud Integration - Dev Ops
+											</option><option>Cloud Integration - Hybrid Integration
+											</option><option>Cloud Integration - Process Transformation
+											</option><option>Cloud Platform
+											</option><option>Cloud Solutions
+											</option><option>Cloud Video Services
+											</option><option>Cognitive Solutions
+											</option><option>Customer Engagement 
+											</option><option>Digital Experience
+											</option><option>IBM Collaboration Solutions and Social Business
+											</option><option>Not Applicable
+											</option><option>Other
+											</option><option>Partner and Supplier Engagement
+											</option><option>Platform Analytics
+											</option><option>Power Systems
+											</option><option>Safer Planet 
+											</option><option>Storage Software
+											</option><option>Storage Systems
+											</option><option>Watson Analytics
+											</option><option>z Systems</option></select>
+										<input
+											type="text" value=""  style="display:none;" size="40" id="isubunit" name="isubunit">
+										</span>
+									</p>
+								</div>
+							</div>
+
+							<div class="ibm-columns">
+								<div class="ibm-col-6-6">
+									<b>Job Role Description / Target Audience:</b><br />
+
+									<textarea cols="100" rows="3" id="areajobrole"
+										name="areajobrole" maxlength="2000"
+										onchange='document.getElementById("ijobrole").value = document.getElementById("areajobrole").value;'></textarea>
+									<input style="display: none;" type="text" value="" size="40"
+										id="ijobrole" name="ijobrole">
+
+								</div>
+							</div>
+
+
+							<div class="ibm-columns">
+								<div class="ibm-col-6-6">
+									<b>Recommended Skills:</b><br />
+
+									<textarea cols="100" rows="3" id="areaskill" name="areaskill"
+										maxlength="2000"
+										onchange='document.getElementById("iskill").value = document.getElementById("areaskill").value;'></textarea>
+									<input style="display: none;" type="text" value="" size="40"
+										id="iskill" name="iskill">
+
+								</div>
+							</div>
+
+
+
+
+
+
 						</div>
 
-					</div>
-					</main>
-				</div>
-			</div>
+						<div class="ibm-rule ibm-alternate-1">
+							<hr>
+						</div>
+						<div class="ibm-columns">
+							<div class="ibm-col-5-2">
+								<p class="ibm-btn-row">
+									<button class="ibm-btn-sec ibm-btn-green-50"
+										onClick='SaveTestInfo();'>Save</button>
 
-			<div id="ibm-related-content"></div>
+								</p>
+								<div id="loadingImage"></div>
+								<div class="ibm-spinner" id="loading" style="display: none;"></div>
+								<br> <br>
+								<div id="errorDiv" class='errorMsg'></div> 
+							</div>
+
+							<div class="ibm-col-5-2">
+								<p class="ibm-btn-row">
+									<button class="ibm-btn-sec ibm-btn-teal-50"
+										onClick='SaveTestInfo();'>Save and Request to Promote</button>
+								</p>
+							</div>
+
+
+						</div>
+						<input style="display: none;" type="text" value="" id="iid" 
+							name="iid">
+					</div>
+				</div>
+				</main>
+			</div>
 		</div>
 
+		<div id="ibm-related-content"></div>
+	</div>
 
-		<!-- FOOTER_BEGIN -->
-		<div id="ibm-footer-module"></div>
-		<footer role="contentinfo" aria-label="IBM">
-			<div id="ibm-footer">
-				<h2 class="ibm-access">Footer links</h2>
-				<ul>
-					<li><a href="http://www.ibm.com/contact/us/en/">Contact</a></li>
-					<li><a href="http://www.ibm.com/privacy/us/en/">Privacy</a></li>
-					<li><a href="http://www.ibm.com/legal/us/en/">Terms of use</a></li>
-					<li><a href="http://www.ibm.com/accessibility/us/en/">Accessibility</a></li>
-				</ul>
-			</div>
-		</footer>
-		<!-- FOOTER_END -->
- 
+
+	<!-- FOOTER_BEGIN -->
+	<div id="ibm-footer-module"></div>
+	<footer role="contentinfo" aria-label="IBM">
+		<div id="ibm-footer">
+			<h2 class="ibm-access">Footer links</h2>
+			<ul>
+				<li><a href="http://www.ibm.com/contact/us/en/">Contact</a></li>
+				<li><a href="http://www.ibm.com/privacy/us/en/">Privacy</a></li>
+				<li><a href="http://www.ibm.com/legal/us/en/">Terms of use</a></li>
+				<li><a href="http://www.ibm.com/accessibility/us/en/">Accessibility</a></li>
+			</ul>
+		</div>
+	</footer>
+	<!-- FOOTER_END -->
+
 
 
 </body>
-</html>
+</html> 
