@@ -56,7 +56,7 @@ function loadItems(){
     		}
     				
     
-    		$('#tableph').hide();
+    		$('#tableph').hide(); 
     		 $('#tcertref_content').append(html);  
    		  
     	}, function(err){
