@@ -39,7 +39,7 @@ public class ResourceServlet {
 	@POST
 	public Response create(@QueryParam("id") String id, @FormParam("name") String name, @FormParam("value") String value,
 			 @FormParam("pwcode") String pwcode,  @FormParam("description") String description,  @FormParam("unit") String unit,
-			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill)
+			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill,  @FormParam("status") String status)
 			throws Exception {
 
 		Database db = null;
@@ -55,7 +55,7 @@ public class ResourceServlet {
 		
 		System.out.println("enter post" + idString);
 		
-		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill,  null, null);
+		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill, status,  null, null);
 
 		System.out.println("Create Successful.");
 
@@ -63,7 +63,7 @@ public class ResourceServlet {
 	} 
 
 	protected JsonObject create(Database db, String id, String name, String value, String pwcode, String description, 
-			String unit, String subunit, String jobrole , String skill, Part part, String fileName)
+			String unit, String subunit, String jobrole , String skill, String status, Part part, String fileName)
 			throws IOException {
 		
 		JsonObject resultObject  = new JsonObject();
@@ -96,8 +96,10 @@ public class ResourceServlet {
 			data.put("unit", unit);
 			data.put("subunit", subunit);
 			data.put("jobrole", jobrole);
-			data.put("skill", skill); 
+			data.put("skill", skill);
+			data.put("status", status); 
 			data.put("creation_date", new Date().toString());
+			data.put("modified_date", new Date().toString());
 			db.save(data);
 
 			// attach the attachment object
@@ -119,9 +121,11 @@ public class ResourceServlet {
 			obj.put("unit", unit);
 			obj.put("subunit", subunit);
 			obj.put("jobrole", jobrole);
-			obj.put("skill", skill); 
+			obj.put("skill", skill);  
+			obj.put("status", status); 
+			obj.put("modified_date", new Date().toString());
 			db.update(obj); 
-		}
+		} 
 
 		obj = db.find(HashMap.class, id);
 		
@@ -188,10 +192,13 @@ public class ResourceServlet {
 					jsonObject.addProperty("subunit", obj.get("subunit") + "");
 					jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
 					jsonObject.addProperty("skill", obj.get("skill") + "");
-
+					jsonObject.addProperty("status", obj.get("status") + "");
+					jsonObject.addProperty("modified_date", obj.get("modified_date") + "");
+					jsonObject.addProperty("creation_date", obj.get("creation_date") + "");
 					jsonArray.add(jsonObject); 
+					
 				}
-			} catch (Exception dnfe) {
+			} catch (Exception dnfe) { 
 				System.out.println("Exception thrown : " + dnfe.getMessage());
 			}
 
@@ -221,6 +228,9 @@ public class ResourceServlet {
 			jsonObject.addProperty("subunit", obj.get("subunit") + "");
 			jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
 			jsonObject.addProperty("skill", obj.get("skill") + ""); 
+			jsonObject.addProperty("status", obj.get("status") + "");
+			jsonObject.addProperty("modified_date", obj.get("modified_date") + ""); 
+			jsonObject.addProperty("creation_date", obj.get("creation_date") + "");
 
 			jsonArray.add(jsonObject); 
 			

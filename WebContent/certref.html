@@ -23,8 +23,9 @@
 <!-- <link rel="stylesheet" href="style.css" />  -->
 
 <script type="text/javascript" src="util.js"></script>
-<script type="text/javascript" src="certref.js"></script>
 <script src="jquery-3.1.0.min.js"></script>  
+<script type="text/javascript" src="certref.js"></script>
+
 <title>Test Info Web</title>
 
 
@@ -415,7 +416,7 @@ function onchange_subunit(){
 							<div class="ibm-col-5-2">
 								<p class="ibm-btn-row">
 									<button class="ibm-btn-sec ibm-btn-green-50"
-										onClick='SaveTestInfo();'>Save</button>
+										onClick='SaveTestInfo(0);'>Save</button>
 
 								</p>
 								<div id="loadingImage"></div>
@@ -427,14 +428,16 @@ function onchange_subunit(){
 							<div class="ibm-col-5-2">
 								<p class="ibm-btn-row">
 									<button class="ibm-btn-sec ibm-btn-teal-50"
-										onClick='SaveTestInfo();'>Save and Request to Promote</button>
-								</p>
+										onClick='SaveTestInfo(1);'>Save and Request to Promote</button>
+								</p> 
 							</div>
 
 
 						</div>
 						<input style="display: none;" type="text" value="" id="iid" 
 							name="iid">
+						<input style="display: none;" type="text" value="DRAFT" id="istatus" 
+							name="istatus">  
 					</div>
 				</div>
 				</main>

@@ -88,8 +88,27 @@ loadItems();
  
  
 	
-	function SaveTestInfo()
+	function SaveTestInfo(status)
 {
+		var inputstatus;
+		
+		
+		if (status == 0 ) {
+			 if( $('#iid').val() == "" ){
+				 $('#istatus').val("DRAFT");
+			 }else {
+				 
+			 } 
+		}else {
+			 if( $('#iid').val() == "" ){
+				 $('#istatus').val("PENDING");
+			 }else {
+				 $('#istatus').val("PENDING");
+			 } 
+		}
+	
+		
+		
 		
 		var requestParam; 
 		
@@ -114,7 +133,8 @@ loadItems();
 			"unit" : document.getElementById('iunit').value,
 			"subunit" : document.getElementById('isubunit').value,
 			"jobrole" : document.getElementById('ijobrole').value,
-			"skill" : document.getElementById('iskill').value 
+			"skill" : document.getElementById('iskill').value,
+			"status" : document.getElementById('istatus').value 
 		};
 	 
 	  
