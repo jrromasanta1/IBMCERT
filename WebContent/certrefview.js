@@ -7,6 +7,20 @@ var defaultItems = [
 	
 ];
 
+
+
+$( document ).ready(function() {
+	loadItems();
+});
+
+
+    //   window.history.forward();
+      
+function noBack()
+        {
+        	loadItems();
+        }
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
