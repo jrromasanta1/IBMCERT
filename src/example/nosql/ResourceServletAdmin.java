@@ -27,40 +27,43 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.internal.LinkedTreeMap;
 
-@Path("/favorites")
+@Path("/admin")
 /**
  * CRUD service of todo list table. It uses REST style.
  */
-public class ResourceServlet {
+public class ResourceServletAdmin {
 
-	public ResourceServlet() {
+	public ResourceServletAdmin() {
 	}
-
-	@POST
+ 
+	@POST 
 	public Response create(@QueryParam("id") String id, @FormParam("name") String name, @FormParam("value") String value,
 			 @FormParam("pwcode") String pwcode,  @FormParam("description") String description,  @FormParam("unit") String unit,
 			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill,  @FormParam("status") String status)
 			throws Exception {
 
-		Database db = null;
+		Database dbprod = null;
 		try {
-			db = getDB();
+			dbprod = getDBProd();
 		} catch (Exception re) {
 			re.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		} 
 
 		String idString = id == null ? null : id.toString();
-		
+		 
 		
 		System.out.println("enter post" + idString);
 		
-		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill, status,  null, null);
+		JsonObject resultObject = create(dbprod, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill, status,  null, null);
 
 		System.out.println("Create Successful.");
 
 		return Response.ok(resultObject.toString()).build();
-	} 
+	}
+	
+	
+	
 
 	protected JsonObject create(Database db, String id, String name, String value, String pwcode, String description, 
 			String unit, String subunit, String jobrole , String skill, String status, Part part, String fileName)
@@ -83,7 +86,8 @@ public class ResourceServlet {
 			System.out.println("new doc.");
 			// if new document
 
-			id = String.valueOf(System.currentTimeMillis());
+			//id = String.valueOf(System.currentTimeMillis());
+			//will use save id as stage 
 
 			// create a new document
 			System.out.println("Creating new document with id : " + id);
@@ -129,14 +133,6 @@ public class ResourceServlet {
 
 		obj = db.find(HashMap.class, id);
 		
-		obj.put("name", name);
-		obj.put("value", value);
-		obj.put("pwcode", pwcode);
-		obj.put("description", description);
-		obj.put("unit", unit);
-		obj.put("subunit", subunit);
-		obj.put("jobrole", jobrole);
-		obj.put("skill", skill); 
 		
 		 resultObject = toJsonObject(obj);
 		
@@ -151,14 +147,16 @@ public class ResourceServlet {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@QueryParam("id") Long id, @QueryParam("cmd") String cmd) throws Exception {
 
-		Database db = null;
+		Database dbstage  = null;
+		Database dbprod  = null;
 		JsonObject resultObject  ;
 
 		JsonArray jsonArray ;
 		
 		JsonObject jsonObject; 
 		try {
-			db = getDB();
+			dbstage = getDBStage();
+			dbprod = getDBProd();
 		} catch (Exception re) {
 			re.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
@@ -172,15 +170,15 @@ public class ResourceServlet {
 			System.out.println("all");
 			try {
 				// get all the document present in database
-				List<HashMap> allDocs = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
+				List<HashMap> allDocs = dbstage.getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 						.getDocsAs(HashMap.class);
 
 				if (allDocs.size() == 0) {
-					allDocs = initializeSampleData(db);
+					allDocs = initializeSampleData(dbstage);
 				}
 
 				for (HashMap doc : allDocs) {
-					obj = db.find(HashMap.class, doc.get("_id") + "");
+					obj = dbstage.find(HashMap.class, doc.get("_id") + "");
 				   jsonObject = new JsonObject();
 					
 					jsonObject.addProperty("id", obj.get("_id") + "");
@@ -217,7 +215,7 @@ public class ResourceServlet {
 				
 		     
 			
-		    obj = db.find(HashMap.class, id + "");
+		    obj = dbstage.find(HashMap.class, id + "");
 			 jsonObject = new JsonObject();
 			jsonObject.addProperty("id", obj.get("_id") + "");
 			jsonObject.addProperty("name", obj.get("name") + "");
@@ -254,7 +252,7 @@ public class ResourceServlet {
 
 		Database db = null;
 		try {
-			db = getDB();
+			db = getDBStage();
 		} catch (Exception re) {
 			re.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
@@ -280,7 +278,7 @@ public class ResourceServlet {
 
 		Database db = null;
 		try {
-			db = getDB();
+			db = getDBStage();
 		} catch (Exception re) {
 			re.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
@@ -301,7 +299,7 @@ public class ResourceServlet {
 
 			return Response.ok("OK").build();
 		}
-	}
+	} 
 
 	private JsonArray getAttachmentList(LinkedTreeMap<String, Object> attachmentList, String docID) {
 		JsonArray attachmentArray = new JsonArray();
@@ -333,7 +331,17 @@ public class ResourceServlet {
 		}
 		jsonObject.addProperty("id", obj.get("_id") + "");
 		jsonObject.addProperty("name", obj.get("name") + "");
-		jsonObject.addProperty("value", obj.get("value") + "");
+		jsonObject.addProperty("pwcode", obj.get("pwcode") + "");
+		jsonObject.addProperty("description", obj.get("description") + "");
+		jsonObject.addProperty("unit", obj.get("unit") + "");
+		jsonObject.addProperty("subunit", obj.get("subunit") + "");
+		jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
+		jsonObject.addProperty("skill", obj.get("skill") + "");
+		jsonObject.addProperty("status", obj.get("status") + "");
+		jsonObject.addProperty("modified_date", obj.get("modified_date") + "");
+		
+		  
+	
 		return jsonObject;
 	}
 
@@ -385,8 +393,12 @@ public class ResourceServlet {
 
 	}
 
-	private Database getDB() {
-		return CloudantClientMgr.getDB();
+	private Database getDBStage() {
+		return CloudantClientMgrStage.getDB();
 	}
-
+	
+	private Database getDBProd() { 
+		return CloudantClientMgrProd.getDB();
+	}
+ 
 }

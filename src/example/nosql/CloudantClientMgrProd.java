@@ -12,13 +12,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class CloudantClientMgr { 
+public class CloudantClientMgrProd { 
 
 	private static CloudantClient cloudant = null;
 	private static Database db = null;
 
 	//private static String databaseName = "sample_nosql_db";
-	private static String databaseName = "ibmcert_stage";
+	private static String databaseName = "ibmcert_prod";
 	
 	 
 	private static String user = null;
@@ -26,7 +26,7 @@ public class CloudantClientMgr {
 
 	private static void initClient() {
 		if (cloudant == null) {
-			synchronized (CloudantClientMgr.class) {
+			synchronized (CloudantClientMgrProd.class) {
 				if (cloudant != null) {
 					return;
 				}
@@ -97,6 +97,6 @@ public class CloudantClientMgr {
 		return db;
 	}
 
-	private CloudantClientMgr() {
+	private CloudantClientMgrProd() {
 	}
 }

@@ -12,7 +12,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class CloudantClientMgr { 
+public class CloudantClientMgrStage { 
 
 	private static CloudantClient cloudant = null;
 	private static Database db = null;
@@ -26,7 +26,7 @@ public class CloudantClientMgr {
 
 	private static void initClient() {
 		if (cloudant == null) {
-			synchronized (CloudantClientMgr.class) {
+			synchronized (CloudantClientMgrStage.class) {
 				if (cloudant != null) {
 					return;
 				}
@@ -97,6 +97,6 @@ public class CloudantClientMgr {
 		return db;
 	}
 
-	private CloudantClientMgr() {
+	private CloudantClientMgrStage() {
 	}
 }
