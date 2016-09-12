@@ -50,6 +50,8 @@ function loadItems(){
     		 document.getElementById('iid').value  = item.id;
     		 document.getElementById('ipwcode').value = item.pwcode;  
     		 document.getElementById('idescription').value = item.description;
+    		 document.getElementById('unit').value = item.unit;  
+    		 document.getElementById('subunit').value = item.subunit;
     		 document.getElementById('iunit').value = item.unit;  
     		 document.getElementById('isubunit').value = item.subunit;
     		 document.getElementById('ijobrole').value =  item.jobrole;
