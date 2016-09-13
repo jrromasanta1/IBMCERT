@@ -104,7 +104,7 @@ public class ResourceServletAdmin {
 			data.put("status", status); 
 			data.put("creation_date", new Date().toString());
 			data.put("modified_date", new Date().toString());
-			db.save(data);
+			db.save(data); 
 
 			// attach the attachment object
 			obj = db.find(HashMap.class, id); 
@@ -164,7 +164,8 @@ public class ResourceServletAdmin {
 
 		 resultObject = new JsonObject();
 		 jsonArray = new JsonArray();
-		 HashMap<String, Object> obj ;
+		 HashMap<String, Object> objstage ;
+		 HashMap<String, Object> objprod ;
 
 		if (id == null) {
 			System.out.println("all");
@@ -178,21 +179,21 @@ public class ResourceServletAdmin {
 				}
 
 				for (HashMap doc : allDocs) {
-					obj = dbstage.find(HashMap.class, doc.get("_id") + "");
+					objstage = dbstage.find(HashMap.class, doc.get("_id") + "");
 				   jsonObject = new JsonObject();
 					
-					jsonObject.addProperty("id", obj.get("_id") + "");
-					jsonObject.addProperty("name", obj.get("name") + "");
-					jsonObject.addProperty("value", obj.get("value") + ""); 
-					jsonObject.addProperty("description", obj.get("description") + "");
-					jsonObject.addProperty("pwcode", obj.get("pwcode") + "");
-					jsonObject.addProperty("unit", obj.get("unit") + "");
-					jsonObject.addProperty("subunit", obj.get("subunit") + "");
-					jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
-					jsonObject.addProperty("skill", obj.get("skill") + "");
-					jsonObject.addProperty("status", obj.get("status") + "");
-					jsonObject.addProperty("modified_date", obj.get("modified_date") + "");
-					jsonObject.addProperty("creation_date", obj.get("creation_date") + "");
+					jsonObject.addProperty("id", objstage.get("_id") + "");
+					jsonObject.addProperty("name", objstage.get("name") + "");
+					jsonObject.addProperty("value", objstage.get("value") + ""); 
+					jsonObject.addProperty("description", objstage.get("description") + "");
+					jsonObject.addProperty("pwcode", objstage.get("pwcode") + "");
+					jsonObject.addProperty("unit", objstage.get("unit") + "");
+					jsonObject.addProperty("subunit", objstage.get("subunit") + "");
+					jsonObject.addProperty("jobrole", objstage.get("jobrole") + "");
+					jsonObject.addProperty("skill", objstage.get("skill") + "");
+					jsonObject.addProperty("status", objstage.get("status") + "");
+					jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
+					jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
 					jsonArray.add(jsonObject); 
 					
 				}
@@ -213,33 +214,50 @@ public class ResourceServletAdmin {
 				 resultObject = new JsonObject();
 				 jsonArray = new JsonArray();
 				
-		     
+				 jsonObject = new JsonObject();
 			
-		    obj = dbstage.find(HashMap.class, id + "");
-			 jsonObject = new JsonObject();
-			jsonObject.addProperty("id", obj.get("_id") + "");
-			jsonObject.addProperty("name", obj.get("name") + "");
-			jsonObject.addProperty("value", obj.get("value") + ""); 
-			jsonObject.addProperty("description", obj.get("description") + "");
-			jsonObject.addProperty("pwcode", obj.get("pwcode") + "");
-			jsonObject.addProperty("unit", obj.get("unit") + "");
-			jsonObject.addProperty("subunit", obj.get("subunit") + "");
-			jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
-			jsonObject.addProperty("skill", obj.get("skill") + ""); 
-			jsonObject.addProperty("status", obj.get("status") + "");
-			jsonObject.addProperty("modified_date", obj.get("modified_date") + ""); 
-			jsonObject.addProperty("creation_date", obj.get("creation_date") + "");
+			 objstage = dbstage.find(HashMap.class, id + "");
+		
+		     // stage
+			jsonObject.addProperty("id", objstage.get("_id") + "");
+			jsonObject.addProperty("name", objstage.get("name") + "");
+			jsonObject.addProperty("value", objstage.get("value") + ""); 
+			jsonObject.addProperty("s_idescription", objstage.get("description") + "");
+			jsonObject.addProperty("s_ipwcode", objstage.get("pwcode") + "");
+			jsonObject.addProperty("s_iunit", objstage.get("unit") + "");
+			jsonObject.addProperty("s_isubunit", objstage.get("subunit") + "");
+			jsonObject.addProperty("s_ijobrole", objstage.get("jobrole") + "");
+			jsonObject.addProperty("s_iskill", objstage.get("skill") + "");
+			jsonObject.addProperty("status", objstage.get("status") + "");
+			jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
+			jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
+	
+			
+			
+			//prod 
 
+			objprod = dbprod.find(HashMap.class, id + "");
+			jsonObject.addProperty("p_idescription", objprod.get("description") + "");
+			jsonObject.addProperty("p_ipwcode", objprod.get("pwcode") + "");
+			jsonObject.addProperty("p_iunit", objprod.get("unit") + "");
+			jsonObject.addProperty("p_isubunit", objprod.get("subunit") + "");
+			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
+			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
+			jsonObject.addProperty("status", objprod.get("status") + "");
+			jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
+			jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
+				
 			jsonArray.add(jsonObject); 
 			
-			
-			resultObject.addProperty("id", obj.get("_id") + "");
+			resultObject.addProperty("id", objstage.get("_id") + "");
 			resultObject.add("body", jsonArray);
+			
 			
 			} catch (Exception dnfe) {
 				System.out.println("Exception thrown : " + dnfe.getMessage());
 			}
 	 
+			
 
 			return Response.ok(resultObject.toString()).build();
 			
