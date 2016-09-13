@@ -211,13 +211,15 @@ public class ResourceServletAdmin {
 			System.out.println("Fetch id : " + id); 
 		// FOR GETTING ONE obj
 			try {
+				System.out.println("sect 1"); 
 				 resultObject = new JsonObject();
+				System.out.println("sect 2");
 				 jsonArray = new JsonArray();
-				
+				 System.out.println("sect 3");
 				 jsonObject = new JsonObject();
-			
+				 System.out.println("sect 4");
 			 objstage = dbstage.find(HashMap.class, id + "");
-		
+			 System.out.println("sect 5");
 		     // stage
 			 if (objstage != null){
 			jsonObject.addProperty("id", objstage.get("_id") + "");
@@ -233,11 +235,13 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
 			jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
 			 }
+			 
+			 System.out.println("sect 6");
 			
 			//prod 
 
 			objprod = dbprod.find(HashMap.class, id + "");
-			
+			 System.out.println("sect 7");
 			if (objprod != null){
 			jsonObject.addProperty("p_idescription", objprod.get("description") + "");
 			jsonObject.addProperty("p_ipwcode", objprod.get("pwcode") + "");
@@ -247,13 +251,16 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
 			}	
-			 
+			
+			 System.out.println("sect 8");
 			jsonArray.add(jsonObject); 
 			
 			resultObject.addProperty("id", objstage.get("_id") + "");
 			resultObject.add("body", jsonArray);
 			
-			
+			 System.out.println("sect 9");
+			 
+			 
 			} catch (Exception dnfe) {
 				System.out.println("Exception thrown : " + dnfe.getMessage()); 
 			}
