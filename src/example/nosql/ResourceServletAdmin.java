@@ -76,23 +76,21 @@ public class ResourceServletAdmin {
 		
 		// check if document exist 
 		HashMap<String, Object> obj = null;
+		
 		System.out.println("id input!!!!!: " + id);  
-	//	HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
-
+		
+		try {
+			 obj = (id == null) ? null : db.find(HashMap.class, id);
+		 } catch (Exception dnfe) { 
+			 obj = null;
+		}
 	 
-				
-				
 		System.out.println("search done: " + id);  
 		
 		if (obj == null) {
 			
 			System.out.println("new doc.");
-			// if new document
-
-			//id = String.valueOf(System.currentTimeMillis());
-			//will use save id as stage 
-
-			// create a new document
+			
 			System.out.println("Creating new document with id : " + id);
 			Map<String, Object> data = new HashMap<String, Object>();
 			data.put("name", name);
@@ -104,7 +102,7 @@ public class ResourceServletAdmin {
 			data.put("subunit", subunit);
 			data.put("jobrole", jobrole);
 			data.put("skill", skill);
-			data.put("status", status); 
+			//data.put("status", status); 
 			data.put("creation_date", new Date().toString());
 			data.put("modified_date", new Date().toString());
 			db.save(data); 
@@ -118,9 +116,10 @@ public class ResourceServletAdmin {
 			// if existing document
 			// attach the attachment object
 			saveAttachment(db, id, part, fileName, obj);
-
+   
 			// update other fields in the document
 			obj = db.find(HashMap.class, id);
+			
 			obj.put("name", name);
 			obj.put("value", value);
 			obj.put("pwcode", pwcode);
@@ -129,18 +128,14 @@ public class ResourceServletAdmin {
 			obj.put("subunit", subunit);
 			obj.put("jobrole", jobrole);
 			obj.put("skill", skill);  
-			obj.put("status", status); 
+			//obj.put("status", status);  
 			obj.put("modified_date", new Date().toString());
 			db.update(obj); 
 		} 
 
-		obj = db.find(HashMap.class, id);
-		
-		
-		 resultObject = toJsonObject(obj);
-		
-		
-	 
+		obj = db.find(HashMap.class, id);			
+		resultObject = toJsonObject(obj);
+			 
 		//jsonArray.add(jsonObject); 
 		//resultObject.add("body", jsonArray);
 		return resultObject;
@@ -205,7 +200,7 @@ public class ResourceServletAdmin {
 					jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
 					jsonArray.add(jsonObject); 
 					
-				}
+				} 
 			} catch (Exception dnfe) { 
 				System.out.println("Exception thrown : " + dnfe.getMessage());
 			}
