@@ -82,7 +82,7 @@ public class CloudantClientMgrStage {
 		}
 	}
 
-	public static Database getDB() {
+	public static Database getDB() { 
 		if (cloudant == null) {
 			initClient();
 		}
@@ -90,6 +90,7 @@ public class CloudantClientMgrStage {
 		if (db == null) {
 			try {
 				db = cloudant.database(databaseName, true);
+				
 			} catch (Exception e) {
 				throw new RuntimeException("DB Not found", e);
 			}
