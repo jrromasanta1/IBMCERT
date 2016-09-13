@@ -222,6 +222,7 @@ public class ResourceServletAdmin {
 				 jsonObject = new JsonObject();
 				 System.out.println("sect 4");
 			
+			/*
 			objstage = dbstage.find(HashMap.class, id + "");
 			 
 			 System.out.println("sect 5-inside");   
@@ -241,6 +242,7 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
 			jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
 			 }
+			 */
 			 
 			 System.out.println("sect 6-middle");
 		 	
@@ -249,7 +251,9 @@ public class ResourceServletAdmin {
 			 
 			  
 			objprod = dbprod.find(HashMap.class, id + "");
+			
 			 System.out.println("sect 7-inside");
+			 
 			if (objprod != null){
 			jsonObject.addProperty("p_idescription", objprod.get("description") + "");
 			jsonObject.addProperty("p_ipwcode", objprod.get("pwcode") + "");
@@ -263,9 +267,9 @@ public class ResourceServletAdmin {
 			 System.out.println("sect 8");
 			jsonArray.add(jsonObject); 
 			
-			resultObject.addProperty("id", objstage.get("_id") + "");
+			resultObject.addProperty("id", id + "");
 			resultObject.add("body", jsonArray);
-			
+			 
 			 System.out.println("sect 9");
 			 
 			 
@@ -431,7 +435,7 @@ public class ResourceServletAdmin {
 		return CloudantClientMgrStage.getDB();
 	}
 	
-	private Database getDBProd() { 
+	private Database getDBProd() {   
 		return CloudantClientMgrProd.getDB();
 	}
  
