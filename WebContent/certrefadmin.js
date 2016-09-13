@@ -200,8 +200,7 @@ loadItems();
 			"unit" : $('#iunit').val(),
 			"subunit" : $('#isubunit').val(),
 			"jobrole" : $('#ijobrole').val(),
-			"skill" : $('#iskill').val(),
-			"status" : $('#istatus').val()  
+			"skill" : $('#iskill').val() 
 	};
 	 
 	  
