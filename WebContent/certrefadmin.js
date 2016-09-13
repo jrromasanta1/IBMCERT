@@ -31,8 +31,7 @@ function loadItems(){
     	
     	xhrGet(REST_DATA  + searchquery , function(data){  
     		
-    		//stop showing loading message  
-    		stopLoadingMessage();
+    		//stop showing loading message   
     		
     		var receivedItems = data.body || [];
     		var items = [];
@@ -40,6 +39,11 @@ function loadItems(){
     		
     		var item = receivedItems[0];
     		
+    		
+
+
+    		console.log("pwcode:" + item.s_ipwcode);
+    		console.log("unit:" + item.unit); 
     		 
    
     		$("#iid" ).val( item.id);
