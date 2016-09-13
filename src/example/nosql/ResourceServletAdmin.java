@@ -218,10 +218,11 @@ public class ResourceServletAdmin {
 				 System.out.println("sect 3");
 				 jsonObject = new JsonObject();
 				 System.out.println("sect 4");
-			 objstage = dbstage.find(HashMap.class, id + "");
+			
+			objstage = dbstage.find(HashMap.class, id + "");
 			 
 			 System.out.println("sect 5-inside");   
-			 
+			  
 		     // stage
 			 if (objstage != null){
 			jsonObject.addProperty("id", objstage.get("_id") + "");
@@ -239,9 +240,9 @@ public class ResourceServletAdmin {
 			 }
 			 
 			 System.out.println("sect 6-middle");
-			
+		 	
 			//prod 
-
+/*
 			objprod = dbprod.find(HashMap.class, id + "");
 			 System.out.println("sect 7-inside");
 			if (objprod != null){
@@ -253,7 +254,7 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
 			}	
-			
+	*/		
 			 System.out.println("sect 8");
 			jsonArray.add(jsonObject); 
 			
