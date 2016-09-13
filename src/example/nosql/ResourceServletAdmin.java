@@ -256,8 +256,11 @@ public class ResourceServletAdmin {
 
 			 
 			 
-			
+			 try {
 			objprod = dbprod.find(HashMap.class, id + "");
+			 } catch (Exception dnfe) {
+				 objprod = null	;			 
+			 }
 			
 			 System.out.println("sect 7-inside");
 			 
@@ -269,10 +272,18 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
-			}	
+			}	else {
+				jsonObject.addProperty("p_idescription",  "");
+				jsonObject.addProperty("p_ipwcode", "");
+				jsonObject.addProperty("p_iunit", "");
+				jsonObject.addProperty("p_isubunit",  "");
+				jsonObject.addProperty("p_ijobrole",  "");
+				jsonObject.addProperty("p_iskill",  "");
+				jsonObject.addProperty("status",  "");
+			}
 			 
-			 
-			 
+		  	 
+			  
 		
 			 System.out.println("sect 8");
 			jsonArray.add(jsonObject); 
