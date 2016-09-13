@@ -74,12 +74,12 @@ public class ResourceServletAdmin {
 		JsonObject jsonObject = new JsonObject();  
 		 
 		
-		// check if document exist
+		// check if document exist 
 		
-		System.out.println("id input: " + id);  
+		System.out.println("id input!!!!!: " + id);  
 		HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
 
-		
+		System.out.println("search done: " + id);  
 		
 		if (obj == null) {
 			
