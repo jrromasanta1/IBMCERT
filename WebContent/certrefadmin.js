@@ -195,13 +195,13 @@ loadItems();
 	//var id =document.getElementById('iseries').value;
 	
 	var data = { 		
-			"pwcode" : document.getElementById('ipwcode').value,
-			"description" : document.getElementById('idescription').value,
-			"unit" : document.getElementById('iunit').value,
-			"subunit" : document.getElementById('isubunit').value,
-			"jobrole" : document.getElementById('ijobrole').value,
-			"skill" : document.getElementById('iskill').value,
-			"status" : document.getElementById('istatus').value 
+			"pwcode" : $('#ipwcode').val(),
+			"description" : $('#idescription').val(),
+			"unit" : $('#iunit').val(),
+			"subunit" : $('#isubunit').val(),
+			"jobrole" : $('#ijobrole').val(),
+			"skill" : $('#iskill').val(),
+			"status" : $('#istatus').val()  
 	};
 	 
 	  
