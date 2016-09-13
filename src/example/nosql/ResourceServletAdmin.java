@@ -256,7 +256,7 @@ public class ResourceServletAdmin {
 
 			 
 			 
-			 /*
+			
 			objprod = dbprod.find(HashMap.class, id + "");
 			
 			 System.out.println("sect 7-inside");
@@ -269,7 +269,7 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
-			}	*/ 
+			}	
 			 
 			 
 			 
