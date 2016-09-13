@@ -156,12 +156,15 @@ public class ResourceServletAdmin {
 		JsonObject jsonObject; 
 		try {
 			dbstage = getDBStage();
+			System.out.println("cloud connection success stage!");
 			dbprod = getDBProd();
+			System.out.println("cloud connection success prod!");
 		} catch (Exception re) {
 			re.printStackTrace();
+			System.out.println("cloud connection FAIL:" + re.getMessage() );
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
-
+   
 		 resultObject = new JsonObject();
 		 jsonArray = new JsonArray();
 		 HashMap<String, Object> objstage ;
@@ -242,7 +245,9 @@ public class ResourceServletAdmin {
 			 System.out.println("sect 6-middle");
 		 	
 			//prod 
-/*
+
+			 
+			  
 			objprod = dbprod.find(HashMap.class, id + "");
 			 System.out.println("sect 7-inside");
 			if (objprod != null){
@@ -254,7 +259,7 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
 			}	
-	*/		
+		
 			 System.out.println("sect 8");
 			jsonArray.add(jsonObject); 
 			

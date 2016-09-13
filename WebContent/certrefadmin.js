@@ -46,11 +46,11 @@ function loadItems(){
     		$("#s_ipwcode" ).append( item.s_ipwcode);
     		$("#p_ipwcode" ).append( item.p_ipwcode);
     		
-    	    if( item.s_ipwcode != item.s_ipwcode){
+    	    if( item.s_ipwcode != item.p_ipwcode){
     	    	$( "#s_ipwcode" ).addClass( "ibm-bgcolor-yellow-10" );
     	    	$( "#p_ipwcode" ).addClass( "ibm-bgcolor-yellow-10" );
     	    }else{
-    	    	
+    	    	 
     	    }
     	    
     	    $("#ipwcode" ).val( item.s_ipwcode);
