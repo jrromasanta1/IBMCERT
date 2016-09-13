@@ -219,6 +219,7 @@ public class ResourceServletAdmin {
 			 objstage = dbstage.find(HashMap.class, id + "");
 		
 		     // stage
+			 if (objstage != null){
 			jsonObject.addProperty("id", objstage.get("_id") + "");
 			jsonObject.addProperty("name", objstage.get("name") + "");
 			jsonObject.addProperty("value", objstage.get("value") + ""); 
@@ -231,12 +232,13 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("status", objstage.get("status") + "");
 			jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
 			jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
-	
-			
+			 }
 			
 			//prod 
 
 			objprod = dbprod.find(HashMap.class, id + "");
+			
+			if (objprod != null){
 			jsonObject.addProperty("p_idescription", objprod.get("description") + "");
 			jsonObject.addProperty("p_ipwcode", objprod.get("pwcode") + "");
 			jsonObject.addProperty("p_iunit", objprod.get("unit") + "");
@@ -244,9 +246,8 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
-			jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
-			jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
-				
+			}	
+			 
 			jsonArray.add(jsonObject); 
 			
 			resultObject.addProperty("id", objstage.get("_id") + "");
@@ -254,7 +255,7 @@ public class ResourceServletAdmin {
 			
 			
 			} catch (Exception dnfe) {
-				System.out.println("Exception thrown : " + dnfe.getMessage());
+				System.out.println("Exception thrown : " + dnfe.getMessage()); 
 			}
 	 
 			
