@@ -75,10 +75,13 @@ public class ResourceServletAdmin {
 		 
 		
 		// check if document exist 
-		
+		HashMap<String, Object> obj = null;
 		System.out.println("id input!!!!!: " + id);  
-		HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
+	//	HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
 
+	 
+				
+				
 		System.out.println("search done: " + id);  
 		
 		if (obj == null) {
@@ -167,6 +170,7 @@ public class ResourceServletAdmin {
    
 		 resultObject = new JsonObject();
 		 jsonArray = new JsonArray();
+		 
 		 HashMap<String, Object> objstage ;
 		 HashMap<String, Object> objprod ;
 
@@ -249,7 +253,7 @@ public class ResourceServletAdmin {
 			//prod 
 
 			 
-			  /*
+			 
 			objprod = dbprod.find(HashMap.class, id + "");
 			
 			 System.out.println("sect 7-inside");
@@ -263,8 +267,7 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
 			}	
-			
-			*/ 
+			 
 		
 			 System.out.println("sect 8");
 			jsonArray.add(jsonObject); 
@@ -438,7 +441,7 @@ public class ResourceServletAdmin {
 	}
 	
 	private Database getDBProd() {   
-		return CloudantClientMgrProd.getDB();
+		return CloudantClientMgrProd.getDB(); 
 	}
  
 }
