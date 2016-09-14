@@ -131,7 +131,7 @@ public class ResourceServletStage {
 			System.out.println("in coming status" + status);
 			
 			
-			if (obj.get("status") == "Draft"){
+			if (obj.get("status")+"" == "Draft"){
 				
 				
 				if (status == "Draft"){
@@ -140,7 +140,7 @@ public class ResourceServletStage {
 				} else {
 					
 				}
-			} else if (obj.get("status") == "Published") {
+			} else if (obj.get("status")+"" == "Published") {
 				if (status == "Draft"){
 					status = "Published";
 					System.out.println("stat2");
@@ -148,8 +148,8 @@ public class ResourceServletStage {
 					status = "Ready For Promotion" ;
 					System.out.println("stat3");
 				}
-				
-			} else if (obj.get("status") == "Ready For Promotion") {
+				 
+			} else if (obj.get("status")+"" == "Ready For Promotion") {
 				if (status == "Draft"){
 					status = "Ready For Promotion";
 					System.out.println("stat4");
