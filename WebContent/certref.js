@@ -74,6 +74,13 @@ function loadItems(){
     		var item = receivedItems[0];
     		
     		 
+    		
+    		
+
+    		$("#previewsect").show();
+    		$("#previewlink").append("<a href='/preview_certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/preview_certpage.html?id=" + item.id +"</a>");
+    		 
+    		
     		console.log("id:" + item.id);
     		console.log("description:" + item.description);
     		console.log("pwcode:" + item.pwcode);
