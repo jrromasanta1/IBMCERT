@@ -140,8 +140,8 @@ function loadItems(){
     	    $("#ijobrole" ).val( item.s_ijobrole);
     	    
     	    
-    	    $("#s_iskill" ).append( item.s_ijobrole);
-    		$("#p_iskill" ).append( item.p_ijobrole);
+    	    $("#s_iskill" ).append( item.s_iskill);
+    		$("#p_iskill" ).append( item.p_iskill);  
     		
     	    if( item.s_iskill != item.p_iskill){
     	    	$( "#s_iskill" ).addClass( "ibm-bgcolor-yellow-10" );
