@@ -31,8 +31,8 @@ function generate_message(message) {
     
     } else {
     	console.log("option2:" + message);
-    	$("#mess_card").show();  
-    	$("#mess_card_content").empty();     
+    	$("#mess_card").hide();   
+    	$("#mess_card_content").empty();      
     }   
 } 
 
