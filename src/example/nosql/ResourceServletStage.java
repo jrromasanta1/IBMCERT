@@ -113,7 +113,7 @@ public class ResourceServletStage {
 			saveAttachment(db, id, part, fileName, obj);
 
 			// update other fields in the document
-			obj = db.find(HashMap.class, id);
+			obj = db.find(HashMap.class, id + "");
 			
 			
 			
@@ -126,11 +126,14 @@ public class ResourceServletStage {
 			obj.put("jobrole", jobrole);
 			obj.put("skill", skill);
 			
+			
+			System.out.println("saved status:" + obj.get("status"));
+			
 			if (obj.get("status") == "Draft"){
 				if (status == "Draft"){
 					status = "Draft";
 				} else {
-					status = status ;
+					
 				}
 			} else if (obj.get("status") == "Published") {
 				if (status == "Draft"){

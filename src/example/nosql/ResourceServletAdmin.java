@@ -45,8 +45,8 @@ public class ResourceServletAdmin {
 		Database dbstage = null;
 		Database dbprod = null;
 		try {
-			dbstage = getDBProd();
-			dbprod = getDBProd();
+			dbstage = getDBStage();
+			dbprod = getDBProd(); 
 		} catch (Exception re) {
 			re.printStackTrace();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();

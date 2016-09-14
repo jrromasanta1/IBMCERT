@@ -96,7 +96,7 @@ function loadItems(){
     		 $("#cur_status" ).append(item.status);  
     		 
     		 
-    		 $("#testinfotitle" ).append( item.ipwcode);       
+    		 $("#testinfotitle" ).append( item.pwcode);        
      
     		 
     		 
