@@ -42,9 +42,7 @@ function loadItems(){
 	var message = getParameterByName('m'); 
 	
 	console.log("q:" + message);
-	
-	generate_message(message); 
-	
+
 	var searchquery = "";
 	
     if ( current_id == null ) {
@@ -149,6 +147,8 @@ function loadItems(){
     	    }
     	    
     	    $("#iskill" ).val( item.s_iskill); 
+    	    
+    	    
       		  
     	}, function(err){
     		console.log(err);
@@ -157,6 +157,10 @@ function loadItems(){
     		document.getElementById('errorDiv').innerHTML = err;
     		
     	});
+    	
+    	generate_message(message);  
+    	
+    	
     }
 }
  
