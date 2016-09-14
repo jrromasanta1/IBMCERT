@@ -128,28 +128,38 @@ public class ResourceServletStage {
 			
 			
 			System.out.println("saved status:" + obj.get("status"));
+			System.out.println("in coming status" + status);
+			
 			
 			if (obj.get("status") == "Draft"){
+				
+				
 				if (status == "Draft"){
 					status = "Draft";
+					System.out.println("stat1");
 				} else {
 					
 				}
 			} else if (obj.get("status") == "Published") {
 				if (status == "Draft"){
 					status = "Published";
+					System.out.println("stat2");
 				} else {
 					status = "Ready For Promotion" ;
+					System.out.println("stat3");
 				}
 				
 			} else if (obj.get("status") == "Ready For Promotion") {
 				if (status == "Draft"){
 					status = "Ready For Promotion";
+					System.out.println("stat4");
 				} else {
 					status = "Ready For Promotion" ;
+					System.out.println("stat5");
 				}
 			} 
 			
+			System.out.println("final" + status);
 			
 			obj.put("status", status); 
 			
