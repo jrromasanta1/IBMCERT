@@ -22,11 +22,11 @@ function getParameterByName(name, url) {
 function generate_message(message) {
 
 	console.log("optiontest:" + message);
-	$("#mess_card").show();
-	$("#mess_card_card").addClass( "ibm-background-green-10" ); 
-	$("#mess_card_content").append("<span class='ibm-h4'>Promotion to Production was successful</span>");
+	$("#messagebox").show();
+	$("#messagecard").addClass( "ibm-background-green-10" ); 
+	$("#messagecontent").append("<span class='ibm-h4'>Promotion to Production was successful</span>");
 
-	/*if(message == "1"){
+	/*if(message == "1"){ 
     	console.log("option111:" + message);
     	$("#mess_card").show();
     	$("#mess_card_card").addClass( "ibm-background-green-10" );
