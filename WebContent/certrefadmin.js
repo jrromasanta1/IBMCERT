@@ -48,7 +48,9 @@ function loadItems(){
 	var message = getParameterByName('m'); 
 	
 	console.log("q:" + message);
-
+	generate_message(message);    
+	
+	
 	var searchquery = "";
 	
     if ( current_id == null ) {
@@ -164,7 +166,7 @@ function loadItems(){
     		
     	});
     	
-    	generate_message(message);  
+    
     	
     	
     }
