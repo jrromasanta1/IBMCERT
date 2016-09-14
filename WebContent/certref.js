@@ -121,7 +121,7 @@ function loadItems(){
 $( document ).ready(function() {
 loadItems(); 
 }); 
-
+ 
 
  
  
@@ -133,17 +133,18 @@ loadItems();
 		
 		if (status == 0 ) {
 		
-		if( $('#istatus').val() == "Published"){
-			 $('#istatus').val("Published: Changes in Draft");
-		} if( $('#istatus').val() == "Ready For Promotion"){
-			 $('#istatus').val("Ready For Promotion"); 
+		if(document.getElementById("istatus").value == "Published"){
+			document.getElementById("istatus").value  = "Published: Changes in Draft" ;
+			
+		} if( document.getElementById("istatus").value == "Ready For Promotion"){
+			document.getElementById("istatus").value  = "Ready For Promotion" ;
 		} else {
-			 $('#istatus').val("Draft"); 
-		}
+			document.getElementById("istatus").value  = "Draft";
+		} 
 		
 		}else {
-		 
-				 $('#istatus').val("Ready For Promotion");
+			document.getElementById("istatus").value  = "Ready For Promotion" ;
+		
 			 
 		}
 	
