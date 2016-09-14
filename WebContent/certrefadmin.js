@@ -45,8 +45,9 @@ function loadItems(){
 	
 	console.log("q:" + message);
 	
-	generate_message(message);    
-	
+	if (message != null) {
+	  generate_message(message);    
+	}
 	
 	var searchquery = "";
 	
