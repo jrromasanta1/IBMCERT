@@ -21,11 +21,13 @@ function getParameterByName(name, url) {
 
 function generate_message(message) {
     if(message == "1"){
+    	console.log("option1:" + message);
     	$("#mess_card").show();
     	$("#mess_card_card").addClass( "ibm-background-green-10" );
     	$("#mess_card_content").append("<span class='ibm-h4'>Promotion to Production was successful</span>");    	
     } else {
-    	$("#mess_card").show();
+    	console.log("option2:" + message);
+    	$("#mess_card").show();  
     	$("#mess_card_content").empty();     
     }	
 }
@@ -36,6 +38,8 @@ function loadItems(){
 	
 	var current_id = getParameterByName('id');
 	var message = getParameterByName('m'); 
+	
+	console.log("q:" + message);
 	
 	generate_message(message); 
 	
