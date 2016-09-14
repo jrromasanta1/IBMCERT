@@ -91,7 +91,7 @@ function loadItems(){
     		 document.getElementById('iskill').value  = item.skill; 
     		 document.getElementById('areajobrole').value =  item.jobrole;
     		 document.getElementById('areaskill').value  = item.skill;
-    		 document.getElementById('status').value  = item.status;
+    		 document.getElementById('istatus').value  = item.status; 
     		 $("#cur_status" ).empty();      
     		 $("#cur_status" ).append(item.status);  
     		 
