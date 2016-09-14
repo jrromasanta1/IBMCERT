@@ -93,10 +93,16 @@ function loadItems(){
     		 document.getElementById('areaskill').value  = item.skill;
     		 document.getElementById('status').value  = item.status;
     		 $("#cur_status" ).empty();      
-    		 $("#cur_status" ).append(item.status); 
-    		  $("#testinfotitle" ).append( item.id);      
-    		  
+    		 $("#cur_status" ).append(item.status);  
+    		 
+    		 
+    		 $("#testinfotitle" ).append( item.ipwcode);       
+     
+    		 
+    		 
     	}, function(err){
+    		
+    		
     		console.log(err);
     		//stop showing loading message
     	
