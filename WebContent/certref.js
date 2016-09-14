@@ -32,14 +32,20 @@ function generate_message(message) {
 
         	$("#messagecontent").append("<span class='ibm-h4'>Save and Request to Promote Successful</span>"); 
     
-    } else {
+    } else if(message == "0"){
     	
-    	$("#messagebox").hide();  
-    	$("#messagecontent").empty();     
+      	$("#messagebox").show();
+    	$("#messagecard").addClass( "ibm-background-red-10" );
+
+    	$("#messagecontent").append("<span class='ibm-h4'>Save Failed</span>");
+    	
+    }else {
+      	$("#messagebox").hide();   
+    
     }   
 }  
 
-
+  
 function loadItems(){
 	
 	var current_id = getParameterByName('id');
@@ -84,7 +90,9 @@ function loadItems(){
     		 document.getElementById('ijobrole').value =  item.jobrole;
     		 document.getElementById('iskill').value  = item.skill; 
     		 document.getElementById('areajobrole').value =  item.jobrole;
-    		 document.getElementById('areaskill').value  = item.skill; 
+    		 document.getElementById('areaskill').value  = item.skill;
+    		 
+    		  $("#testinfotitle" ).append( item.id);      
     		  
     	}, function(err){
     		console.log(err);
@@ -181,7 +189,7 @@ loadItems();
 	}, function(err){ 
 		console.log(err);
 		//stop showing loading message
-
+		window.location.replace("http://ibmcert.mybluemix.net/certref.html?id=" + item.id  + "&m=2");
 		document.getElementById('errorDiv').innerHTML = err;
 	});
 

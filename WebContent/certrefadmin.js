@@ -151,6 +151,8 @@ function loadItems(){
     	    }
     	    
     	    $("#iskill" ).val( item.s_iskill); 
+    	    
+    	    $("#testinfotitle" ).append( item.s_ipwcode);   
     	        	    
       		  
     	}, function(err){
