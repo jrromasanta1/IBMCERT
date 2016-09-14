@@ -20,18 +20,24 @@ function getParameterByName(name, url) {
 
 
 function generate_message(message) {
-    if(message == "1"){
+
+	console.log("optiontest:" + message);
+	$("#mess_card").show();
+	$("#mess_card_card").addClass( "ibm-background-green-10" ); 
+	$("#mess_card_content").append("<span class='ibm-h4'>Promotion to Production was successful</span>");
+
+	/*if(message == "1"){
     	console.log("option111:" + message);
     	$("#mess_card").show();
     	$("#mess_card_card").addClass( "ibm-background-green-10" );
-    	$("#mess_card_card").show();
+
     	$("#mess_card_content").append("<span class='ibm-h4'>Promotion to Production was successful</span>");
-    	$("#mess_card_content").show();
+    
     } else {
     	console.log("option2:" + message);
     	$("#mess_card").show();  
     	$("#mess_card_content").empty();     
-    }	 
+    }/*	 
 } 
 
 
