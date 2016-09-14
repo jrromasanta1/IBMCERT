@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />      
+    <link rel="shortcut icon" href="//www.ibm.com/favicon.ico" />
+    
+	<meta name="geo.country" content="US" /> 
+	<meta name="dcterms.rights" content="Copyright IBM Corp. 2015" /> 
+	<meta name="dcterms.date" content="REPLACE" /> 
+	<meta name="description" content="REPLACE" /> 
+	<meta name="keywords" content="REPLACE" /> 
+	<meta name="robots" content="index, follow" /> 
+    <title>IBM Professional Certification Program</title>
+    
+    
+	<script> 
+		 digitalData = {
+		  "page":{
+		    "category":{
+		      "primaryCategory":"REPLACE"
+		    },
+		    "pageInfo":{
+		      "effectiveDate":"REPLACE",
+		      "expiryDate":"REPLACE",
+		      "language":"en-US",
+		      "publishDate":"REPLACE",
+		      "publisher":"IBM Corporation",
+		      "version":"v18",
+		      "ibm":{
+		        "contentDelivery":"REPLACE",
+		        "contentProducer":"REPLACE",
+		        "country":"US",
+		        "industry":"REPLACE",
+		        "owner":"REPLACE",
+		        "subject":"REPLACE",
+		        "type":"REPLACE"
+		      }
+		    }
+		  }
+		}; 
+	 </script>
+    <script src="//www.ibm.com/common/stats/ida_stats.js"></script>
+    <link href="//1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
+    <script src="//1.www.s81c.com/common/v18/js/www.js"></script>
+	<link href="//1.www.s81c.com/common/v18/css/tables.css" rel="stylesheet">
+<script src="//1.www.s81c.com/common/v18/js/tables.js"></script>
+
+<script src="jose/jquery-3.1.0.min.js"></script>  
+<script type="text/javascript" src="preview_certpage.js"> </script>  
+
+<script type="text/javascript">
+	function highlight(id){
+	if(id=="nav"){
+		document.getElementById(id).className += " ibm-background-blue-60";
+		document.getElementById("backband").className += " ibm-background-blue-60";
+	}else{
+		document.getElementById(id).className += " ibm-background-blue-60";
+	}
+	
+	}
+	
+	
+	
+	
+	
+</script>
+<script type="text/javascript">
+	function lowlight(id){
+	
+	if(id=="nav"){
+		document.getElementById(id).className = "ibm-col-6-2 ibm-alternate-background ibm-center ibm-padding-bottom-0 ibm-padding-top-0 ibm-background-blue-50";
+		document.getElementById("backband").className = "ibm-band ibm-nospacing ibm-background-blue-50";
+	}else{
+		document.getElementById(id).className = "ibm-col-6-2 ibm-alternate-background ibm-center ibm-padding-bottom-0 ibm-padding-top-0 ibm-background-blue-50";
+	}
+	
+	}
+	
+	
+	function tabcontol(row,tab){
+	
+		$( '#t'+row+'_1' ).attr( "aria-selected", "false" );
+		$( '#t'+row+'_2' ).attr( "aria-selected", "false" );
+		$( '#t'+row+'_3' ).attr( "aria-selected", "false" );
+		$( '#t'+row+'_4' ).attr( "aria-selected", "false" );	
+		$( '#t'+row+'_5' ).attr( "aria-selected", "false" );
+	
+	  $('#c'+row+'_1').hide();
+	  $('#c'+row+'_2').hide();
+	  $('#c'+row+'_3').hide();
+	  $('#c'+row+'_4').hide();
+	  $('#c'+row+'_5').hide();
+	  
+	  
+	  if(tab == 1){
+	  
+	  $('#c'+row+'_1').show();
+		$( '#t'+row+'_1' ).attr( "aria-selected", "true" );
+	  } else if(tab == 2){
+
+	  $('#c'+row+'_2').show();
+	$( '#t'+row+'_2' ).attr( "aria-selected", "true" );
+	  } else if(tab == 3){
+
+	  $('#c'+row+'_3').show();
+	  $( '#t'+row+'_3' ).attr( "aria-selected", "true" );
+	 
+	  } else if(tab == 4){
+
+	  $('#c'+row+'_4').show();
+	 $( '#t'+row+'_4' ).attr( "aria-selected", "true" );
+	  
+	  } else if(tab == 5){
+
+	  $('#c'+row+'_5').show();
+	  $( '#t'+row+'_5' ).attr( "aria-selected", "true" );
+	 }
+
+	}
+	
+	
+</script>
+    
+	<script type="text/javascript">
+		 IBMCore.common.util.config.set({
+		  "masthead":{
+		    "type":"alternate"
+		  },
+		  "footer":{
+		    "type":"alternate"
+		  }
+		});  
+	 </script>
+  </head>
+  <body id="ibm-com" class="ibm-type">
+    <div id="ibm-top" class="ibm-landing-page">
+
+      <!-- MASTHEAD_BEGIN -->
+      <div id="ibm-masthead" role="banner" aria-label="IBM">
+        <div id="ibm-mast-options">
+          <ul role="toolbar" aria-labelledby="ibm-masthead">
+            <li id="ibm-geo" role="presentation"><a href="http://www.ibm.com/planetwide/select/selector.html" role="button" aria-label="United States selected - Choose a country">United States</a></li>
+            <li id="ibm-language" role="presentation"><span class="ibm-active" role="button" aria-disabled="true">English</span> <a href="http://www.ibm.com/us/en/" lang="en-US" role="button">English</a></li>
+          </ul>
+        </div>
+        <div id="ibm-universal-nav">    
+          
+
+          <nav role="navigation" aria-label="IBM">
+            <div id="ibm-home"><a href="http://www.ibm.com/us/en/">IBM®</a></div>
+            
+			<!--
+			<ul id="ibm-menu-links" role="toolbar" aria-label="Site map">
+              <li><a href="http://www.ibm.com/sitemap/us/en/">Site map</a></li>
+            </ul> -->
+			
+          </nav>
+          		  <!--
+          <div id="ibm-search-module" role="search" aria-labelledby="ibm-masthead">
+            <form id="ibm-search-form" action="http://www.ibm.com/Search/" method="get">
+              <p>
+                <label for="q">IBM</label>
+                <input type="text" maxlength="100" value="" placeholder="Search" name="q" id="q" aria-label="Search"/>
+                <input type="hidden" value="18" name="v"/>
+                <input type="hidden" value="utf" name="en"/>
+                <input type="hidden" value="en" name="lang"/>
+                <input type="hidden" value="us" name="cc"/>
+                <input type="submit" id="ibm-search" class="ibm-btn-search" value="Submit"/>
+              </p>
+            </form>
+          </div>
+		  -->
+		  
+        </div>
+      </div>
+      <!-- MASTHEAD_END -->
+		<!-- MASTHEAD_END -->
+		<header role="banner" aria-labelledby="ibm-pagetitle-h1">
+						<div class="ibm-sitenav-menu-container"> 
+		<div  class="ibm-sitenav-menu-name"><a href="#" class="ibm-h4">PREVIEW : IBM Professional Certification Program</a></div>
+ <div class="ibm-sitenav-menu-list">
+			<ul role="menubar">
+				<li role="presentation" class="ibm-haschildlist"><span  role="menuitem" onclick="location.href='https://www.ibm.com/certify/member/ccsc.nsf/mainformv18?OpenForm&page=mycert';">Certificates &amp  Exams</span>
+					<ul role="menu">
+				<li  role="presentation"><a  role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=mycert_certification" >My Certificates</a></li>
+				<li  role="presentation"><a  role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=mycert_mastery" >My Mastery Skills</a></li>
+					<li role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=mycert_premiumd">Order Premium Certificates</a></li>		
+						<li  role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=mycert_exam">View Exam History</a></li>						
+						<li  role="presentation"><a  role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=mycert_transcript">Create an Online Transcript </a></li>
+					</ul>
+				</li> 
+				<li role="presentation" class="ibm-haschildlist"><span role="menuitem" onclick="location.href='https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=promote';">Promote Yourself</span>
+					<ul role="menu">
+						<li  role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=promote_publicprofile">Create a public profile</a></li>
+						<li  role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=mycert_certification&opendialog=1#linkedinSec">Connect with LinkedIn</a></li>
+						<li  role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=promote_marks">Use IBM official marks</a></li>
+					</ul>
+				</li>
+				<li role="presentation" class="ibm-haschildlist"><span role="menuitem" onclick="location.href='https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=myaccount';">My Account</span>
+					<ul role="menu">
+<li role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=myaccount_comprofile">Change Profile Information</a></li>
+						<li role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=myaccount_legalname">Legal Name Change</a></li>
+						<li role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=myaccount_merge">Merge IDs</a></li>
+						<li role="presentation"><a  role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=myaccount_privacy">Privacy Settings</a></li>
+					</ul>
+				</li>
+      <li role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=faqhelp">Help</a></li>
+	 <li role="presentation"><a role="menuitem" href="https://www.ibm.com/certify/member/ccsc.nsf/mainFormv18?OpenForm&page=mycert_admin">Admin</a></li>
+			</ul>
+		</div>
+	</div>		
+		
+		
+			
+</header> 
+      
+      <div id="ibm-content-wrapper">
+      
+        <!-- LEADSPACE_BEGIN -->
+        
+            <header role="banner" aria-labelledby="ibm-pagetitle-h1">
+
+          
+	<div id="ibm-band ibm-padding-top-1 ibm-padding-bottom-1 ibm-alternate-background" class="ibm-alternate" style="background: url(/certify/bluemix/img/Productheader_1.png) no-repeat 0 0 / cover #fff; max-height: 150px" >
+    <div id="ibm-leadspace-body">
+        <div class="ibm-columns">
+            <div class="ibm-col-1-1">
+                <h1 class="ibm-h1"><strong class="ibm-textcolor-orange-30"><span id="unit" >IBM Analytics</span></strong></h1>
+				<p class="ibm-icononly">
+											<a href="https://www.facebook.com/IBManalytics" class="ibm-facebook-encircled-link" target="_blank">Visit us on Facebook</a> 
+											<a href="https://twitter.com/ibmanalytics" class="ibm-twitter-encircled-link" target="_blank">Visit us on Twitter</a> 
+											<a href="https://www.linkedin.com/company/ibm-big-data-&-analytics" class="ibm-linkedin-encircled-link" target="_blank">Visit us on LinkedIn</a> 
+											<a href="https://plus.google.com/+ibmbigdataanalytics/posts" class="ibm-googleplus-encircled-link" target="_blank">Visit us on Google+</a> 
+											<a href="https://www.youtube.com/user/ibmbigdata" class="ibm-youtube-encircled-link" target="_blank">Visit us on Youtube</a></p>
+							
+                
+            </div>
+        </div>
+    </div>
+</div>
+		  
+   
+          <!-- LEADSPACE_END -->
+
+          <!-- CONTENT_NAV_BEGIN -->
+<!--                  
+				  <nav role="navigation" aria-labelledby="ibm-pagetitle-h1">
+            <div id="ibm-content-nav">
+              <div id="ibm-primary-tabs">
+                <ul class="ibm-tabs">
+                  
+                                    <li class="ibm-active">
+                    <a href="Link URL">Link label</a>
+                  </li>
+                                    
+                </ul>
+              </div>
+                            <div id="ibm-secondary-tabs">
+                <ul class="ibm-tabs">
+                  
+                                      <li >
+                      <a href="Sublink URL">Sublink label</a>
+                    </li>
+                                  
+                </ul>
+              </div>
+                          </div> 
+          </nav> -->
+                    <!-- CONTENT_NAV_END -->
+			
+
+        </header>
+         
+			
+		
+        <main role="main" aria-labelledby="ibm-pagetitle-h1">
+          <div id="ibm-pcon">
+            <div id="ibm-content">
+              <div id="ibm-content-body">
+                <div id="ibm-content-main">                    
+                  <div class="ibm-columns">
+                   
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__heading ibm-h4 ibm-bold ibm-background-blue-core ibm-alternate-background" id="description"></div>
+							<div class="ibm-card__content">
+								<strong>Job Role Description / Target Audience</strong>
+								<div class="ibm-rule ibm-alternate ibm-orange-40"><hr></div>
+								
+								<span id="jobrole">
+								
+								</span>
+								<strong>Recommended Prerequisite Skills</strong>
+								<div class="ibm-rule ibm-alternate ibm-orange-40"><hr></div>
+								
+								<span id="skill">
+								 
+								</span>
+								
+							</div>
+							</div>
+							
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__heading ibm-h4 ibm-bold ibm-background-blue-60 ibm-alternate-background">Certification Requirements </div>
+							<div class="ibm-card__content">
+								<p>Receiving this Certification requires 2 tests and 1 Certification </p>
+											
+									<p>Certification required: <a href="http://www-03preview.ibm.com/certify/certs/47100102.shtml">IBM Certified Deployment Professional - Content Manager OnDemand for i V9.0</a>
+									</p>
+									<p>Tests required: C2070-986 <strong>and</strong> C2090-011</p>
+									<p>Click on the link(s) below to see test details, test objectives, suggested training and sample tests.</p>
+							</div>
+							</div>
+							<br />
+							<div data-widget="showhide" data-type="panel" class="ibm-show-hide">
+							<h2><strong>Requirement #1 - Test C2070-986</strong></h2>
+							<div class="ibm-container-body">
+							
+							<div class="ibm-graphic-tabs ibm-graphic-tabs--colored"> 
+							<ul role="tablist" class="ibm-tabs  ibm-background-blue-70 ibm-border-blue-20 ibm-textcolor-white-core" aria-label="Tab navigation" >
+								<li  role="presentation" class="ibm-active"><a  id="t1_1" role="tab" onclick='tabcontol(1,1);'  aria-selected="true">Overview</a></li>					
+								<li  role="presentation"><a id="t1_2" role="tab" onclick='tabcontol(1,2);' aria-selected="false">Objective</a></li>				
+								<li  role="presentation"><a id="t1_3" role="tab" onclick='tabcontol(1,3);' aria-selected="false">Preparation</a></li>
+								<li  role="presentation"><a id="t1_4" role="tab" onclick='tabcontol(1,4);' aria-selected="false">Practice</a></li>
+								<li  role="presentation"><a id="t1_5" role="tab" onclick='tabcontol(1,5);' aria-selected="false">Register</a></li>
+							</ul> 
+							</div>  
+	
+							<div id="c1_1" style="display:block">
+							<div class="ibm-columns">
+									<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+								
+								
+								<ul>
+								<li>Number of questions: 58</li>
+								<li>Time allowed in minutes: 120</li>
+								<li>Required passing score: 58%</li>
+								<li>Languages: English</li>
+								</ul>
+								
+								<div class="ibm-rule ibm-alternate-1 ibm-orange-40"><hr></div>
+									<p>This multiple-choice test contains questions requiring single and multiple
+										answers.  For multiple-answer questions, you need to choose all required
+										options to get the answer correct. You will be advised how many options make up
+										the correct answer.<p/>
+										<p>This test is designed to provide diagnostic feedback on the Examination Score
+										Report, correlating back to the test objectives, informing the test taker how
+										he or she did on each section of the test.  As a result, to maintain the
+										integrity of each test, questions and answers are not distributed.</p>									
+								</div>
+							 </div>
+							 	</div>
+							 </div>
+							</div>
+							
+							<div id="c1_2" style="display:none">
+							<div class="ibm-columns " >
+							
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+							
+								<p>The test contains eight sections, totaling 58  multiple-choice questions. The percentages after each section title reflect the approximate distribution of the total question set across the sections.</p>
+								
+								<p class="ibm-ind-link"><a class="ibm-document-link" href="https://www.ibm.com">PDF Copy of Objectives</a></p>
+								
+								<!-- twisty code -->
+								<ul data-widget="twisty" class="ibm-twisty">
+						
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 1 - Architecture, High Availability, System Design, Sizing and Capacity Planning (14%)</strong></span>
+								<div class="ibm-twisty-body">
+									<ul>
+										<li>a. Demonstrate an understanding of library servers and object servers. </li>
+										<li>b. Demonstrate an understanding of the load and retrieve process. </li>
+										<li>c. Demonstrate an understanding of High Availability.</li>
+										<li>d. Demonstrate an understanding of cache and long term storage.</li>
+										<li>e. Demonstrate an understanding of CMOD system requirements.</li>
+									</ul>       									
+								</div>								
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 2 - Installation, Configuration and Upgrade (9%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Show an understanding of platform requirements. </li>
+										<li>b. Demonstrate a knowledge of configuration parameters. </li>
+										<li>c. Demonstrate a knowledge of upgrade procedures.</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 3 - Clients (12%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Demonstrate a knowledge of CMOD clients. </li>
+										<li>b. Demonstrate a knowledge of implementing IBM Content Navigator. </li>
+										<li>c. Demonstrate an understanding of ODWEK.</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 4 - Storage Management (10%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Demonstrate a knowledge of cache.  </li>
+										<li>b. Demonstrate a knowledge of expiration of data and indexes.</li>
+										<li>c. Demonstrate knowledge of archive storage subsystems.</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 5 - Optional Feature (5%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Show an understanding of optional features </li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 6 - Administration (19%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Demonstrate a knowledge of defining users and groups. </li>
+										<li>b. Demonstrate a knowledge of authorization and authentication. </li>
+										<li>c. Demonstrate a knowledge of system parameters.</li>
+										<li>d. Demonstrate a knowledge of defining storage sets.</li>
+										<li>e. Demonstrate a knowledge of defining printers.</li>
+										<li>f. Demonstrate a knowledge of command-line utilities.</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 7 - Building Applications (19%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Demonstrate a knowledge of applications, application groups, cabinets, folders, and the Report Wizard. </li>
+										<li>b. Demonstrate knowledge of the data streams. </li>
+										<li>c. Demonstrate a knowledge of the indexers.</li>
+										<li>d. Demonstrate a knowledge of the loading process.</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Section 8 - Backup, Maintenance, and Troubleshooting (12%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Demonstrate a knowledge of backup and restore procedures. </li>
+										<li>b. Demonstrate a knowledge of system health tools. </li>
+										<li>c. Demonstrate a knowledge of CMOD system logs.</li>
+									</ul>  
+									</div>
+								</li>
+								</ul>
+
+						</div>
+						</div>
+						</div>
+						</div>
+							
+							<div id="c1_3" style="display:none">
+							<div class="ibm-columns">
+								<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+							
+							<p>
+
+								It is highly recommended that you use a variety of resources to prepare for certification exams. </p>
+
+								<p>It is first recommended that you are familiar with:<br />
+
+									the job role description and the parameters this certification is based on.
+									the test objectives/skills measured on the test. Use this as your checklist to determine your strengths, and identify those areas where you may need to focus more attention in your studies and preparation.</p>
+
+								<p>Next, use the recommended training resources on this page to further your knowledge.  These educational sources are recommended, but not required before taking a certification test.  Determine for yourself how much preparation you require. </p>
+
+								<p>It is important to note that actual hands-on experience is a critical component in preparing for the exam. Direct application of the skills learned cannot be substituted by any resources listed here. You must spend time using the product and applying the skills learned. The exam is designed to measure hands-on experience, or how well you know how to perform job related tasks
+								</p>
+								
+							<ul data-widget="twisty" class="ibm-twisty">
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Course Formats</strong></span>
+								<div class="ibm-twisty-body">
+									<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www-304.ibm.com/services/learning/ites.wss/zz-en?pageType=course_description&cc=&courseCode=IM18G">IBM Content Manager OnDemand for Multiplatforms 8.5 - Sys Implementation and Admin</a></p>
+									
+									<p>This course is for individuals whose job includes responsibility for administering and maintaining an IBM Content Manager OnDemand system. You will complete exercises using the command utilities required for system maintenance and document processing, including arsxml, arsdoc, and arsadmin. The course covers system and user exit logging and the document audit facility. In addition, this course describes how to create OnDemand objects such as applications, application groups, folders, and cabinets, as well as how to index, load, retrieve, and view various types of line data report files, PDF and AFP documents, and image files in an OnDemand system solution.</p>
+									
+								</div>								
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Notes</strong></span>
+									<div class="ibm-twisty-body">
+										
+										<ul class="ibm-link-list">
+										<li><a class="ibm-forward-link" href="__REPLACE_ME__">When I retrieve PDF documents from OnDemand using the IBM OnDemand Client, why do some of my PDF documents display in a separate window while others display in the OnDemand Client window? (Technote)</a></li>
+										<li><a class="ibm-forward-link" href="__REPLACE_ME__">OnDemand Administrator is unable create new application groups for PDF documents either manually or automatically from the Report Wizard on the OnDemand Admin Client. (Technote)</a></li>
+										<li><a class="ibm-forward-link" href="__REPLACE_ME__">Does the OnDemand client feature File->Send work with Adobe Reader when the application data type is defined as PDF?</a></li>
+										</ul>
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Expiration processing in Common Server Archive Storage Manager (ASM)</a><br />
+										How does expiration processing work in Common Server Archive Storage Manager (ASM)?
+										</p>
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Compatibility matrix for the Content Manager OnDemand clients and servers</a>
+										</p>
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Explanation of the dynamic cache expiration feature in Content Manager OnDemand server V7.1.2.8 and later</a><br />
+										In IBM Content Manager OnDemand server V7.1.2.8, a new feature was introduced that allowed OnDemand cache expiration to be changed dynamically. In previous versions, a load expired based on the Cache Document Data for X Days configuration value at the time of the load. This meant that only future loads would be affected by a change to the cache expiration setting. Past loads would expire based on the cache expiration value at the time of the load. If I wish to change the cache expiration for data already loaded into OnDemand, will upgrading to V7.1.2.8 or later be the correct solution?
+										</p>
+										
+										<ul class="ibm-link-list">
+										<li><a class="ibm-forward-link" href="__REPLACE_ME__">Content Manager OnDemand for i: News & Tips from the 2009 e-mail bulletins</a></li>
+										<li><a class="ibm-forward-link" href="__REPLACE_ME__">Content Manager OnDemand for i: News & Tips from the 2011 e-mail bulletins</a></li>
+										</ul>
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Cache recommendations for Content Manger OnDemand servers and application groups</a><br />
+										When is cache recommended for a Content Manger OnDemand Application Group? Should the OnDemand cache be used if ad-hoc stores of documents are performed in an OnDemand server? Content Manager OnDemand commands and APIs that perform ad-hoc document stores should use magnetic cache for better performance. The Application Group can be setup to migrate to Tivoli Storage Manager (TSM), Object Access Method (OAM), or the Archive System Manager (ASM). Loading directly to these archive solutions is supported, but not recommended when using these commands and APIs
+										</p>
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Product Documentation</strong></span>
+									<div class="ibm-twisty-body">
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Common Server Advanced Indexing Reference for IBM Content Manager OnDemand for i (i5/OS)</a><br />
+										This document contains advanced indexing information for use with the OnDemand Common Server OS/400 Indexer.
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Content Manager OnDemand for i Version 7.1 Requirements</a><br />
+										This document describes the minimum system requirements for IBM® Content Manager OnDemand for i for Version 7.1. For installation requirements, refer to the product-specific readme files. 
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Migrating to ARSXML Content Manager OnDemand V8.5 (Release Note)</a><br />
+										Upgrading to IBM Content Manager OnDemand V8.5 might require changes to your Batch System Administration (also known as ARSXML) XML processing procedures. This document describes what changes, if any, are required.
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Hardware and software requirements for IBM Content Manager OnDemand</a><br />
+										This document describes the minimum system requirements for IBM Content Manager OnDemand for Multiplatforms, Version 9.0. For installation-specific requirements, refer to the product-specific README files.
+										</p> 
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Redbook</strong></span>
+									<div class="ibm-twisty-body">
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Content Manager OnDemand Backup, Recovery, and High Availability</a><br />
+										<strong>Publication number</strong>: SG24-6444-00
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Content Manager OnDemand Guide</a><br />
+										<strong>Publication number</strong>: SG24-6915-02
+										</p> 
+										<p>This IBM® Redbooks® publication provides a practical guide to the design, installation, configuration, and maintenance of IBM Content Manager OnDemand Version 9.0. Content Manager OnDemand manages high-volume storage and retrieval of electronic statements and provides efficient enterprise report management. Content Manager OnDemand transforms formatted computer output and printed reports, such as statements and invoices, into electronic information for easy report management. Content Manager OnDemand helps eliminate costly, high-volume print output by capturing, indexing, archiving, and presenting electronic information for improved customer service. This publication covers the key areas of Content Manager OnDemand, some of which might not be known to the Content Manager OnDemand community or are misunderstood. The book covers various topics, including basic information in administration, database structure, storage management, and security. In addition, the book covers data indexing, loading, conversion, and expiration. Other topics include user exits, performance, retention management, records management, and many more. Because many other resources are available that address subjects on different platforms, this publication is not intended as a comprehensive guide for Content Manager OnDemand; rather, it is intended to complement the existing Content Manager OnDemand documentation and provide insight into the issues that might be encountered in the setup and use of Content Manager OnDemand.</p>
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Customizing and Extending IBM Content Navigator</a><br />
+										<strong>Publication number</strong>: SG24-8055-00
+										</p> 
+										<p>IBM Content Navigator is a ready-to-use, modern, standards-based user interface that supports Enterprise Content Management (ECM) use cases, including collaborative document management, production imaging, and report management. It is also a flexible and powerful user platform for building custom ECM applications using open web-based standards. This IBM Redbooks publication has an overview of the functions and features that IBM Content Navigator offers, and describes how you can configure and customize the user interface with the administration tools that are provided. This book also describes the extension points and customization options of IBM Content Navigator and how you can customize and extend it with sample code. Specifically, the book shows you how to set up a development environment, and develop plug-ins that add new actions and provide special production imaging layout to the user interface. Other customization topics include working with external data services, using IBM Content Navigator widgets externally in other applications, and wrapping the widgets as iWidgets to be used in other applications. In addition, this book describes how to reuse IBM Content Navigator components in mobile development, and how to work with existing viewer or incorporate third-party viewer into IBM Content Navigator. This book is intended for IT architects, and application designers and developers. It offers both a high-level description of how to extend and customize IBM Content Navigator and also more technical details of how to do implementation with sample code.</p>
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Web Resource</strong></span>
+									<div class="ibm-twisty-body">
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">EMC VMAX 20K</a><br />
+										Symmetrix Remote Data Facility (SRDF)
+										</p>  
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Symantec Veritas Cluster Server</a>
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">IBM DB2 10.5 Information Center</a>
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">IBM System Storage Archive Manager</a><br />
+										The data retention solution. Sold as a separately licensed software product integrated into Tivoli Storage Manager-Extended Edition server software, Tivoli Storage Manager for Data Retention requires a stand-alone Tivoli Storage Manager-Extended Edition server be dedicated for its use. It is accessible solely via the Tivoli Storage Manager API by a variety of content management or archive applications software applications. Tivoli Storage Manager for Data Retention strengthens Tivoli Storage Manager Extended Edition's data management capabilities.
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">IBM Content Manager OnDemand Information Center</a>
+										</p> 
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">TechRepublic EMC Centera Replication - A detailed Review</a>
+										</p> 
+									</div>
+								</li>
+								
+								</ul>
+							</div>
+							</div>
+								</div>
+							</div>
+							
+							
+							
+							<div id="c1_4" style="display:none">
+							<div class="ibm-columns">
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+								<p><strong>Sample Test</strong></p>
+								<p>This sample test does not contain the same number of questions as the actual exam, but it should give you a feel of the type of questions to be asked.</p>
+								<p class="ibm-ind-link"><a class="ibm-pdf-link" href="http://public.dhe.ibm.com/partnerworld/pub/certify/samc2070_986.pdf">Sample Test for Test C2070-986</a></p>
+								</div>
+							</div>
+								</div>
+							</div>
+						
+							
+							<div id="c1_5" style="display:none">
+							<div class="ibm-columns">
+								<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+							
+								<p> Prepare for the test, using the following resources:
+								<ul>
+									<li>Test objectives</li>
+									<li>Practice: Sample / Assessment test</li>
+									<li>Preparation: Recommended training resources and reference materials</li>
+								</ul>
+								</p>
+								<p><a href="http://www-03preview.ibm.com/certify/process/registration.shtml">Register to take a test</a>, by contacting our worldwide:
+
+								<p><a href="http://www.pearsonvue.com/ibm">IBM at Pearson VUE</a></p>
+
+								<p><strong>Note</strong>: When providing your name and address to the testing vendor, be sure to specify your name exactly as you would like it to appear on your certificate.</p>
+							</div>
+							</div> 
+							</div>
+							</div>
+							
+							
+							
+							<h2><strong>Requirement #2 - Test C2090-011</strong></h2>
+							<div class="ibm-container-body">
+							
+							<div class="ibm-graphic-tabs ibm-graphic-tabs--colored">
+							<ul role="tablist" class="ibm-tabs  ibm-background-blue-70 ibm-border-blue-20 ibm-textcolor-white-core" aria-label="Tab navigation">
+								<li role="presentation" class="ibm-active"><a  id="t2_1" role="tab" onclick='tabcontol(2,1);'>Overview</a></li>
+								<li role="presentation"><a  id="t2_2" role="tab" onclick='tabcontol(2,2);'>Objective</a></li>				
+								<li  role="presentation"><a id="t2_3" role="tab" onclick='tabcontol(2,3);'>Preparation</a></li>
+								<li  role="presentation"><a id="t2_4" role="tab" onclick='tabcontol(2,4);'>Practice</a></li>
+								<li  role="presentation"><a id="t2_5" role="tab" onclick='tabcontol(2,5);'>Register</a></li>
+							</ul> 
+							</div>   
+							
+							<div id="c2_1" style="display:block">
+								<div class="ibm-columns">
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+									<ul>
+									<li>Number of questions: 55</li>
+									<li>Time allowed in minutes: 90</li>
+									<li>Required passing score: 67%</li>
+									<li>Languages: English</li>
+									</ul>
+
+									</div>
+								</div>
+							</div>
+							</div>
+							
+							
+								<div id="c2_2" style="display:none">
+								<div class="ibm-columns">
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+							
+								<p class="ibm-ind-link"><a class="ibm-document-link" href="https://www.ibm.com">PDF Copy of Objectives</a></p>
+								<ul data-widget="twisty" class="ibm-twisty">
+						
+								<li>
+								<span class="ibm-twisty-head"><strong>Operations/Running IBM SPSS Statistics (15%)</strong></span>
+								<div class="ibm-twisty-body">
+									<ul>
+										<li>a. General use </li>
+										<li>b. Operations </li>
+										<li>c. Settings</li>
+										<li>d. Syntax</li>
+										<li>e. Variables</li>
+									</ul>       									
+								</div>								
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Reading and Defining Data (16%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Datasets</li>
+										<li>b. Reading Data </li>
+										<li>c. Variables</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Data Understanding/Descriptives (9%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Crosstabs </li>
+										<li>b. Descriptive Statistics</li>
+										<li>c. Dispersion</li>
+										<li>d. Procedure</li>
+										<li>e. Frequencies</li>
+										<li>f. Means Procedure</li>
+										<li>g. Statistics</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Data Management (15%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Adding Cases</li>
+										<li>b. Aggregation</li>
+										<li>c. Duplicate Cases</li>
+										<li>d. SelectCases</li>
+										<li>e. SplitFile</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Data Transformations (16%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Categorical variables </li>
+										<li>b. Computing Variables</li>
+										<li>c. Counting values across variables</li>
+										<li>d. Counting values across cases</li>
+										<li>e. IfConditions</li>
+										<li>f. Recoding</li>
+										<li>g. Variables</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Output: Editing and Exploring (7%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Charts</li>
+										<li>b. Exporting Results</li>
+										<li>c. OMS</li>
+										<li>d. Output</li>
+										<li>e. Pivot Tables Editor</li>
+										<li>f. ScaleData::Boxplots</li>
+										<li>g. ScaleVairable Charts</li>
+										<li>h. Scatterplots</li>
+										<li>i. TableLooks</li>
+									</ul>  
+									</div>
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Basic Inferential Statistics (22%)</strong></span>
+									<div class="ibm-twisty-body">
+										<ul>
+										<li>a. Chi-Square </li>
+										<li>b. Correlations </li>
+										<li>c. Regression</li>
+										<li>d. Samples</li>
+										<li>e. Statistics::Error</li>
+										<li>f. T-Test</li>
+										<li>g. Statistics</li>
+									</ul>  
+									</div>
+								</li>
+								
+								</ul>									</div>
+									</div>
+								</div>
+							</div>
+							
+							
+								<div id="c2_3" style="display:none">
+								<div class="ibm-columns">
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+							<ul data-widget="twisty" class="ibm-twisty">
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Classroom Course</strong></span>
+								<div class="ibm-twisty-body">
+									<strong>Course Title:</strong> <a href ="http://www-304.ibm.com/services/learning/ites.wss/zz-en?pageType=search&noOfResultsPerPage=20&rowStart=0&searchString=0G503*">Introdictions to IBM SPSS Statistics (V22)</a><br />
+									<strong>Course Duration:</strong> 2 Days<br />
+									<strong>Course Number:</strong> 0G503<br />
+									<Strong>Abstract:</strong> Introduction to IBM SPSS Statistics is a two day instructor-led course that guides students through the fundamentals of using IBM SPSS Statistics for typical data analysis process. Students will learn the basics of reading data, data definition, data modification, and data analysis and presentation of analytical results. Students will also see how easy it is to get data into IBM SPSS Statistics so that they can focus on analyzing the information. In addition to the fundamentals, students will learn shortcuts that will help them save time. This course uses the IBM SPSS Statistics Base features. <br /><br />
+									
+									<strong>Course Title:</strong> <a href ="http://www-304.ibm.com/services/learning/ites.wss/zz-en?pageType=search&noOfResultsPerPage=20&rowStart=0&searchString=0G512*">Introduction to Statistical Analysis Using IBM SPSS Statistics (V21) </a><br />
+									<strong>Course Duration:</strong> 2 Days<br />
+									<strong>Course Number:</strong> 0G512<br />
+									<Strong>Abstract:</strong> Introduction to Statistical Analysis Using IBM SPSS Statistics is a two day instructor-led course that provides an application-oriented introduction to the statistical component of IBM® SPSS® Statistics. You will review several statistical techniques and discuss situations in which they would use each technique, the assumptions made by each method, how to set up the analysis, as well as how to interpret the results. This includes a broad range of techniques for exploring and summarizing data, as well as investigating and testing underlying relationships. You will gain an understanding of when and why to use these various techniques as well as how to apply them with confidence, interpret their output, and graphically display the results. <br /><br />
+									
+									<strong>Course Title:</strong> <a href ="http://www-304.ibm.com/">Data Management and Manipulation with IBM SPSS Statistics (V21)  </a><br />
+									<strong>Course Duration:</strong> 2 Days<br />
+									<strong>Course Number:</strong> 0G522<br />
+									<Strong>Abstract:</strong> Data Management and Manipulation with IBM SPSS Statistics is a two day instructor-led course on the use of a wide range of transformation techniques, ways to automate data preparation work, manipulate data files and analytical results. Students will gain an understanding of the various options for controlling the IBM SPSS Statistics operating environment and how to use basic syntax to perform data transformations efficiently.  <br />
+								</div>								
+								</li>
+								
+								<li>
+								<span class="ibm-twisty-head"><strong>Self-Paced Virtual Classroom</strong></span>
+									<div class="ibm-twisty-body">
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Introduction to IBM SPSS Statistics (V22) SPVC </a><br />
+										This is the self-paced online version of the classroom course and includes hands-on remote labs. Once you receive your access information, you will have 30 days to complete this course and its labs.
+										</p>
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Introduction to Statistical Analysis Using IBM SPSS Statistics (V21) SPVC </a><br />
+										This is the self-paced online version of the classroom course and includes hands-on remote labs. Once you receive your access information, you will have 30 days to complete this course and its labs.
+										</p>
+										
+										<p class="ibm-ind-link"><a class="ibm-forward-link" href="https://www.ibm.com">Data Management and Manipulation with IBM SPSS Statistics (V21) SPVC </a><br />
+										This is the self-paced online version of the classroom course and includes hands-on remote labs. Once you receive your access information, you will have 30 days to complete this course and its labs. 
+										</p>
+										
+									</div>
+								</li>
+								
+								</ul>
+									</div>
+									</div>
+								</div>
+							</div>
+							
+							
+								<div id="c2_4" style="display:none">
+								<div class="ibm-columns">
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+							
+							There is currently no sample or assessment test available.
+									</div>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div id="c2_5" style="display:none">
+								<div class="ibm-columns">
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+							<p> Prepare for the test, using the following resources:
+								<ul>
+									<li>Test objectives</li>
+									<li>Practice: Sample / Assessment test</li>
+									<li>Preparation: Recommended training resources and reference materials</li>
+								</ul>
+								</p>
+								<p><a href="http://www-03preview.ibm.com/certify/process/registration.shtml">Register to take a test</a>, by contacting our worldwide:
+
+								<p><a href="http://www.pearsonvue.com/ibm">IBM at Pearson VUE</a></p>
+
+								<p><strong>Note</strong>: When providing your name and address to the testing vendor, be sure to specify your name exactly as you would like it to appear on your certificate.</p>
+									</div>
+									</div>
+								</div>
+							</div>
+								</div>
+								
+							<h2><strong>Requirement #3 - Certification: IBM Certified Deployment Professional - Content Manager OnDemand for i V9.0</strong></h2>
+							<div class="ibm-container-body">
+							<div class="ibm-columns">
+							<div class="ibm-card ibm-border-gray-30">
+							<div class="ibm-card__content">
+								<p>You must have completed all required for and earned the <a href="http://www-03preview.ibm.com/certify/certs/47100102.shtml">IBM Certified Deployment Professional - Content Manager OnDemand for i V9.0</a> Certification.</p>
+							</div>
+							</div>
+							</div>
+						</div>
+						
+						
+</div>
+</div>
+</div>		
+</div>
+</div>
+        </main>
+        
+        <div id="ibm-related-content">
+          <div id="ibm-merchandising-module">
+            <!-- MTE will generate this -->
+            <!-- <aside role="complementary" aria-label="Related content"> MTE dynamic modules populate in here. <aside> -->
+            <!-- /MTE -->
+          </div>
+        </div>
+      
+      </div>
+
+      <!-- FOOTER_BEGIN -->
+      <div id="ibm-footer-module"><!-- Dynamic footer links inserted here inside a <section> --></div>
+      
+      
+      <footer role="contentinfo" aria-label="IBM">
+        <div id="ibm-footer">
+          <ul>
+            <li><a href="http://www.ibm.com/contact/us/en/">Contact</a></li>
+            <li><a href="http://www.ibm.com/privacy/us/en/">Privacy</a></li>
+            <li><a href="http://www.ibm.com/legal/us/en/">Terms of use</a></li>
+            <li><a href="http://www.ibm.com/accessibility/us/en/">Accessibility</a></li>
+          </ul>
+        </div>
+      </footer>
+      <!-- FOOTER_END -->
+
+    </div>
+
+  </body>
+</html>
