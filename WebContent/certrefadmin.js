@@ -21,12 +21,8 @@ function getParameterByName(name, url) {
 
 function generate_message(message) {
 
-	console.log("optiontest:" + message);
-	$("#messagebox").show();
-	$("#messagecard").addClass( "ibm-background-green-10" ); 
-	$("#messagecontent").append("<span class='ibm-h4'>Promotion to Production was successful</span>");
 
-	/*if(message == "1"){ 
+	if(message == "1"){ 
     	console.log("option111:" + message);
     	$("#mess_card").show();
     	$("#mess_card_card").addClass( "ibm-background-green-10" );
@@ -37,7 +33,7 @@ function generate_message(message) {
     	console.log("option2:" + message);
     	$("#mess_card").show();  
     	$("#mess_card_content").empty();     
-    }*/    
+    }   
 } 
 
 
@@ -48,6 +44,7 @@ function loadItems(){
 	var message = getParameterByName('m'); 
 	
 	console.log("q:" + message);
+	
 	generate_message(message);    
 	
 	
@@ -156,6 +153,10 @@ function loadItems(){
     	    
     	    $("#iskill" ).val( item.s_iskill); 
     	    
+    		$("#messagebox" ).show();  
+    		$("#messagecard" ).addClass( "ibm-background-green-10" ); 
+    		$("#messagecontent" ).append("<span class='ibm-h4'>Promotion to Production was successful</span>");
+    	    
     	    
       		  
     	}, function(err){
@@ -186,7 +187,13 @@ function stopLoadingMessage()
 
 //showLoadingMessage();
 //updateServiceInfo();
-loadItems(); 
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    
+    loadItems(); 		
+		});
+
 
 
 
@@ -196,7 +203,7 @@ loadItems();
 	function SaveTestInfo(status)
 {
 		var inputstatus;
-		
+		 
 		
 		/*
 		if (status == 0 ) {
@@ -264,6 +271,7 @@ loadItems();
 	});
 	
 	console.log("end");
+	
 	
 	
 	 stopLoadingMessage();
