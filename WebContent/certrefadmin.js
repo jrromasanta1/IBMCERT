@@ -37,7 +37,7 @@ function generate_message(message) {
     	console.log("option2:" + message);
     	$("#mess_card").show();  
     	$("#mess_card_content").empty();     
-    }/*	 
+    }*/    
 } 
 
 
