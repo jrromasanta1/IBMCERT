@@ -91,7 +91,9 @@ function loadItems(){
     		 document.getElementById('iskill').value  = item.skill; 
     		 document.getElementById('areajobrole').value =  item.jobrole;
     		 document.getElementById('areaskill').value  = item.skill;
-    		 
+    		 document.getElementById('status').value  = item.status;
+    		 $("#cur_status" ).empty();      
+    		 $("#cur_status" ).append(item.status); 
     		  $("#testinfotitle" ).append( item.id);      
     		  
     	}, function(err){
@@ -124,17 +126,13 @@ loadItems();
 		
 		
 		if (status == 0 ) {
-			 if( $('#iid').val() == "" ){
-				 $('#istatus').val("DRAFT");
-			 }else {
-				 
-			 } 
+		
+			 $('#istatus').val("Draft"); 
+		
 		}else {
-			 if( $('#iid').val() == "" ){
-				 $('#istatus').val("PENDING");
-			 }else {
-				 $('#istatus').val("PENDING");
-			 } 
+		
+				 $('#istatus').val("Ready For Promotion");
+			 
 		}
 	
 		
@@ -164,10 +162,10 @@ loadItems();
 			"subunit" : document.getElementById('isubunit').value,
 			"jobrole" : document.getElementById('ijobrole').value,
 			"skill" : document.getElementById('iskill').value,
-			"status" : document.getElementById('istatus').value 
+			"status" : document.getElementById('istatus').value  
 		};
 	 
-	  
+	   
 	
 	
 	xhrPost(REST_DATA + requestParam , data, function(item){

@@ -114,6 +114,9 @@ public class ResourceServletStage {
 
 			// update other fields in the document
 			obj = db.find(HashMap.class, id);
+			
+			
+			
 			obj.put("name", name);
 			obj.put("value", value);
 			obj.put("pwcode", pwcode);
@@ -121,14 +124,39 @@ public class ResourceServletStage {
 			obj.put("unit", unit);
 			obj.put("subunit", subunit);
 			obj.put("jobrole", jobrole);
-			obj.put("skill", skill);  
+			obj.put("skill", skill);
+			
+			if (obj.get("status") == "Draft"){
+				if (status == "Draft"){
+					status = "Draft";
+				} else {
+					status = status ;
+				}
+			} else if (obj.get("status") == "Published") {
+				if (status == "Draft"){
+					status = "Published";
+				} else {
+					status = "Ready For Promotion" ;
+				}
+				
+			} else if (obj.get("status") == "Ready For Promotion") {
+				if (status == "Draft"){
+					status = "Ready For Promotion";
+				} else {
+					status = "Ready For Promotion" ;
+				}
+			} 
+			
+			
 			obj.put("status", status); 
+			
 			obj.put("modified_date", new Date().toString());
 			db.update(obj); 
 		} 
 
 		obj = db.find(HashMap.class, id);
 		
+		/*
 		obj.put("name", name);
 		obj.put("value", value);
 		obj.put("pwcode", pwcode);
@@ -136,7 +164,7 @@ public class ResourceServletStage {
 		obj.put("unit", unit);
 		obj.put("subunit", subunit);
 		obj.put("jobrole", jobrole);
-		obj.put("skill", skill); 
+		obj.put("skill", skill); */ 
 		
 		 resultObject = toJsonObject(obj);
 		
