@@ -3,9 +3,7 @@
 var REST_DATA = 'api/stage';
 
 var KEY_ENTER = 13;
-var defaultItems = [
-	
-];
+var defaultItems = [];
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -23,29 +21,35 @@ function generate_message(message) {
 
 	if(message == "1"){ 
     	
-    	$("#mess_card").show();
-    	$("#mess_card_card").addClass( "ibm-background-green-10" );
+    	$("#messagebox").show();
+    	$("#messagecard").addClass( "ibm-background-green-10" );
 
-    	$("#mess_card_content").append("<span class='ibm-h4'>Save Successful</span>");
+    	$("#messagecontent").append("<span class='ibm-h4'>Save Successful</span>");
 	}else  if(message == "2"){ 
         
-        	$("#mess_card").show();
-        	$("#mess_card_card").addClass( "ibm-background-green-10" );
+        	$("#messagebox").show();
+        	$("#messagecard").addClass( "ibm-background-green-10" );
 
-        	$("#mess_card_content").append("<span class='ibm-h4'>Save and Request to Promote Successful</span>"); 
+        	$("#messagecontent").append("<span class='ibm-h4'>Save and Request to Promote Successful</span>"); 
     
     } else {
     	
-    	$("#mess_card").hide();  
-    	$("#mess_card_content").empty();     
+    	$("#messagebox").hide();  
+    	$("#messagecontent").empty();     
     }   
-} 
+}  
 
 
 function loadItems(){
 	
 	var current_id = getParameterByName('id');
 	var searchquery = "";
+	
+	var message = getParameterByName('m'); 
+	 
+	if (message != null) {
+	  generate_message(message);    
+	}
 	
     if ( current_id == null ) {
     	searchquery = "";
@@ -55,7 +59,7 @@ function loadItems(){
     	xhrGet(REST_DATA  + searchquery , function(data){  
     		
     		//stop showing loading message  
-    		stopLoadingMessage();
+
     		
     		var receivedItems = data.body || [];
     		var items = [];
@@ -85,7 +89,7 @@ function loadItems(){
     	}, function(err){
     		console.log(err);
     		//stop showing loading message
-    		stopLoadingMessage();
+    	
     		document.getElementById('errorDiv').innerHTML = err;
     		
     	});
@@ -95,19 +99,12 @@ function loadItems(){
 
 
 
-function showLoadingMessage()
-{
-	document.getElementById('loadingImage').innerHTML = "Loading data "+"<img height=\"100\" width=\"100\" src=\"images/loading.gif\"></img>";
-}
-function stopLoadingMessage()
-{
-	document.getElementById('loadingImage').innerHTML = "";
-}
-
-//showLoadingMessage();
+//();
 //updateServiceInfo();
-loadItems(); 
 
+$( document ).ready(function() {
+loadItems(); 
+}); 
 
 
  
@@ -140,11 +137,11 @@ loadItems();
 		if  (document.getElementById('iid').value != "") {
 		requestParam = '?id=' +  document.getElementById('iid').value;
 		}else {
-			requestParam = ""
+			requestParam = "";
 			
 		}
 		
-		showLoadingMessage(); 
+	
 		
 		console.log("start");
 		
@@ -172,20 +169,21 @@ loadItems();
 		
 		}
 		document.getElementById('iid').value  = item.id; 
-		stopLoadingMessage();
+		
+		if (status == 0) {
+		window.location.replace("http://ibmcert.mybluemix.net/certref.html?id=" + item.id  + "&m=1");
+		} else {
+		window.location.replace("http://ibmcert.mybluemix.net/certref.html?id=" + item.id  + "&m=2");
+			
+		}
+		  
+
 	}, function(err){ 
 		console.log(err);
 		//stop showing loading message
-		stopLoadingMessage();
+
 		document.getElementById('errorDiv').innerHTML = err;
 	});
-	
-	console.log("end");
-	
-	
-	 stopLoadingMessage();
-
-	
 
 	
 }

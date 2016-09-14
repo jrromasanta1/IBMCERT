@@ -3,9 +3,7 @@
 var REST_DATA = 'api/admin'; 
 
 var KEY_ENTER = 13;
-var defaultItems = [
-	
-];
+var defaultItems = [];
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -24,20 +22,20 @@ function generate_message(message) {
 
 	if(message == "1"){ 
     	console.log("option111:" + message);
-    	$("#mess_card").show();
-    	$("#mess_card_card").addClass( "ibm-background-green-10" );
+    	$("#messagebox").show();
+    	$("#messagecard").addClass( "ibm-background-green-10" );
 
-    	$("#mess_card_content").append("<span class='ibm-h4'>Promotion to Production was successful</span>");
+    	$("#messagecontent").append("<span class='ibm-h4'>Promotion to Production as Successful</span>");
     
     } else {
     	console.log("option2:" + message);
-    	$("#mess_card").hide();   
-    	$("#mess_card_content").empty();      
+    	$("#messagebox").hide();   
+    	$("#messagecontent").empty();      
     }   
 } 
 
 
-
+ 
 function loadItems(){
 	
 	var current_id = getParameterByName('id');
@@ -153,12 +151,7 @@ function loadItems(){
     	    }
     	    
     	    $("#iskill" ).val( item.s_iskill); 
-    	    
-    		$("#messagebox" ).show();  
-    		$("#messagecard" ).addClass( "ibm-background-green-10" ); 
-    		$("#messagecontent" ).append("<span class='ibm-h4'>Promotion to Production was successful</span>");
-    	    
-    	    
+    	        	    
       		  
     	}, function(err){
     		console.log(err);
@@ -233,8 +226,6 @@ $( document ).ready(function() {
 			
 		}
 		
-		showLoadingMessage(); 
-		
 		console.log("start");
 		
 	var form = new FormData();
@@ -261,7 +252,7 @@ $( document ).ready(function() {
 		}
 		document.getElementById('iid').value  = item.id; 
 		
-		window.location.replace(window.location.href + "&m=1");
+		window.location.replace("http://ibmcert.mybluemix.net/certrefadmin.html?id=" + item.id  + "&m=1"); 
 		   
 		stopLoadingMessage();
 	}, function(err){ 
@@ -275,7 +266,7 @@ $( document ).ready(function() {
 	
 	
 	
-	 stopLoadingMessage();
+
 
 	
 
