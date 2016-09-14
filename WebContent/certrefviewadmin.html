@@ -13,8 +13,7 @@
 <meta name="description" content="REPLACE" />
 <meta name="keywords" content="REPLACE" />
 <meta name="robots" content="index, follow" />
-<META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
-<META HTTP-EQUIV="Expires" CONTENT="-1" /> 
+
 
 <meta name="generator" content="IBM Northstar Template Generator 1.1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -25,7 +24,7 @@
 
 <script src="jquery-3.1.0.min.js"></script>  
 <script type="text/javascript" src="util.js"></script>
-<script type="text/javascript" src="certrefadmin.js"> </script> 
+<script type="text/javascript" src="certrefviewadmin.js"> </script>
 
 <title>Test Info Web</title>
 
@@ -172,7 +171,7 @@
 							<li class="ibm-active"><a href="certref.html">Create New Cert Ref</a></li>
 							<li class="ibm-active" aria-selected="true" class="ibm-active"><a href="certref.html">Admin</a></li>
 							<li class="ibm-active"><a href="Link URL">Help</a></li>
-						</ul>
+						</ul> 
 					</div>
 				</nav>
 				<!-- NAVIGATION_END -->
@@ -183,128 +182,40 @@
 					<div id="ibm-content-body">
 						<div id="ibm-content-main">
 							<h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-light">
-								Certification Reference Web : <span id="testinfotitle"></span>
+								Admin Dashboard <span id="testinfotitle"></span>
 							</h1>
 							<div class="ibm-columns" id="mess_card" style="display: none">
 								<div class="ibm-col-1-1">
-									<div class="ibm-card"  id="mess_card_card" style="margin-bottom: 0px;">
-										<div class="ibm-card__content"style="padding-bottom: 1px; padding-top: 2px;text-align: center;" >
+									<div class="ibm-card" style="margin-bottom: 0px;">
+										<div class="ibm-card__content"style="padding-bottom: 1px; padding-top: 2px;">
 										<div id="mess_card_content"></div>
 										</div>
 									</div>
 								</div>
 							</div>
-							 
-						
+							
+						 
 							
 							
 							<table id="test1table" data-widget="datatable" data-info="false" data-ordering="false" data-paging="false" data-searching="false" class="ibm-data-table  ibm-grid  ">
 							<thead>
 							<tr>
-							<th style="width:200px;"></th>
-							<th >Stage</th>
-							<th >Production</th>
-
+							<th style="width:40px;"></th>
+							<th>Status</th>
+							<th>PW Code</th>
+							<th>Description</th>
+							<th>Created Date</th>
+							<th>Updated Date</th> 
+							
 							</tr>
 							</thead> 
 							<tbody id="tcertref_content">
-							 <tr id="r_ipwcode">
-								<td><b>PW Code</b></td>
-							    <td id="s_ipwcode"></td>
-								<td id="p_ipwcode"></td>
-
-							 </tr>		
-							 <tr id="r_idescription">
-								<td><b>Description</b></td>
-							    <td id="s_idescription"></td>
-								<td id="p_idescription"></td>
-		
-							 </tr>
-							 <tr id="r_iunit">
-								<td><b>Unit</b></td>
-							    <td id="s_iunit"></td>
-								<td id="p_iunit"></td>
-				
-							 </tr>
-							 	 <tr id="r_isubunit">
-								<td><b>SubUnit</b></td>
-							    <td id="s_isubunit"></td>
-								<td id="p_isubunit"></td>
-					
-							 </tr>
-							 <tr id="r_ijobrole">
-								<td><b>Job Role Description / Target Audience</b></td>
-							    <td id="s_ijobrole"></td>
-								<td id="p_ijobrole"></td>	
-							 </tr>
-							 	 <tr id="r_iskill">
-								<td><b>Recommended Skills</b></td>
-							    <td id="s_iskill"></td>
-								<td id="p_iskill"></td>					
-							 </tr> 
-							 
+							 <tr id="tableph"><td><div class="ibm-spinner" id="loading" ></div></td><td></td><td></td><td></td><td></td><td></td></tr> 
 							</tbody>
 							</table>
 							<br />
 							<br />
 							
-						<div class="ibm-rule ibm-alternate-1">
-							<hr>
-						</div>
-						
-						<div class="ibm-columns">
-								<div class="ibm-col-5-5">
-									<b>Comment:</b><br />
- 
-									<textarea cols="100" rows="3" id="acomment"
-										name="acomment" maxlength="2000"
-										onchange='document.getElementById("icomment").value = document.getElementById("acomment").value;'></textarea>
-									<input style="display: none;" type="text" value="" size="40"
-										id="icomment" name="icomment">
-								</div>
-						</div>
-						<br />
-						
-						
-						<div class="ibm-columns">
-							<div class="ibm-col-5-2">
-								<p class="ibm-btn-row">
-									<button class="ibm-btn-sec ibm-btn-green-50"
-										onClick="IBMCore.common.widget.overlay.show('promote_o');">Promote</button>
-
-								</p>
-								<div id="loadingImage"></div>
-								<div class="ibm-spinner" id="loading" style="display: none;"></div>
-								<br> <br> 
-								<div id="errorDiv" class='errorMsg'></div> 
-							</div>
-
-							<div class="ibm-col-5-2">
-								<p class="ibm-btn-row">
-									<button class="ibm-btn-sec ibm-btn-teal-50"
-										onClick='SaveTestInfo();'>Decline</button>
-								</p>
-							</div>
-
-
-						</div>
-							<input style="display: none;" type="text" value="" id="iid" name="iid">
-							<input style="display: none;" type="text" value="" size="40" id="ipwcode" name="ipwcode">
-							<input style="display: none;" type="text" value="" size="40" id="idescription" name="idescription">
-							<input style="display: none;" type="text" value="" size="40" id="iunit" name="iunit">
-							<input style="display: none;" type="text" value="" size="40" id="isubunit" name="isubunit">
-							<input style="display: none;" type="text" value="" size="40" id="ijobrole" name="ijobrole">
-							<input style="display: none;" type="text" value="" size="40" id="iskill" name="iskill">
-							 
-							
-					<div class="ibm-common-overlay ibm-overlay-alt" data-widget="overlay" id="promote_o">
-							<h2 class="ibm-bold">Are you sure you want to promote these changes?</h2> 
-							<br />
-							<input  id="final_approve" class="ibm-btn-pri ibm-btn-small ibm-btn-green-50"  onclick="SaveTestInfo(0);;" style="padding-bottom: 2px; padding-top: 4px;"  value="Promote"  />&nbsp;&nbsp;&nbsp;
-							<input  id="final_approve_cancel" class="ibm-btn-pri ibm-btn-small ibm-btn-red-50"  onclick="IBMCore.common.widget.overlay.hide('promote_o'); " style="padding-bottom: 2px; padding-top: 4px;"  value="Cancel"  />
-							<br /><br />
-				  </div> 
-						
 							</div>
 							</div>
 				</main>
@@ -329,7 +240,8 @@
 		</div>
 	</footer>
 	<!-- FOOTER_END -->
-  
+
+
+
 </body>
-</html>
-  
+</html> 

@@ -42,8 +42,10 @@ public class ResourceServletAdmin {
 			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill,  @FormParam("status") String status)
 			throws Exception {
 
+		Database dbstage = null;
 		Database dbprod = null;
 		try {
+			dbstage = getDBProd();
 			dbprod = getDBProd();
 		} catch (Exception re) {
 			re.printStackTrace();
@@ -55,7 +57,7 @@ public class ResourceServletAdmin {
 		
 		System.out.println("enter post" + idString);
 		
-		JsonObject resultObject = create(dbprod, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill, status,  null, null);
+		JsonObject resultObject = create(dbstage,dbprod,  idString, name, value, pwcode, description,unit, subunit ,jobrole , skill, status,  null, null);
 
 		System.out.println("Create Successful.");
 
@@ -65,7 +67,7 @@ public class ResourceServletAdmin {
 	
 	
 
-	protected JsonObject create(Database db, String id, String name, String value, String pwcode, String description, 
+	protected JsonObject create(Database dbstage,Database dbprod, String id, String name, String value, String pwcode, String description, 
 			String unit, String subunit, String jobrole , String skill, String status, Part part, String fileName)
 			throws IOException {
 		
@@ -80,7 +82,7 @@ public class ResourceServletAdmin {
 		System.out.println("id input!!!!!: " + id);  
 		
 		try {
-			 obj = (id == null) ? null : db.find(HashMap.class, id);
+			 obj = (id == null) ? null : dbprod.find(HashMap.class, id);
 		 } catch (Exception dnfe) { 
 			 obj = null;
 		}
@@ -105,20 +107,20 @@ public class ResourceServletAdmin {
 			//data.put("status", status); 
 			data.put("creation_date", new Date().toString());
 			data.put("modified_date", new Date().toString());
-			db.save(data); 
+			dbprod.save(data); 
 
 			// attach the attachment object
-			obj = db.find(HashMap.class, id); 
-			saveAttachment(db, id, part, fileName, obj); 
+			obj = dbprod.find(HashMap.class, id); 
+			saveAttachment(dbprod, id, part, fileName, obj); 
 		} else {
 			
 			System.out.println("update doc:" + id);
 			// if existing document
 			// attach the attachment object
-			saveAttachment(db, id, part, fileName, obj);
+			saveAttachment(dbprod, id, part, fileName, obj);
    
 			// update other fields in the document
-			obj = db.find(HashMap.class, id);
+			obj = dbprod.find(HashMap.class, id);
 			
 			obj.put("name", name);
 			obj.put("value", value);
@@ -130,15 +132,19 @@ public class ResourceServletAdmin {
 			obj.put("skill", skill);  
 			//obj.put("status", status);  
 			obj.put("modified_date", new Date().toString());
-			db.update(obj); 
+			dbprod.update(obj); 
 		} 
 
-		obj = db.find(HashMap.class, id);			
+		obj = dbstage.find(HashMap.class, id);	
+		obj.put("status", "Published"); 
+		dbstage.update(obj); 
+		
+		
+		
+		
 		resultObject = toJsonObject(obj);
 			 
-		//jsonArray.add(jsonObject); 
-		//resultObject.add("body", jsonArray);
-		return resultObject;
+		return resultObject; 
 	}
 
 	@GET 
@@ -185,20 +191,48 @@ public class ResourceServletAdmin {
 				for (HashMap doc : allDocs) {
 					objstage = dbstage.find(HashMap.class, doc.get("_id") + "");
 				   jsonObject = new JsonObject();
-					
+															
 					jsonObject.addProperty("id", objstage.get("_id") + "");
 					jsonObject.addProperty("name", objstage.get("name") + "");
 					jsonObject.addProperty("value", objstage.get("value") + ""); 
-					jsonObject.addProperty("description", objstage.get("description") + "");
-					jsonObject.addProperty("pwcode", objstage.get("pwcode") + "");
-					jsonObject.addProperty("unit", objstage.get("unit") + "");
-					jsonObject.addProperty("subunit", objstage.get("subunit") + "");
-					jsonObject.addProperty("jobrole", objstage.get("jobrole") + "");
-					jsonObject.addProperty("skill", objstage.get("skill") + "");
+					jsonObject.addProperty("s_idescription", objstage.get("description") + "");
+					jsonObject.addProperty("s_ipwcode", objstage.get("pwcode") + "");
+					jsonObject.addProperty("s_iunit", objstage.get("unit") + "");
+					jsonObject.addProperty("s_isubunit", objstage.get("subunit") + "");
+					jsonObject.addProperty("s_ijobrole", objstage.get("jobrole") + "");
+					jsonObject.addProperty("s_iskill", objstage.get("skill") + "");
 					jsonObject.addProperty("status", objstage.get("status") + "");
 					jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
 					jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
-					jsonArray.add(jsonObject); 
+					
+					
+					 try {
+							objprod = dbprod.find(HashMap.class, id + "");
+					} catch (Exception dnfe) {
+						 objprod = null	;			 
+					}
+					  
+					if (objprod != null){
+					jsonObject.addProperty("p_idescription", objprod.get("description") + "");
+					jsonObject.addProperty("p_ipwcode", objprod.get("pwcode") + "");
+					jsonObject.addProperty("p_iunit", objprod.get("unit") + "");
+					jsonObject.addProperty("p_isubunit", objprod.get("subunit") + "");
+					jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
+					jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
+					jsonObject.addProperty("status", objprod.get("status") + "");
+					}	else {
+						jsonObject.addProperty("p_idescription",  "");
+						jsonObject.addProperty("p_ipwcode", "");
+						jsonObject.addProperty("p_iunit", "");
+						jsonObject.addProperty("p_isubunit",  "");
+						jsonObject.addProperty("p_ijobrole",  "");
+						jsonObject.addProperty("p_iskill",  "");
+						jsonObject.addProperty("status",  "");
+					}
+			
+					jsonArray.add(jsonObject);
+					
+					
 					
 				} 
 			} catch (Exception dnfe) { 
@@ -226,7 +260,6 @@ public class ResourceServletAdmin {
 			
 			objstage = dbstage.find(HashMap.class, id + "");
 			 
-			 System.out.println("sect 5-inside");   
 			  
 		     // stage
 			 if (objstage != null){
@@ -245,8 +278,6 @@ public class ResourceServletAdmin {
 			 }
 			 
 			 
-			 System.out.println("sect 6-middle");
-		 	
 			//prod 
 
 			 
@@ -257,7 +288,7 @@ public class ResourceServletAdmin {
 				 objprod = null	;			 
 			 }
 			
-			 System.out.println("sect 7-inside");
+		
 			 
 			if (objprod != null){
 			jsonObject.addProperty("p_idescription", objprod.get("description") + "");
@@ -280,13 +311,13 @@ public class ResourceServletAdmin {
 		  	 
 			  
 		
-			 System.out.println("sect 8");
+			 
 			jsonArray.add(jsonObject); 
 			
 			resultObject.addProperty("id", id + "");
 			resultObject.add("body", jsonArray);
 			 
-			 System.out.println("sect 9");
+		
 			 
 			 
 			} catch (Exception dnfe) {
