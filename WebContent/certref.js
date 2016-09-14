@@ -133,10 +133,16 @@ loadItems();
 		
 		if (status == 0 ) {
 		
+		if( $('#istatus').val() == "Published"){
+			 $('#istatus').val("Published: Changes in Draft");
+		} if( $('#istatus').val() == "Ready For Promotion"){
+			 $('#istatus').val("Ready For Promotion"); 
+		} else {
 			 $('#istatus').val("Draft"); 
+		}
 		
 		}else {
-		
+		 
 				 $('#istatus').val("Ready For Promotion");
 			 
 		}
