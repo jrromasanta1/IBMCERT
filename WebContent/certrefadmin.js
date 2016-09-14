@@ -37,7 +37,7 @@ function loadItems(){
 	var current_id = getParameterByName('id');
 	var message = getParameterByName('m'); 
 	
-	
+	generate_message(message); 
 	
 	var searchquery = "";
 	
