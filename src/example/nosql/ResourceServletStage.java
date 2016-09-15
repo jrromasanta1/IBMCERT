@@ -193,7 +193,7 @@ public class ResourceServletStage {
 
 	@GET  
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response get(@QueryParam("id") Long id, @QueryParam("cmd") String cmd) throws Exception {
+	public Response get(@QueryParam("id") Long id, @QueryParam("email") String email, @QueryParam("cmd") String cmd) throws Exception {
 
 		Database db = null;
 		JsonObject resultObject  ;
@@ -227,6 +227,8 @@ public class ResourceServletStage {
 					obj = db.find(HashMap.class, doc.get("_id") + "");
 				   jsonObject = new JsonObject();
 					
+				   
+				   if (obj.get("email") == email) { 
 					jsonObject.addProperty("id", obj.get("_id") + "");
 					jsonObject.addProperty("name", obj.get("name") + "");
 					jsonObject.addProperty("value", obj.get("value") + ""); 
@@ -242,6 +244,7 @@ public class ResourceServletStage {
 					jsonObject.addProperty("modified_date", obj.get("modified_date") + "");
 					jsonObject.addProperty("creation_date", obj.get("creation_date") + "");
 					jsonArray.add(jsonObject); 
+				   }
 					
 				}
 			} catch (Exception dnfe) { 

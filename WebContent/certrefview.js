@@ -62,7 +62,7 @@ function loadItems(){
 	
 	var searchquery = "";
 	
-    	xhrGet(REST_DATA  , function(data){  
+    	xhrGet(REST_DATA + '?email=' +  document.getElementById("iemail").value , function(data){  
     		
     		//stop showing loading message  
    
@@ -82,6 +82,8 @@ function loadItems(){
     			item = receivedItems[i];
     			if(item && 'id' in item){
     				
+    				
+    				 
 
     				html = html + "<tr>"+
     				"<td><a style='min-width:50px;min-height50px;margin-bottom: 5px;font-weight:bolder;' href='/certref.html?id=" +   item.id + "' class='ibm-btn-sec'>View</a></td>"+
