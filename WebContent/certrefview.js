@@ -29,9 +29,14 @@ function getParameterByName(name, url) {
 function checkcred() { 
 	 var semail = getCookie("sname");
 	 var srole = getCookie("srole");
-	 var sname = getCookie("sname");
+	 var sname = getCookie("sname"); 
 	 
-	 
+
+		console.log("semail:" + semail);
+		console.log("srole:" + srole); 
+		console.log("srole:" + sname); 
+		
+		
 	 if(semail != "" ) {
 	     $("demail").append(semail);
 	     $("iemail").val(semail);
