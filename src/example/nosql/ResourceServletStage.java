@@ -70,7 +70,7 @@ public class ResourceServletStage {
 		JsonObject resultObject  = new JsonObject();
 		JsonArray jsonArray = new JsonArray();
 		JsonObject jsonObject = new JsonObject();  
-		 
+		String cstatus;
 		
 		// check if document exist
 		
@@ -133,8 +133,10 @@ public class ResourceServletStage {
 			System.out.println("saved status:" + obj.get("status"));
 			System.out.println("in coming status" + status);
 			
+			cstatus   = obj.get("status") + "" ;
 			
-			if (obj.get("status")+"" == "Draft"){
+			
+			if (cstatus.equals("Draft")){
 				
 				
 				if (status == "Draft"){
@@ -143,7 +145,7 @@ public class ResourceServletStage {
 				} else {
 					
 				}
-			} else if (obj.get("status")+"" == "Published") {
+			} else if (cstatus.equals("Published")) { 
 				if (status == "Draft"){
 					status = "Published";
 					System.out.println("stat2");
@@ -152,7 +154,7 @@ public class ResourceServletStage {
 					System.out.println("stat3");
 				}
 				 
-			} else if (obj.get("status")+"" == "Ready For Promotion") {
+			} else if (cstatus.equals("Ready For Promotion")) {
 				if (status == "Draft"){
 					status = "Ready For Promotion";
 					System.out.println("stat4");
