@@ -65,10 +65,34 @@ function loadItems(){
  
 
 
+function checkcred() {  
+	 var semail = getCookie("semail");
+	 var srole = getCookie("srole");
+	 var sname = getCookie("sname"); 
+	 
+
+		console.log("semail:" + semail);
+		console.log("srole:" + srole); 
+		console.log("srole:" + sname); 
+		
+		
+	 if(semail != null ) {
+		  
+	      
+	 } else{
+		  window.location.replace("http://ibmcert.mybluemix.net/index.html");
+	 } 
+	
+	 
+}
+
+
+
 //();
 //updateServiceInfo();
 
 $( document ).ready(function() {
+checkcred();
 loadItems(); 
 }); 
  

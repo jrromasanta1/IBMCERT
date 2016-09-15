@@ -78,7 +78,7 @@ function loadItems(){
     		
 
     		$("#previewsect").show();
-    		$("#previewlink").append("<a href='/preview_certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/preview_certpage.html?id=" + item.id +"</a>");
+    		$("#previewlink").append("<a target='_blank' href='/preview_certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/preview_certpage.html?id=" + item.id +"</a>");
     		 
     		
     		console.log("id:" + item.id);
@@ -125,7 +125,39 @@ function loadItems(){
 //();
 //updateServiceInfo();
 
+
+
+function checkcred() {  
+	 var semail = getCookie("semail");
+	 var srole = getCookie("srole");
+	 var sname = getCookie("sname"); 
+	 
+
+		console.log("semail:" + semail);
+		console.log("srole:" + srole); 
+		console.log("srole:" + sname); 
+		
+		
+	 if(semail != null ) {
+		 
+		 
+		 document.getElementById("demail").innerHTML  = semail;
+		 document.getElementById("dname").innerHTML  = sname;
+		 document.getElementById("iemail").value = semail;
+		 document.getElementById("iname").value = sname;
+	 
+	         
+	      
+	 } else{
+		  window.location.replace("http://ibmcert.mybluemix.net/index.html");
+	 } 
+	
+	 
+}
+
+
 $( document ).ready(function() {
+	checkcred;
 loadItems(); 
 }); 
  
@@ -182,7 +214,9 @@ loadItems();
 			"subunit" : document.getElementById('isubunit').value,
 			"jobrole" : document.getElementById('ijobrole').value,
 			"skill" : document.getElementById('iskill').value,
-			"status" : document.getElementById('istatus').value  
+			"status" : document.getElementById('istatus').value,
+			"email" : document.getElementById('iemail').value,
+			"fname" : document.getElementById('iname').value 
 		};
 	 
 	   

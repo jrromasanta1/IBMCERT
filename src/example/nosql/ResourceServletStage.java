@@ -39,7 +39,8 @@ public class ResourceServletStage {
 	@POST 
 	public Response create(@QueryParam("id") String id, @FormParam("name") String name, @FormParam("value") String value,
 			 @FormParam("pwcode") String pwcode,  @FormParam("description") String description,  @FormParam("unit") String unit,
-			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill,  @FormParam("status") String status)
+			 @FormParam("subunit") String subunit,  @FormParam("jobrole") String jobrole ,  @FormParam("skill") String skill,  @FormParam("status") String status,
+			 @FormParam("email") String email, @FormParam("fname") String fname) 
 			throws Exception {
 
 		Database db = null;
@@ -55,7 +56,7 @@ public class ResourceServletStage {
 		
 		System.out.println("enter post" + idString);
 		
-		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill, status,  null, null);
+		JsonObject resultObject = create(db, idString, name, value, pwcode, description,unit, subunit ,jobrole , skill, status,  email,  fname,  null, null); 
 
 		System.out.println("Create Successful.");
 
@@ -63,7 +64,7 @@ public class ResourceServletStage {
 	} 
 
 	protected JsonObject create(Database db, String id, String name, String value, String pwcode, String description, 
-			String unit, String subunit, String jobrole , String skill, String status, Part part, String fileName)
+			String unit, String subunit, String jobrole , String skill, String status,  String email, String fname , Part part, String fileName)
 			throws IOException {
 		
 		JsonObject resultObject  = new JsonObject();
@@ -98,6 +99,8 @@ public class ResourceServletStage {
 			data.put("jobrole", jobrole);
 			data.put("skill", skill);
 			data.put("status", status); 
+			data.put("email", email); 
+			data.put("fname", fname); 
 			data.put("creation_date", new Date().toString());
 			data.put("modified_date", new Date().toString());
 			db.save(data);
@@ -188,7 +191,7 @@ public class ResourceServletStage {
 		return resultObject;
 	}
 
-	@GET 
+	@GET  
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@QueryParam("id") Long id, @QueryParam("cmd") String cmd) throws Exception {
 
@@ -233,6 +236,8 @@ public class ResourceServletStage {
 					jsonObject.addProperty("subunit", obj.get("subunit") + "");
 					jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
 					jsonObject.addProperty("skill", obj.get("skill") + "");
+					jsonObject.addProperty("email", obj.get("email") + "");
+					jsonObject.addProperty("fname", obj.get("fname") + "");
 					jsonObject.addProperty("status", obj.get("status") + "");
 					jsonObject.addProperty("modified_date", obj.get("modified_date") + "");
 					jsonObject.addProperty("creation_date", obj.get("creation_date") + "");
@@ -381,6 +386,8 @@ public class ResourceServletStage {
 		jsonObject.addProperty("jobrole", obj.get("jobrole") + "");
 		jsonObject.addProperty("skill", obj.get("skill") + "");
 		jsonObject.addProperty("status", obj.get("status") + "");
+		jsonObject.addProperty("email", obj.get("email") + "");
+		jsonObject.addProperty("fname", obj.get("fname") + ""); 
 		jsonObject.addProperty("modified_date", obj.get("modified_date") + "");
 		 
 		return jsonObject;
