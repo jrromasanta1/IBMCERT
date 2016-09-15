@@ -27,7 +27,7 @@ function getParameterByName(name, url) {
 }
 
 function checkcred() { 
-	 var semail = getCookie("sname");
+	 var semail = getCookie("semail");
 	 var srole = getCookie("srole");
 	 var sname = getCookie("sname"); 
 	 
@@ -37,13 +37,15 @@ function checkcred() {
 		console.log("srole:" + sname); 
 		
 		
-	 if(semail != "" ) {
-	     $("demail").append(semail);
-	     $("iemail").val(semail);
-	     
-	     $("dname").append(sname);
-	     $("iname").val(sname);
-	     
+	 if(semail != null ) {
+		 
+		 
+		 document.getElementById("demail").innerHTML  = semail;
+		 document.getElementById("dname").innerHTML  = sname;
+		 document.getElementById("iemail").value = semail;
+		 document.getElementById("iname").value = sname;
+	 
+	         
 	      
 	 } else{
 		  window.location.replace("http://ibmcert.mybluemix.net/index.html");
