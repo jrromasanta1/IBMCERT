@@ -32,7 +32,7 @@ function checkcred() {
 	 var sname = getCookie("sname");
 	 
 	 
-	 if(semail.trim() != "" ) {
+	 if(semail != "" ) {
 	     $("demail").append(semail);
 	     $("iemail").val(semail);
 	     
