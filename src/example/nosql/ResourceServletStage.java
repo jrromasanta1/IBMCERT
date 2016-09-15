@@ -236,8 +236,9 @@ public class ResourceServletStage {
 				    
 				    System.out.println(":" + cur_email + ":"); 
 				    System.out.println(":" + email + ":");  
+
 				    
-				   if (cur_email == email) { 
+				   if (cur_email.equals(email)) { 
 					 System.out.println("added : " + cur_email);  
 					jsonObject.addProperty("id", obj.get("_id") + "");
 					jsonObject.addProperty("name", obj.get("name") + "");
@@ -254,7 +255,9 @@ public class ResourceServletStage {
 					jsonObject.addProperty("modified_date", obj.get("modified_date") + "");
 					jsonObject.addProperty("creation_date", obj.get("creation_date") + "");
 					jsonArray.add(jsonObject); 
-				   }
+				   } 
+				   
+				   
 					
 				}
 			} catch (Exception dnfe) { 
