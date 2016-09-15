@@ -157,7 +157,7 @@ function checkcred() {
 
 
 $( document ).ready(function() {
-	checkcred;
+	checkcred();
 loadItems(); 
 }); 
  
