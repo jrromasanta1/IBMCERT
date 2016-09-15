@@ -10,6 +10,7 @@ var defaultItems = [
 
 
 $( document ).ready(function() {
+	checkcred();
 	loadItems();
 });
 
@@ -24,6 +25,29 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+function checkcred() { 
+	 var semail = getCookie("sname");
+	 var srole = getCookie("srole");
+	 var sname = getCookie("sname");
+	 
+	 
+	 if(semail.trim() != "" ) {
+	     $("demail").append(semail);
+	     $("iemail").val(semail);
+	     
+	     $("dname").append(sname);
+	     $("iname").val(sname);
+	     
+	      
+	 } else{
+		  window.location.replace("http://ibmcert.mybluemix.net/index.html");
+	 } 
+	
+	 
+}
+
+
 
 
 
