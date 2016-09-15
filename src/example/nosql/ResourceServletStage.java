@@ -197,7 +197,7 @@ public class ResourceServletStage {
 
 		Database db = null;
 		JsonObject resultObject  ;
-
+		String  cur_email;
 		JsonArray jsonArray ;
 		
 		JsonObject jsonObject; 
@@ -232,8 +232,10 @@ public class ResourceServletStage {
 				   
 				   System.out.println("row : " + obj.get("email")); 
 				   
-				   if (obj.get("email") == email) { 
-					   System.out.println("added : " + obj.get("email")); 
+				    cur_email = obj.get("email") + ""; 
+				   
+				   if (cur_email == email) { 
+					   System.out.println("added : " + cur_email);  
 					jsonObject.addProperty("id", obj.get("_id") + "");
 					jsonObject.addProperty("name", obj.get("name") + "");
 					jsonObject.addProperty("value", obj.get("value") + ""); 
