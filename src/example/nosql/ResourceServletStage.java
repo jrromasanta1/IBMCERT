@@ -226,9 +226,14 @@ public class ResourceServletStage {
 				for (HashMap doc : allDocs) {
 					obj = db.find(HashMap.class, doc.get("_id") + "");
 				   jsonObject = new JsonObject();
-					
+				   
+				   
+				   System.out.println("search email : " + email);
+				   
+				   System.out.println("row : " + obj.get("email")); 
 				   
 				   if (obj.get("email") == email) { 
+					    
 					jsonObject.addProperty("id", obj.get("_id") + "");
 					jsonObject.addProperty("name", obj.get("name") + "");
 					jsonObject.addProperty("value", obj.get("value") + ""); 

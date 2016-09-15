@@ -202,6 +202,8 @@ public class ResourceServletAdmin {
 					jsonObject.addProperty("s_ijobrole", objstage.get("jobrole") + "");
 					jsonObject.addProperty("s_iskill", objstage.get("skill") + "");
 					jsonObject.addProperty("status", objstage.get("status") + "");
+					jsonObject.addProperty("email", objstage.get("email") + "");
+					jsonObject.addProperty("fname", objstage.get("fname") + "");   
 					jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
 					jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
 					
@@ -273,6 +275,8 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("s_ijobrole", objstage.get("jobrole") + "");
 			jsonObject.addProperty("s_iskill", objstage.get("skill") + "");
 			jsonObject.addProperty("status", objstage.get("status") + "");
+			jsonObject.addProperty("email", objstage.get("email") + "");
+			jsonObject.addProperty("fname", objstage.get("fname") + ""); 
 			jsonObject.addProperty("modified_date", objstage.get("modified_date") + "");
 			jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
 			 }
@@ -298,6 +302,7 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
 			jsonObject.addProperty("status", objprod.get("status") + "");
+			
 			}	else {
 				jsonObject.addProperty("p_idescription",  "");
 				jsonObject.addProperty("p_ipwcode", "");
