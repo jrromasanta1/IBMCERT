@@ -233,7 +233,7 @@ public class ResourceServletStage {
 				   System.out.println("row : " + obj.get("email")); 
 				   
 				   if (obj.get("email") == email) { 
-					    
+					   System.out.println("added : " + obj.get("email")); 
 					jsonObject.addProperty("id", obj.get("_id") + "");
 					jsonObject.addProperty("name", obj.get("name") + "");
 					jsonObject.addProperty("value", obj.get("value") + ""); 
