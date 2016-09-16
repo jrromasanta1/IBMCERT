@@ -157,12 +157,13 @@ function loadItems(){
     	    $("#dcreated" ).append( item.fname);   
     	    $("#dudate" ).append( item.modified_date);     
     	    $("#dcdate" ).append( item.creation_date);    
-    	    
+    	    $("#dstatus" ).append( item.status);   
     		
     	    $("#previewsect").show();
     		$("#s_view").append("<a target='_blank' href='/preview_certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/preview_certpage.html?id=" + item.id +"</a>");
+    		if (item.status == "Promoted" || item.status == "Promoted : Ready For Promotion"){
     		$("#p_view").append("<a target='_blank' href='/certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/certpage.html?id=" + item.id +"</a>"); 
-    		
+    		}
     	    
     	    
     	    

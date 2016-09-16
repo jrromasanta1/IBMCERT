@@ -77,11 +77,11 @@ public class ResourceServletStage {
 		
         Date today = new Date();
 		
-        SimpleDateFormat   DATE_FORMAT = new SimpleDateFormat("dd-MM-yy:HH:mm:SS");
+        SimpleDateFormat   DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy HH:mm:SS");
         String    date = DATE_FORMAT.format(today);
 	        
 		
-		// check if document exist
+		// check if document exist 
 		
 		System.out.println("id input: " + id);  
 		HashMap<String, Object> obj = (id == null) ? null : db.find(HashMap.class, id);
@@ -156,16 +156,16 @@ public class ResourceServletStage {
 				}
 			} else if (cstatus.equals("Published")) { 
 				if (status == "Draft"){
-					status = "Published";
+					status = "Promoted : Draft" ;
 					System.out.println("stat2");
 				} else {
-					status = "Ready For Promotion" ;
+					status = "Promoted : Ready For Promotion" ;
 					System.out.println("stat3");
 				}
 				 
 			} else if (cstatus.equals("Ready For Promotion")) {
 				if (status == "Draft"){
-					status = "Ready For Promotion";
+					status = "Ready For Promotion"; 
 					System.out.println("stat4");
 				} else {
 					status = "Ready For Promotion" ;
