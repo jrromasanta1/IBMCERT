@@ -21,9 +21,9 @@ function checkcred() {
 		 document.getElementById("iname").value = sname;
 	 
 		 if (srole != "ADMIN" ) {
-			 $("#adminlink").show(); 
+			 $("#adminlink").hide();  
 		 } else {
-			 $("#adminlink").hide();
+			 $("#adminlink").show();
 		 }
 	         
 	      
