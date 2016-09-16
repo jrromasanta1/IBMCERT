@@ -96,8 +96,7 @@ public class ResourceServletProd {
 					jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
 					jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
 					
-					 
-		
+
 					
 					
 					jsonArray.add(jsonObject);
@@ -126,64 +125,33 @@ public class ResourceServletProd {
 				 System.out.println("sect 3");
 				 jsonObject = new JsonObject();
 				 System.out.println("sect 4");
-			
-			
+			 
+			 
 				 objprod = dbprod.find(HashMap.class, id + "");
 			 
 			   
 		     // stage
 			 if (objprod != null){
-			jsonObject.addProperty("id", objprod.get("_id") + "");
-			jsonObject.addProperty("name", objprod.get("name") + "");
-			jsonObject.addProperty("value", objprod.get("value") + ""); 
-			jsonObject.addProperty("s_idescription", objprod.get("description") + "");
-			jsonObject.addProperty("s_ipwcode", objprod.get("pwcode") + "");
-			jsonObject.addProperty("s_iunit", objprod.get("unit") + "");
-			jsonObject.addProperty("s_isubunit", objprod.get("subunit") + "");
-			jsonObject.addProperty("s_ijobrole", objprod.get("jobrole") + "");
-			jsonObject.addProperty("s_iskill", objprod.get("skill") + "");
-			jsonObject.addProperty("status", objprod.get("status") + "");
-			jsonObject.addProperty("email", objprod.get("email") + "");
-			jsonObject.addProperty("fname", objprod.get("fname") + ""); 
-			jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
-			jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
+					jsonObject.addProperty("id", objprod.get("_id") + "");
+					jsonObject.addProperty("name", objprod.get("name") + "");
+					jsonObject.addProperty("value", objprod.get("value") + ""); 
+					jsonObject.addProperty("idescription", objprod.get("description") + "");
+					jsonObject.addProperty("ipwcode", objprod.get("pwcode") + "");
+					jsonObject.addProperty("iunit", objprod.get("unit") + "");
+					jsonObject.addProperty("isubunit", objprod.get("subunit") + "");
+					jsonObject.addProperty("ijobrole", objprod.get("jobrole") + "");
+					jsonObject.addProperty("iskill", objprod.get("skill") + "");
+					jsonObject.addProperty("status", objprod.get("status") + ""); 
+					jsonObject.addProperty("email", objprod.get("email") + "");
+					jsonObject.addProperty("fname", objprod.get("fname") + "");   
+					jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
+					jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
 			 }
 			 
-			 
-			//prod 
-
-			 
-			 
-			 try {
-			objprod = dbprod.find(HashMap.class, id + "");
-			 } catch (Exception dnfe) {
-				 objprod = null	;			 
-			 }
-			
 		
-			 
-			if (objprod != null){
-			jsonObject.addProperty("p_idescription", objprod.get("description") + "");
-			jsonObject.addProperty("p_ipwcode", objprod.get("pwcode") + "");
-			jsonObject.addProperty("p_iunit", objprod.get("unit") + "");
-			jsonObject.addProperty("p_isubunit", objprod.get("subunit") + "");
-			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
-			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
-		
-			
-			}	else {
-				jsonObject.addProperty("p_idescription",  "");
-				jsonObject.addProperty("p_ipwcode", "");
-				jsonObject.addProperty("p_iunit", "");
-				jsonObject.addProperty("p_isubunit",  "");
-				jsonObject.addProperty("p_ijobrole",  "");
-				jsonObject.addProperty("p_iskill",  "");
-			}
-			 
-		  	 
 			  
-		
 			 
+		 
 			jsonArray.add(jsonObject); 
 			
 			resultObject.addProperty("id", id + "");
