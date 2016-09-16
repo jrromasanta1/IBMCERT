@@ -44,6 +44,8 @@ public class ResourceServletProd {
 
 		Database dbprod  = null;
 		JsonObject resultObject  ;
+		
+	
 
 		JsonArray jsonArray ;
 		
@@ -110,7 +112,8 @@ public class ResourceServletProd {
 
 			resultObject.addProperty("id", "all");
 			resultObject.add("body", jsonArray);
-
+			 
+	
 			return Response.ok(resultObject.toString()).build();
 		}
 		else 
@@ -163,10 +166,9 @@ public class ResourceServletProd {
 			} catch (Exception dnfe) {
 				System.out.println("Exception thrown : " + dnfe.getMessage()); 
 			}
-	 
-			
-
-			return Response.ok(resultObject.toString()).build();
+	 	
+			//Response.addHeader("Access-Control-Allow-Origin", "*")  
+			return Response.ok(resultObject.toString()).header("Access-Control-Allow-Origin", "*") .build(); 
 			
 		} 
 	}
