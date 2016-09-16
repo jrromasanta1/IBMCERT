@@ -161,9 +161,9 @@ function loadItems(){
     		
     	    $("#previewsect").show();
     		$("#s_view").append("<a target='_blank' href='/preview_certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/preview_certpage.html?id=" + item.id +"</a>");
-    		if (item.status == "Promoted" || item.status == "Promoted : Ready For Promotion"){
+    		if (item.status == "Published" || item.status == "Published : Ready For Promotion" || item.status == "Published : Draft"){
     		$("#p_view").append("<a target='_blank' href='/certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/certpage.html?id=" + item.id +"</a>"); 
-    		}
+    		} 
     	    
     	    
     	    

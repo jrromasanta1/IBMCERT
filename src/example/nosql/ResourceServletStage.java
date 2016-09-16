@@ -156,10 +156,10 @@ public class ResourceServletStage {
 				}
 			} else if (cstatus.equals("Published")) { 
 				if (status == "Draft"){
-					status = "Promoted : Draft" ;
+					status = "Published : Draft" ;
 					System.out.println("stat2");
 				} else {
-					status = "Promoted : Ready For Promotion" ;
+					status = "Published : Ready For Promotion" ;
 					System.out.println("stat3");
 				}
 				 
@@ -171,7 +171,16 @@ public class ResourceServletStage {
 					status = "Ready For Promotion" ;
 					System.out.println("stat5");
 				}
-			} 
+			} else if (cstatus.equals("Published : Ready For Promotion")) {
+				if (status == "Draft"){
+					status = "Published : Ready For Promotion"; 
+					System.out.println("stat4");
+				} else {
+					status = "Published : Ready For Promotion" ;
+					System.out.println("stat5");
+				}
+		}   
+		
 			
 			System.out.println("final" + status);
 			
