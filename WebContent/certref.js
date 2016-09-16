@@ -1,6 +1,6 @@
 // index.js
 
-var REST_DATA = 'api/stage';
+var REST_DATA = 'api/ibmcert'; 
 
 var KEY_ENTER = 13;
 var defaultItems = [];
