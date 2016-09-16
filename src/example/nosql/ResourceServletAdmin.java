@@ -304,7 +304,7 @@ public class ResourceServletAdmin {
 			jsonObject.addProperty("p_isubunit", objprod.get("subunit") + "");
 			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
 			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
-			jsonObject.addProperty("status", objprod.get("status") + "");
+		
 			
 			}	else {
 				jsonObject.addProperty("p_idescription",  "");
@@ -313,7 +313,6 @@ public class ResourceServletAdmin {
 				jsonObject.addProperty("p_isubunit",  "");
 				jsonObject.addProperty("p_ijobrole",  "");
 				jsonObject.addProperty("p_iskill",  "");
-				jsonObject.addProperty("status",  "");
 			}
 			 
 		  	 
