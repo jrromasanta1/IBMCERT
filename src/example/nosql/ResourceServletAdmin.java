@@ -208,7 +208,8 @@ public class ResourceServletAdmin {
 					jsonObject.addProperty("creation_date", objstage.get("creation_date") + "");
 					
 					
-					 try {
+					/*
+					try {
 							objprod = dbprod.find(HashMap.class, id + "");
 					} catch (Exception dnfe) {
 						 objprod = null	;			 
@@ -231,7 +232,9 @@ public class ResourceServletAdmin {
 						jsonObject.addProperty("p_iskill",  "");
 						jsonObject.addProperty("status",  "");
 					}
-			
+			       */
+					
+					
 					jsonArray.add(jsonObject);
 					
 					
