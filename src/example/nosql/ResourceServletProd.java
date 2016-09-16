@@ -27,7 +27,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.internal.LinkedTreeMap;
 
-@Path("/ibmcert")
+@Path("/ibmcert") 
 /**
  * CRUD service of todo list table. It uses REST style.
  */
@@ -41,21 +41,22 @@ public class ResourceServletProd {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@QueryParam("id") Long id, @QueryParam("cmd") String cmd) throws Exception {
 
-		
+
 		Database dbprod  = null;
 		JsonObject resultObject  ;
 
 		JsonArray jsonArray ;
 		
 		JsonObject jsonObject; 
-		try {	
+		try {
+	
 			dbprod = getDBProd();
 			System.out.println("cloud connection success prod!");
 		} catch (Exception re) {
 			re.printStackTrace();
 			System.out.println("cloud connection FAIL:" + re.getMessage() );
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-		} 
+		}
    
 		 resultObject = new JsonObject();
 		 jsonArray = new JsonArray();
@@ -74,7 +75,7 @@ public class ResourceServletProd {
 					allDocs = initializeSampleData(dbprod);
 				}
 
-	
+				
 				
 				for (HashMap doc : allDocs) {
 					objprod = dbprod.find(HashMap.class, doc.get("_id") + "");
@@ -89,10 +90,14 @@ public class ResourceServletProd {
 					jsonObject.addProperty("isubunit", objprod.get("subunit") + "");
 					jsonObject.addProperty("ijobrole", objprod.get("jobrole") + "");
 					jsonObject.addProperty("iskill", objprod.get("skill") + "");
+					jsonObject.addProperty("status", objprod.get("status") + ""); 
 					jsonObject.addProperty("email", objprod.get("email") + "");
 					jsonObject.addProperty("fname", objprod.get("fname") + "");   
 					jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
 					jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
+					
+					 
+		
 					
 					
 					jsonArray.add(jsonObject);
@@ -122,39 +127,62 @@ public class ResourceServletProd {
 				 jsonObject = new JsonObject();
 				 System.out.println("sect 4");
 			
-				 try {
-					 objprod = dbprod.find(HashMap.class, id + "");
-						 } catch (Exception dnfe) {
-							 objprod = null; 
-						 }
-				 
+			
+				 objprod = dbprod.find(HashMap.class, id + "");
 			 
-			  
-		     // prod
+			   
+		     // stage
 			 if (objprod != null){
-					jsonObject.addProperty("id", objprod.get("_id") + "");
-					jsonObject.addProperty("name", objprod.get("name") + "");
-					jsonObject.addProperty("value", objprod.get("value") + ""); 
-					jsonObject.addProperty("idescription", objprod.get("description") + "");
-					jsonObject.addProperty("ipwcode", objprod.get("pwcode") + "");
-					jsonObject.addProperty("iunit", objprod.get("unit") + "");
-					jsonObject.addProperty("isubunit", objprod.get("subunit") + "");
-					jsonObject.addProperty("ijobrole", objprod.get("jobrole") + "");
-					jsonObject.addProperty("iskill", objprod.get("skill") + "");
-					jsonObject.addProperty("email", objprod.get("email") + "");
-					jsonObject.addProperty("fname", objprod.get("fname") + "");   
-					jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
-					jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
-			 }	else {
-					jsonObject.addProperty("p_idescription",  "");
-					jsonObject.addProperty("p_ipwcode", "");
-					jsonObject.addProperty("p_iunit", "");
-					jsonObject.addProperty("p_isubunit",  "");
-					jsonObject.addProperty("p_ijobrole",  "");
-					jsonObject.addProperty("p_iskill",  "");
-					jsonObject.addProperty("status",  "");
-				}
+			jsonObject.addProperty("id", objprod.get("_id") + "");
+			jsonObject.addProperty("name", objprod.get("name") + "");
+			jsonObject.addProperty("value", objprod.get("value") + ""); 
+			jsonObject.addProperty("s_idescription", objprod.get("description") + "");
+			jsonObject.addProperty("s_ipwcode", objprod.get("pwcode") + "");
+			jsonObject.addProperty("s_iunit", objprod.get("unit") + "");
+			jsonObject.addProperty("s_isubunit", objprod.get("subunit") + "");
+			jsonObject.addProperty("s_ijobrole", objprod.get("jobrole") + "");
+			jsonObject.addProperty("s_iskill", objprod.get("skill") + "");
+			jsonObject.addProperty("status", objprod.get("status") + "");
+			jsonObject.addProperty("email", objprod.get("email") + "");
+			jsonObject.addProperty("fname", objprod.get("fname") + ""); 
+			jsonObject.addProperty("modified_date", objprod.get("modified_date") + "");
+			jsonObject.addProperty("creation_date", objprod.get("creation_date") + "");
+			 }
+			 
+			 
+			//prod 
+
+			 
+			 
+			 try {
+			objprod = dbprod.find(HashMap.class, id + "");
+			 } catch (Exception dnfe) {
+				 objprod = null	;			 
+			 }
+			
+		
+			 
+			if (objprod != null){
+			jsonObject.addProperty("p_idescription", objprod.get("description") + "");
+			jsonObject.addProperty("p_ipwcode", objprod.get("pwcode") + "");
+			jsonObject.addProperty("p_iunit", objprod.get("unit") + "");
+			jsonObject.addProperty("p_isubunit", objprod.get("subunit") + "");
+			jsonObject.addProperty("p_ijobrole", objprod.get("jobrole") + "");
+			jsonObject.addProperty("p_iskill", objprod.get("skill") + "");
+		
+			
+			}	else {
+				jsonObject.addProperty("p_idescription",  "");
+				jsonObject.addProperty("p_ipwcode", "");
+				jsonObject.addProperty("p_iunit", "");
+				jsonObject.addProperty("p_isubunit",  "");
+				jsonObject.addProperty("p_ijobrole",  "");
+				jsonObject.addProperty("p_iskill",  "");
+			}
+			 
+		  	 
 			  
+		
 			 
 			jsonArray.add(jsonObject); 
 			
@@ -167,7 +195,7 @@ public class ResourceServletProd {
 			} catch (Exception dnfe) {
 				System.out.println("Exception thrown : " + dnfe.getMessage()); 
 			}
-	  
+	 
 			
 
 			return Response.ok(resultObject.toString()).build();
@@ -175,6 +203,8 @@ public class ResourceServletProd {
 		} 
 	}
 	
+
+
 
 
 	private JsonArray getAttachmentList(LinkedTreeMap<String, Object> attachmentList, String docID) {
@@ -221,7 +251,17 @@ public class ResourceServletProd {
 		return jsonObject;
 	}
 
-
+	private void saveAttachment(Database db, String id, Part part, String fileName, HashMap<String, Object> obj)
+			throws IOException {
+		if (part != null) {
+			InputStream inputStream = part.getInputStream();
+			try {
+				db.saveAttachment(inputStream, fileName, part.getContentType(), id, (String) obj.get("_rev"));
+			} finally {
+				inputStream.close();
+			}
+		}
+	}
 
 	/*
 	 * Create a document and Initialize with sample data/attachments
@@ -259,10 +299,8 @@ public class ResourceServletProd {
 
 	}
 
-
-	
-	private Database getDBProd() {   
+	private Database getDBProd() {      
 		return CloudantClientMgrProd.getDB(); 
 	}
  
-}
+}   
