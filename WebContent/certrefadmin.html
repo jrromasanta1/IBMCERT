@@ -190,6 +190,12 @@
 					<main role="main" aria-labelledby="ibm-pagetitle-h1">
 					<div id="ibm-content-body">
 						<div id="ibm-content-main">
+						<p align="right"><b>Email:</b>
+						<span id="demail"></span>&nbsp;
+						<input type="text" value="" size="40" id="iemail" name="iemail" style="display:none;">					 
+							<b>Name:</b><span id="dname"></span>
+							<input type="text" value="" size="40" id="iname" name="iname" style="display:none;">
+						</p>
 							<h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-light">
 								Certification Reference Web : <span id="testinfotitle"></span>
 							</h1>
@@ -205,8 +211,8 @@
 								</div>
 							</div>
 							 
-						
-							
+						    <p><b>Created by:</b><span id="dcreated"></span> <b>Update Date:</b><span id="dudate"></span> <b>Created Date:</b><span id="dcdate"></span></p>
+							 
 							
 							<table id="test1table" data-widget="datatable" data-info="false" data-ordering="false" data-paging="false" data-searching="false" class="ibm-data-table  ibm-grid  ">
 							<thead>
@@ -218,6 +224,11 @@
 							</tr>
 							</thead> 
 							<tbody id="tcertref_content">
+							 <tr id="r_ipwcode">
+								<td><b>View</b></td>
+							    <td id="s_view"></td>
+								<td id="p_view"></td> 
+							 </tr>
 							 <tr id="r_ipwcode">
 								<td><b>PW Code</b></td>
 							    <td id="s_ipwcode"></td>

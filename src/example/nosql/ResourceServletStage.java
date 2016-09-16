@@ -27,6 +27,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.internal.LinkedTreeMap;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Path("/stage") 
 /** 
  * CRUD service of todo list table. It uses REST style.
@@ -72,6 +75,12 @@ public class ResourceServletStage {
 		JsonObject jsonObject = new JsonObject();  
 		String cstatus;
 		
+        Date today = new Date();
+		
+        SimpleDateFormat   DATE_FORMAT = new SimpleDateFormat("dd-MM-yy:HH:mm:SS");
+        String    date = DATE_FORMAT.format(today);
+	        
+		
 		// check if document exist
 		
 		System.out.println("id input: " + id);  
@@ -101,8 +110,8 @@ public class ResourceServletStage {
 			data.put("status", status); 
 			data.put("email", email); 
 			data.put("fname", fname); 
-			data.put("creation_date", new Date().toString());
-			data.put("modified_date", new Date().toString());
+			data.put("creation_date", date);
+			data.put("modified_date", date); 
 			db.save(data);
 
 			// attach the attachment object
@@ -168,9 +177,9 @@ public class ResourceServletStage {
 			
 			obj.put("status", status); 
 			
-			obj.put("modified_date", new Date().toString());
+			obj.put("modified_date", date);
 			db.update(obj); 
-		} 
+		}  
 
 		obj = db.find(HashMap.class, id);
 		

@@ -153,8 +153,19 @@ function loadItems(){
     	    $("#iskill" ).val( item.s_iskill); 
     	    
     	    $("#testinfotitle" ).append( item.s_ipwcode);   
-    	        	    
-      		  
+    	       
+    	    $("#dcreated" ).append( item.fname);   
+    	    $("#dudate" ).append( item.modified_date);     
+    	    $("#dcdate" ).append( item.creation_date);    
+    	    
+    		
+    	    $("#previewsect").show();
+    		$("#s_view").append("<a target='_blank' href='/preview_certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/preview_certpage.html?id=" + item.id +"</a>");
+    		$("#p_view").append("<a target='_blank' href='/certpage.html?id=" + item.id + "'>"+ "http://ibmcert.mybluemix.net/certpage.html?id=" + item.id +"</a>"); 
+    		
+    	    
+    	    
+    	    
     	}, function(err){
     		console.log(err);
     		//stop showing loading message
