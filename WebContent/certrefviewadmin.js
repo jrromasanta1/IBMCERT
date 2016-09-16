@@ -97,7 +97,7 @@ function loadItems(){
     				"<td>"+ item.description  +"</td>"+
     				"<td>"+ item.fname  +"</td>"+    	 			
     				"<td>"+ item.creation_date  +"</td>" +
-    				"<td>"+ item.modified_date  +"</td>"+
+    				"<td>"+ item.modified_date  +"</td>"+ 
     				"</tr>";  
     			}
     		}
