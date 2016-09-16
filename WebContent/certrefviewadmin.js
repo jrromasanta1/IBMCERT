@@ -26,39 +26,6 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-function checkcred() { 
-	 var semail = getCookie("semail");
-	 var srole = getCookie("srole");
-	 var sname = getCookie("sname"); 
-	 
-
-		console.log("semail:" + semail);
-		console.log("srole:" + srole); 
-		console.log("sname:" + sname); 
-		
-		
-	 if(semail != null ) {
-		 
-		 
-		 document.getElementById("demail").innerHTML  = semail;
-		 document.getElementById("dname").innerHTML  = sname;
-		 document.getElementById("iemail").value = semail;
-		 document.getElementById("iname").value = sname;
-		
-		 
-		 
-		 if (srole != "ADMIN" ) {
-			 window.location.replace("http://ibmcert.mybluemix.net/certrefview.html");
-		 }
-	         
-	      
-	 } else{
-		  window.location.replace("http://ibmcert.mybluemix.net/index.html");
-	 } 
-	
-	 
-}
-
 
 
 
@@ -91,10 +58,10 @@ function loadItems(){
     				 
 
     				html = html + "<tr>"+
-    				"<td><a style='min-width:50px;min-height50px;margin-bottom: 5px;font-weight:bolder;' href='/certref.html?id=" +   item.id + "' class='ibm-btn-sec'>View</a></td>"+
+    				"<td><a style='min-width:50px;min-height50px;margin-bottom: 5px;font-weight:bolder;' href='/certrefadmin.html?id=" +   item.id + "' class='ibm-btn-sec'>View</a></td>"+
     				"<td>"+ item.status  +"</td>"+
-    				"<td>"+ item.pwcode  +"</td>"+
-    				"<td>"+ item.description  +"</td>"+
+    				"<td>"+ item.ipwcode  +"</td>"+
+    				"<td>"+ item.idescription  +"</td>"+
     				"<td>"+ item.fname  +"</td>"+    	 			
     				"<td>"+ item.creation_date  +"</td>" +
     				"<td>"+ item.modified_date  +"</td>"+ 
