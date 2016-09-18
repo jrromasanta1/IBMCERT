@@ -241,9 +241,14 @@ public class ResourceServletStage {
 
 				if (allDocs.size() == 0) {
 					allDocs = initializeSampleData(db);
+					System.out.println("stage1");
 				}
+				
+				System.out.println("stage2");
 
 				for (HashMap doc : allDocs) {
+					System.out.println("stage iside loop");
+
 					obj = db.find(HashMap.class, doc.get("_id") + "");
 				   jsonObject = new JsonObject();
 				   
@@ -277,13 +282,13 @@ public class ResourceServletStage {
 					jsonArray.add(jsonObject); 
 				   } 
 				   
-				   
+				    
 					
 				}
 			} catch (Exception dnfe) { 
-				System.out.println("Exception thrown : " + dnfe.getMessage());
+				System.out.println("Exception thrown : " + dnfe.getMessage() + " " + dnfe.getCause() );
 			}
-
+ 
 			resultObject.addProperty("id", "all");
 			resultObject.add("body", jsonArray);
 
