@@ -238,7 +238,7 @@ public class ResourceServletStage {
 				// get all the document present in database
 				List<HashMap> allDocs = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse()
 						.getDocsAs(HashMap.class);
-
+				System.out.println("got alldocs");
 				if (allDocs.size() == 0) {
 					allDocs = initializeSampleData(db);
 					System.out.println("stage1");
@@ -326,7 +326,7 @@ public class ResourceServletStage {
 			resultObject.add("body", jsonArray);
 			
 			} catch (Exception dnfe) {
-				System.out.println("Exception thrown : " + dnfe.getMessage());
+				System.out.println("Exception thrown : " + dnfe.getMessage()); 
 			}
 	 
 
